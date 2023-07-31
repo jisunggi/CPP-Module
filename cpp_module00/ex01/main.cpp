@@ -8,7 +8,17 @@ int main (void)
 
 		std::cin >> cmd;
 		if (cmd == "add")
-		if (cmd == "search")
-		if (cmd == "exit") 
+		{
+			std::cout << "once one time field" << std::endl;
+			Contact contact;
+			contact.contact_add();
+			contact.contact_show();
+		}
+		return (0);
+		// if (cmd == "search")
+		// {
+
+		// }
+		// if (cmd == "exit") 
 	}
 }
