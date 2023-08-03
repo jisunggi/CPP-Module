@@ -1,20 +1,25 @@
-#include "phonebook.h"
+#include "PhoneBook.h"
 
-void	Contact::contact_add()
+void	Contact::ContactAdd()
 {
-	std::cout << "firstname ÀÔ·ÁÇØÁÖ¼¼¿ä" << std::endl;
-	std::cin >> first_name;
-	std::cout << "lastname ÀÔ·ÁÇØÁÖ¼¼¿ä" << std::endl;
-	std::cin >> last_name;
-	std::cout << "nickname ÀÔ·ÁÇØÁÖ¼¼¿ä" << std::endl;
-	std::cin >> nickname;
-	std::cout << "phone number ÀÔ·ÁÇØÁÖ¼¼¿ä" << std::endl;
-	std::cin >> phone_number;
-	std::cout << "secret ÀÔ·ÁÇØÁÖ¼¼¿ä" << std::endl;
-	std::cin >> darkset_secret;
+	std::cout << "firstname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, first_name);
+	std::cout << "lastname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, last_name);
+	std::cout << "nickname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, nickname);
+	std::cout << "phone number ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, phone_number);
+	std::cout << "secret ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, darkset_secret);
 }
 
-void	Contact::contact_show()
+void	Contact::ContactSimpleInfoDisplay()
 {
-	std::cout << first_name << last_name << nickname << phone_number << darkset_secret << std::endl;
+	std::cout << firstname << ""
+}
+
+void	Contact::ContactDisplay()
+{
+	
 }

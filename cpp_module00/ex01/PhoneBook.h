@@ -2,6 +2,8 @@
 #define PHONEBOOK_H
 
 #include <iostream>
+#include <string>
+#include <iomanip>
 
 class Contact {
 
@@ -13,8 +15,22 @@ class Contact {
 		std::string	darkset_secret;
 
 	public :
-		void	contact_add();
-		void	contact_show();
+		void	ContactAdd();
+		void	ContactDisplay();
+		void	ContactSimpleInfoDisplay();
+};
+
+class PhoneBook {
+
+	private :
+		Contact contact[8];
+
+	public :
+		void	PhoneBookAdd(Contact contact);
+		void	PhoneBookShow();
+		void	phonebook_();
+
+
 };
 
 #endif
