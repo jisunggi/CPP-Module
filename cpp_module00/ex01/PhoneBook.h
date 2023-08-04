@@ -8,29 +8,28 @@
 class Contact {
 
 	private :
-		std::string	first_name;
-		std::string	last_name;
+		std::string	firstname;
+		std::string	lastname;
 		std::string	nickname;
 		std::string	phone_number;
 		std::string	darkset_secret;
 
 	public :
 		void	ContactAdd();
-		void	ContactDisplay();
+		//void	ContactDisplay();
 		void	ContactSimpleInfoDisplay();
 };
 
 class PhoneBook {
 
 	private :
-		Contact contact[8];
+		Contact contact_arr[8];
+		int	index;
 
 	public :
+		PhoneBook();
 		void	PhoneBookAdd(Contact contact);
 		void	PhoneBookShow();
-		void	phonebook_();
-
-
 };
 
 #endif

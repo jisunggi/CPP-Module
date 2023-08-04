@@ -2,10 +2,11 @@
 
 int main (void)
 {
+	PhoneBook phonebook;
+
 	while (1)
 	{
 		std::string cmd;
-		PhoneBook phonebook;
 
 		std::getline(std::cin, cmd);
 		if (cmd == "add")
@@ -15,9 +16,9 @@ int main (void)
 			contact.ContactAdd();
 			phonebook.PhoneBookAdd(contact);
 		}
-		return (0);
 		if (cmd == "search")
 		{
+			std::cout << "show" << std::endl;
 			phonebook.PhoneBookShow();
 		}
 		// if (cmd == "exit") 

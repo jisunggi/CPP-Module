@@ -2,24 +2,24 @@
 
 void	Contact::ContactAdd()
 {
-	std::cout << "firstname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
-	std::getline(std::cin, first_name);
-	std::cout << "lastname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
-	std::getline(std::cin, last_name);
-	std::cout << "nickname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::cout << "firstname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
+	std::getline(std::cin, firstname);
+	std::cout << "lastname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
+	std::getline(std::cin, lastname);
+	std::cout << "nickname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
 	std::getline(std::cin, nickname);
-	std::cout << "phone number ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::cout << "phone number ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
 	std::getline(std::cin, phone_number);
-	std::cout << "secret ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::cout << "secret ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
 	std::getline(std::cin, darkset_secret);
 }
 
 void	Contact::ContactSimpleInfoDisplay()
 {
-	std::cout << firstname << ""
+	std::cout << firstname << "|" << std::setw(10) << lastname << "|" << std::setw(10) << nickname;
 }
 
-void	Contact::ContactDisplay()
-{
+// void	Contact::ContactDisplay()
+// {
 	
-}
+// }

@@ -1,39 +1,33 @@
 #include "PhoneBook.h"
 
-class PhoneBook {
-
-	private :
-		Contact contact_arr[8];
-		int	idx;
-
-	public :
-		PhoneBook();
-		void	PhoneBookAdd(Contact contact);
-		void	PhoneBookShow();
-		void	phonebook_();
-
-};
-
 PhoneBook::PhoneBook()
 {
-	idx = 0;
+	index = 0;
 }
 
 void	PhoneBook::PhoneBookAdd(Contact contact)
 {
-	if (idx != 8)
+	std::cout << index << std::endl;
+	if (index != 8)
 	{
-		contact_arr[idx] = contact;
-		idx++;
+		contact_arr[index] = contact;
+		index++;
+		std::cout << index << std::endl;
 		return ;
 	}
-	idx = 0;
-	contact_arr[idx] = contact;
-	idx++;
+	index = 0;
+	contact_arr[index] = contact;
+	index++;
 }
 
 void	PhoneBook::PhoneBookShow()
 {
-	
-	std::cout << index
+	std::cout << index << std::endl;
+	std::cout << "aaa" << std::endl;
+	for (int i = 0; i < index; i++)
+	{
+		std::cout << "bbb" << std::endl;
+		std::cout << i + 1 << "|";
+		contact_arr[index].ContactSimpleInfoDisplay();
+	}
 }
