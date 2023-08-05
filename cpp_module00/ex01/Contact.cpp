@@ -2,6 +2,7 @@
 
 void	Contact::ContactAdd()
 {
+	std::cout << "once one time field" << std::endl;
 	std::cout << "firstname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
 	std::getline(std::cin, firstname);
 	std::cout << "lastname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
@@ -16,10 +17,12 @@ void	Contact::ContactAdd()
 
 void	Contact::ContactSimpleInfoDisplay()
 {
-	std::cout << firstname << "|" << std::setw(10) << lastname << "|" << std::setw(10) << nickname;
+	if (firstname.length() >= 10)
+	
+	std::cout << std::setw(10) << firstname << "|" << std::setw(10) << lastname << "|" << std::setw(10) << nickname;
 }
 
-// void	Contact::ContactDisplay()
-// {
-	
-// }
+void	Contact::ContactDisplay()
+{
+	std::cout << firstname << "|" << std::setw(10) << lastname << "|" << std::setw(10) << nickname << std::setw(10) << phone_number << std::setw(10) << darkset_secret;
+}

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <sstream>
 
 class Contact {
 
@@ -16,7 +17,7 @@ class Contact {
 
 	public :
 		void	ContactAdd();
-		//void	ContactDisplay();
+		void	ContactDisplay();
 		void	ContactSimpleInfoDisplay();
 };
 
@@ -30,6 +31,7 @@ class PhoneBook {
 		PhoneBook();
 		void	PhoneBookAdd(Contact contact);
 		void	PhoneBookShow();
+		void	PhoneBookIndexShow();
 };
 
 #endif
