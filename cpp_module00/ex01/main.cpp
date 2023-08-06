@@ -3,22 +3,21 @@
 int main (void)
 {
 	PhoneBook phonebook;
+	std::string cmd = "start!";
 
-	while (1)
+	while (cmd != "exit" && !std::cin.eof())
 	{
-		std::string cmd;
+		std::cout << "add, search, exit 중 입력해주세요" << std::endl;
 		std::getline(std::cin, cmd);
 		if (cmd == "add")
 		{
 			Contact contact;
-			contact.ContactAdd();
-			phonebook.PhoneBookAdd(contact);
+			contact.Insert();
+			phonebook.Add(contact);
 		}
-		if (cmd == "search")
-		{
-			phonebook.PhoneBookShow();
-		}
-		if (cmd == "exit")
-			return;
+		else if (cmd == "search")
+			phonebook.ShowList();
+		std::cout << std::endl;
 	}
+	return 0;
 }

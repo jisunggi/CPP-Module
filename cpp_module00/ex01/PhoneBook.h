@@ -1,37 +1,24 @@
 #ifndef PHONEBOOK_H
 #define PHONEBOOK_H
 
+#include "Contact.h"
 #include <iostream>
 #include <string>
 #include <iomanip>
 #include <sstream>
-
-class Contact {
-
-	private :
-		std::string	firstname;
-		std::string	lastname;
-		std::string	nickname;
-		std::string	phone_number;
-		std::string	darkset_secret;
-
-	public :
-		void	ContactAdd();
-		void	ContactDisplay();
-		void	ContactSimpleInfoDisplay();
-};
 
 class PhoneBook {
 
 	private :
 		Contact contact_arr[8];
 		int	index;
+		int	StringToInt(std::string);
 
 	public :
 		PhoneBook();
-		void	PhoneBookAdd(Contact contact);
-		void	PhoneBookShow();
-		void	PhoneBookIndexShow();
+		void	Add(Contact);
+		void	ShowList();
+		void	ShowIndex();
 };
 
 #endif

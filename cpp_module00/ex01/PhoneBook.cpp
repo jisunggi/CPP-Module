@@ -5,44 +5,57 @@ PhoneBook::PhoneBook()
 	index = 0;
 }
 
-void	PhoneBook::PhoneBookAdd(Contact contact)
+void	PhoneBook::Add(Contact contact)
 {
-	if (index != 8)
-	{
-		contact_arr[index] = contact;
-		index++;
-		return ;
-	}
-	index = 0;
-	contact_arr[index] = contact;
+	contact_arr[index % 8] = contact;
 	index++;
 }
 
-void	PhoneBook::PhoneBookShow()
+void	PhoneBook::ShowList()
 {
-	for (int i = 0; i < index; i++)
+	int size = index > 8 ? 8 : index;
+
+	std::cout << std::string(45, '-') << std::endl;
+	std::cout << "|" << std::setw(10) << "Index" << "|" 
+		<< std::setw(10) << "First name" << "|" 
+		<< std::setw(10) << "Last name" << "|"
+		<< std::setw(10) << "Nickname" << "|" << std::endl;
+	std::cout << std::string(45, '-') << std::endl;
+	for (int i = 0; i < size; i++)
 	{
-		std::cout << i + 1 << "|";
-		contact_arr[i].ContactSimpleInfoDisplay();
-		std::cout << std::endl;
+		std::cout << "|" << std::setw(10) << i + 1 << "|";
+		contact_arr[i].DisplaySimpleField();
+		std::cout << "|" << std::endl;
 	}
-	PhoneBookIndexShow();
+	if (index)
+		ShowIndex();
 }
 
-void	PhoneBook::PhoneBookIndexShow()
+int	PhoneBook::StringToInt(std::string string)
+{
+	std::stringstream stream;
+	int integer;
+
+	stream << string;
+	stream >> integer;
+	return integer;
+}
+
+void	PhoneBook::ShowIndex()
 {
 	std::string search_index;
-	std::getline(std::cin, search_index);
-	std::stringstream stream;
 	int search_index_num;
-	stream << search_index;
-	stream >> search_index_num;
-	while (!(search_index_num > 0 && search_index_num <= index))
+
+	std::cout << "ì¸ë±ìŠ¤ë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, search_index);
+	search_index_num = StringToInt(search_index);
+	while (!std::cin.eof() && !(search_index_num > 0 && search_index_num <= index))
 	{
-		std::cout << "ÀÎµ¦½º ¹üÀ§¸¦ ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä" << std::endl;
+		std::cout << "ì¸ë±ìŠ¤ë¥¼ ë‹¤ì‹œ ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
 		std::getline(std::cin, search_index);
-		stream << search_index;
-		stream >> search_index_num;
+		search_index_num = StringToInt(search_index);
 	}
-	contact_arr[search_index_num - 1].ContactDisplay();
+	if (std::cin.eof())
+		return ;
+	contact_arr[search_index_num - 1].Display();
 }

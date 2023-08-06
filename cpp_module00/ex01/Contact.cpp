@@ -1,28 +1,44 @@
 #include "PhoneBook.h"
 
-void	Contact::ContactAdd()
+void	Contact::Insert()
 {
-	std::cout << "once one time field" << std::endl;
-	std::cout << "firstname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
-	std::getline(std::cin, firstname);
-	std::cout << "lastname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
-	std::getline(std::cin, lastname);
-	std::cout << "nickname ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
+	std::cout << "í•œë²ˆì— í•œ fieldë¥¼ ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::cout << "first_name ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, first_name);
+	std::cout << "last_name ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
+	std::getline(std::cin, last_name);
+	std::cout << "nickname ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
 	std::getline(std::cin, nickname);
-	std::cout << "phone number ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
+	std::cout << "phone number ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
 	std::getline(std::cin, phone_number);
-	std::cout << "secret ?ž…? ¥?•´ì£¼ì„¸?š”" << std::endl;
+	std::cout << "secret ìž…ë ¥í•´ì£¼ì„¸ìš”" << std::endl;
 	std::getline(std::cin, darkset_secret);
 }
 
-void	Contact::ContactSimpleInfoDisplay()
+std::string	Contact::SubstrField(std::string field)
 {
-	if (firstname.length() >= 10)
-	
-	std::cout << std::setw(10) << firstname << "|" << std::setw(10) << lastname << "|" << std::setw(10) << nickname;
+	if (field.length() > 10)
+		return field.substr(0, 9) + ".";
+	return field;
 }
 
-void	Contact::ContactDisplay()
+void	Contact::DisplaySimpleField()
 {
-	std::cout << firstname << "|" << std::setw(10) << lastname << "|" << std::setw(10) << nickname << std::setw(10) << phone_number << std::setw(10) << darkset_secret;
+	std::cout << std::setw(10) << SubstrField(first_name) << "|" 
+			<< std::setw(10) << SubstrField(last_name) << "|" 
+			<< std::setw(10) << SubstrField(nickname);
+}
+
+void	Contact::Display()
+{ 
+	std::cout << "first name : ";
+	std::cout << first_name <<  std::endl;
+	std::cout << "last name : ";
+	std::cout << last_name << std::endl;
+	std::cout << "nickname : ";
+	std::cout << nickname << std::endl;
+	std::cout << "phone number : ";
+	std::cout << phone_number << std::endl;
+	std::cout << "darkset secret : ";
+	std::cout << darkset_secret << std::endl;
 }
