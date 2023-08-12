@@ -35,6 +35,7 @@ void	Account::_displayTimestamp(void)
 
 	char buffer[42];
 	strftime(buffer, 42, "%Y%m%D_%H%M%S", tm);
+	std::cout << "[" << buffer << "]";
 }
 
 void	Account::displayAccountsInfos(void)
