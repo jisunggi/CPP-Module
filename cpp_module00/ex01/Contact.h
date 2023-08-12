@@ -2,7 +2,6 @@
 #define CONTACT_H
 
 #include "PhoneBook.h"
-#include <iostream>
 
 class Contact {
 
@@ -18,7 +17,6 @@ class Contact {
 		void	Insert();
 		void	Display();
 		void	DisplaySimpleField();
-		// std::string getField();
 };
 
 #endif

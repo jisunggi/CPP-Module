@@ -6,6 +6,7 @@
 #include <string>
 #include <iomanip>
 #include <sstream>
+#include <cctype>
 
 class PhoneBook {
 

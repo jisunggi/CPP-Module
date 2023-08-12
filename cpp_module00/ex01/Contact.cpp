@@ -13,6 +13,10 @@ void	Contact::Insert()
 	std::getline(std::cin, phone_number);
 	std::cout << "secret 입력해주세요" << std::endl;
 	std::getline(std::cin, darkset_secret);
+
+	// if (isspace(first_name) || isspace(last_name) || isspace(nickname) 
+	// 		|| isspace(phone_number) || isspace(darkset_secret))
+
 }
 
 std::string	Contact::SubstrField(std::string field)
