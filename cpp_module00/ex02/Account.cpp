@@ -1,5 +1,10 @@
 #include "Account.hpp"
 
+int	Account::_nbAccounts;
+int	Account::_totalAmount;
+int	Account::_totalNbDeposits;
+int	Account::_totalNbWithdrawals;
+
 Account::Account(int initial_deposit)
 {
 	_amount = initial_deposit;
@@ -12,6 +17,14 @@ Account::Account(int initial_deposit)
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ";"
 				<< " amount:" << _amount << ";created"
+				<< std::endl;
+}
+
+Account::~Account(void)
+{
+	_displayTimestamp();
+	std::cout << " index:" << _accountIndex << ";"
+				<< " amount:" << _amount << ";closed"
 				<< std::endl;
 }
 

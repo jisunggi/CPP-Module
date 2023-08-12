@@ -12,12 +12,6 @@
 #include <functional>
 #include "Account.hpp"
 
-int	Account::_nbAccounts;
-int	Account::_totalAmount;
-int	Account::_totalNbDeposits;
-int	Account::_totalNbWithdrawals;
-
-
 int		main( void ) {
 
 	typedef std::vector<Account::t>							  accounts_t;
