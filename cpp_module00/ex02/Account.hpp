@@ -18,6 +18,11 @@
 //                               Account Class                                //
 // ************************************************************************** //
 
+int	Account::_nbAccounts;
+int	Account::_totalAmount;
+int	Account::_totalNbDeposits;
+int	Account::_totalNbWithdrawals;
+
 class Account {
 
 
