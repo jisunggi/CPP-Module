@@ -31,16 +31,6 @@ void	PhoneBook::ShowList()
 		ShowIndex();
 }
 
-int	PhoneBook::StringToInt(std::string string)
-{
-	std::stringstream stream;
-	int integer;
-
-	stream << string;
-	stream >> integer;
-	return integer;
-}
-
 void	PhoneBook::ShowIndex()
 {
 	std::string search_index;
@@ -48,12 +38,12 @@ void	PhoneBook::ShowIndex()
 
 	std::cout << "인덱스를 입력해주세요" << std::endl;
 	std::getline(std::cin, search_index);
-	search_index_num = StringToInt(search_index);
+	search_index_num = stringToInt(search_index);
 	while (!std::cin.eof() && !(search_index_num > 0 && search_index_num <= index))
 	{
 		std::cout << "인덱스를 다시 입력해주세요" << std::endl;
 		std::getline(std::cin, search_index);
-		search_index_num = StringToInt(search_index);
+		search_index_num = stringToInt(search_index);
 	}
 	if (std::cin.eof())
 		return ;

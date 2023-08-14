@@ -1,7 +1,7 @@
 #ifndef CONTACT_H
 #define CONTACT_H
 
-#include "PhoneBook.h"
+#include <string>
 
 class Contact {
 
@@ -14,7 +14,7 @@ class Contact {
 		std::string	SubstrField(std::string);
 
 	public :
-		void	Insert();
+		int     Insert();
 		void	Display();
 		void	DisplaySimpleField();
 };

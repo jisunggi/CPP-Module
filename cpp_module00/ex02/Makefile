@@ -1,6 +1,6 @@
 NAME = AccountLog
 CC = g++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = tests.cpp Account.cpp
 OBJS = $(SRCS:.cpp=.o)
 RM = rm

@@ -8,12 +8,14 @@
 #include <sstream>
 #include <cctype>
 
+int	stringToInt(std::string string);
+int	checkEmpty(std::string string);
+
 class PhoneBook {
 
 	private :
 		Contact contact_arr[8];
 		int	index;
-		int	StringToInt(std::string);
 
 	public :
 		PhoneBook();

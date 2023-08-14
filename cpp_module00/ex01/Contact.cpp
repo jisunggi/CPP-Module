@@ -1,6 +1,6 @@
 #include "PhoneBook.h"
 
-void	Contact::Insert()
+int	Contact::Insert()
 {
 	std::cout << "한번에 한 field를 입력해주세요" << std::endl;
 	std::cout << "first_name 입력해주세요" << std::endl;
@@ -14,8 +14,14 @@ void	Contact::Insert()
 	std::cout << "secret 입력해주세요" << std::endl;
 	std::getline(std::cin, darkset_secret);
 
-	// if (isspace(first_name) || isspace(last_name) || isspace(nickname) 
-	// 		|| isspace(phone_number) || isspace(darkset_secret))
+
+	if (checkEmpty(first_name) || checkEmpty(last_name) || checkEmpty(nickname) 
+		|| checkEmpty(phone_number) || checkEmpty(darkset_secret))
+	{
+		std::cout << "입력한 값에 공백이 있습니다" << std::endl;
+		return 1;
+	}
+	return 0;
 
 }
 
