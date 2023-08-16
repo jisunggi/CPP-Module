@@ -16,12 +16,12 @@ class PhoneBook {
 	private :
 		Contact contact_arr[8];
 		int	index;
+		void	ShowIndex();
 
 	public :
 		PhoneBook();
 		void	Add(Contact);
 		void	ShowList();
-		void	ShowIndex();
 };
 
 #endif
