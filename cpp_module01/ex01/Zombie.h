@@ -13,6 +13,6 @@ class Zombie
         Zombie(std::string);
         ~Zombie();
         void announce();
-}
+};
 
 #endif
