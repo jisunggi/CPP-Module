@@ -14,7 +14,8 @@ int	Contact::Insert()
 	std::cout << "secret 입력해주세요" << std::endl;
 	std::getline(std::cin, darkset_secret);
 
-
+	if (std::cin.eof())
+		return 1;
 	if (checkEmpty(first_name) || checkEmpty(last_name) || checkEmpty(nickname) 
 		|| checkEmpty(phone_number) || checkEmpty(darkset_secret))
 	{
