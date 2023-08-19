@@ -2,12 +2,12 @@
 
 Zombie::Zombie()
 {
-    std::cout << " Zombie have been created" << std::endl;
+    std::cout << "Zombie have been created" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << " Zombie is dead" << std::endl;
+    std::cout << "Zombie is dead" << std::endl;
 }
 
 void Zombie::setName(std::string name)
