@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-int check_error(std::ifstream &infile, std::ofstream &outfile, std::string string1, std::string string2)
+int check_error(std::ofstream &outfile, std::string string1, std::string string2)
 {
     if (!outfile.is_open())
     {
