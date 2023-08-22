@@ -13,6 +13,7 @@ int check_error(std::ifstream &infile, std::ofstream &outfile, std::string strin
         std::cout << "no string" << std::endl;
         return 1;
     }
+    return 0;
 }
 
 void    ft_replace(std::string &line, std::string string1, std::string string2)
