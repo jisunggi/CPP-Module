@@ -1,5 +1,4 @@
 #include "Harl.h"
-
 Harl::Harl()
 {
 
