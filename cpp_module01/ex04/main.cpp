@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 
     std::ifstream infile(argv[1]);
     std::string newFilename = std::string(argv[1]) + ".replace";
-    std::ofstream outfile(newFilename);
+    std::ofstream outfile(newFilename.c_str());
     std::string string1;
     std::string string2;
     std::string line;
