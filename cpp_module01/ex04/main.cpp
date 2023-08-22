@@ -3,11 +3,6 @@
 
 int check_error(std::ifstream &infile, std::ofstream &outfile, std::string string1, std::string string2)
 {
-    if (!infile.is_open())
-    {
-        std::cout << "file didn't open properly" << std::endl;
-        return 1;
-    }
     if (!outfile.is_open())
     {
         std::cout << "file didn't open properly" << std::endl;
@@ -44,6 +39,11 @@ int main(int argc, char **argv)
     }
 
     std::ifstream infile(argv[1]);
+    if (!infile.is_open())
+    {
+        std::cout << "file didn't open properly" << std::endl;
+        return 1;
+    }
     std::string newFilename = std::string(argv[1]) + ".replace";
     std::ofstream outfile(newFilename.c_str());
     std::string string1;
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
     string1 = argv[2];
     string2 = argv[3];
 
-    if (check_error(infile, outfile, string1, string2))
+    if (check_error(outfile, string1, string2))
         return 1;
     
     while (!infile.eof())
