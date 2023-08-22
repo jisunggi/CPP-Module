@@ -20,13 +20,13 @@ void    ft_replace(std::string &line, std::string string1, std::string string2)
 {
     size_t pos = 0;
 
-    pos = line.find(string1, pos);
-    while (pos != std::string::npos)
+    //pos = line.find(string1, pos);
+    while ((pos = line.find(string1, pos)) != std::string::npos)
     {
         line.erase(pos, string1.length());
         line.insert(pos, string2);
         pos += string2.length();
-        pos = line.find(string1, pos);
+        //pos = line.find(string1, pos);
     }
 }
 
