@@ -3,7 +3,12 @@
 
 int check_error(std::ifstream &infile, std::ofstream &outfile, std::string string1, std::string string2)
 {
-    if (!infile.is_open() || !outfile.is_open())
+    if (!infile.is_open())
+    {
+        std::cout << "file didn't open properly" << std::endl;
+        return 1;
+    }
+    if (!outfile.is_open())
     {
         std::cout << "file didn't open properly" << std::endl;
         return 1;
