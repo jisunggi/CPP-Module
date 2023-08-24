@@ -67,22 +67,22 @@ bool	Fixed::operator<(Fixed const &fixed) const
     return this->fixValue < fixed.getRawBits();
 }
 
-bool	Fixed:operator>=(Fixed const &fixed) const
+bool	Fixed::operator>=(Fixed const &fixed) const
 {
     return this->fixValue >= fixed.getRawBits();
 }
 
-bool	Fixed:operator<=(Fixed const &fixed) const
+bool	Fixed::operator<=(Fixed const &fixed) const
 {
     return this->fixValue <= fixed.getRawBits();
 }
 
-bool	Fixed:operator==(Fixed const &fixed) const
+bool	Fixed::operator==(Fixed const &fixed) const
 {
     return this->fixValue == fixed.getRawBits();
 }
 
-bool	Fixed:operator!=(Fixed const &fixed) const
+bool	Fixed::operator!=(Fixed const &fixed) const
 {
     return this->fixValue != fixed.getRawBits();
 }
