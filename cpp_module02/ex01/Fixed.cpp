@@ -29,12 +29,12 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-float Fixed::toFloat()
+float Fixed::toFloat() const
 {
     return (float)fixValue / (1 << this->bit);
 }
 
-int Fixed::toInt()
+int Fixed::toInt() const
 {
     return fixValue >> bit;
 }
