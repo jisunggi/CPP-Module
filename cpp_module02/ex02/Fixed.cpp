@@ -115,7 +115,7 @@ Fixed	&Fixed::operator++(void)
 
 const Fixed	Fixed::operator++(int)
 {
-    Fixed temp(fixValue);
+    Fixed temp(*this);
     this->fixValue++;
     return temp;
 }
@@ -125,10 +125,10 @@ Fixed	&Fixed::operator--(void)
     this->fixValue--;
     return *this;
 }
-        
+
 const Fixed	Fixed::operator--(int)
 {
-    Fixed temp(fixValue);
+    Fixed temp(*this);
     this->fixValue--;
     return temp;
 }
