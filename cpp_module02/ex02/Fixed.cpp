@@ -56,3 +56,111 @@ void Fixed::setRawBits(int const raw)
 {
     this->fixValue = raw;
 }
+
+bool	Fixed::operator>(Fixed const &fixed) const
+{
+    return this->fixValue > fixed.getRawBits();
+}
+
+bool	Fixed::operator<(Fixed const &fixed) const
+{
+    return this->fixValue < fixed.getRawBits();
+}
+
+bool	operator>=(Fixed const &fixed) const
+{
+    return this->fixValue >= fixed.getRawBits();
+}
+
+bool	operator<=(Fixed const &fixed) const
+{
+    return this->fixValue <= fixed.getRawBits();
+}
+
+bool	operator==(Fixed const &fixed) const
+{
+    return this->fixValue == fixed.getRawBits();
+}
+
+bool	operator!=(Fixed const &fixed) const
+{
+    return this->fixValue != fixed.getRawBits();
+}
+
+Fixed	Fixed::operator+(Fixed const &fixed) const
+{
+    return Fixed(this->toFloat() + fixed.toFloat());
+}
+
+Fixed	Fixed::operator-(Fixed const &fixed) const
+{
+    return Fixed(this->toFloat() - fixed.toFloat());
+}
+
+Fixed	Fixed::operator*(Fixed const &fixed) const
+{
+    return Fixed(this->toFloat() * fixed.toFloat());
+}
+
+Fixed	Fixed::operator/(Fixed const &fixed) const
+{
+    return Fixed(this->toFloat() / fixed.toFloat());
+}
+
+Fixed	&Fixed::operator++(void)
+{
+    this->fixValue++;
+    return *this;
+}
+
+const Fixed	Fixed::operator++(int)
+{
+    Fixed temp(fixValue);
+    this->fixValue++;
+    return temp;
+}
+
+Fixed	&Fixed::operator--(void)
+{
+    this->fixValue--;
+    return *this;
+}
+        
+const Fixed	Fixed::operator--(int)
+{
+    Fixed temp(fixValue);
+    this->fixValue--;
+    return temp;
+}
+
+Fixed	&Fixed::min(Fixed &ref1, Fixed &ref2)
+{
+    if (ref1 <= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+const Fixed	&Fixed::min(Fixed const &ref1, Fixed const &ref2)
+{
+    if (ref1 <= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+Fixed	&Fixed::max(Fixed &ref1, Fixed &ref2)
+{
+    if (ref1 >= ref2)
+		return ref1;
+	else
+		return ref2;
+}
+
+const Fixed	&Fixed::max(Fixed const &ref1, Fixed const &ref2)
+{
+    if (ref1 >= ref2)
+		return ref1;
+	else
+		return ref2;
+}
