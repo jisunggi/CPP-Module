@@ -35,6 +35,7 @@ int main (void)
 	b.attack("abc");
 	b.takeDamage(15);
 	b.beRepaired(2);
+	b.guardGate();
 	std::cout << b.getName() << " hit points : " << b.getHitPoints() << std::endl;
 	std::cout << b.getName() << " energy points : " << b.getEnergyPoints() << std::endl;
 

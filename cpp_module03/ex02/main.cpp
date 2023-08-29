@@ -59,6 +59,7 @@ int main (void)
 	e.attack("abc");
 	e.takeDamage(30);
 	e.beRepaired(30);
+	e.highFivesGuys();
 	std::cout << e.getName() << " hit points : " << e.getHitPoints() << std::endl;
 	std::cout << e.getName() << " energy points : " << e.getEnergyPoints() << std::endl;
 
