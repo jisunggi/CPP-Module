@@ -9,7 +9,6 @@ int main (void)
 	ScavTrap c(a);     //복사생성자
 	c = a;    //복사할당연산자
 
-
 	std::cout << "-----------------------------" << std::endl;
 	std::cout << clapTrap.getName() << " hit points : " << clapTrap.getHitPoints() << std::endl;
 	std::cout << clapTrap.getName() << " energy points : " << clapTrap.getEnergyPoints() << std::endl;
