@@ -43,6 +43,7 @@ int main (void)
 		c.beRepaired(1);
 	}
 	c.takeDamage(15);
+	c.beRepaired(1);
 	std::cout << c.getName() << " hit points : " << c.getHitPoints() << std::endl;
 	std::cout << c.getName() << " energy points : " << c.getEnergyPoints() << std::endl;
 	std::cout << "-----------------------------" << std::endl;
