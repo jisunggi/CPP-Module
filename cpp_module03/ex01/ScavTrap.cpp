@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap()
 {
-	this->name = "noName";
+	this->name = "noName ScavTrap";
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 20;

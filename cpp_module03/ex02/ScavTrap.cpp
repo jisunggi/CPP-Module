@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap()
 {
-	this->name = "noName";
+	this->name = "noName ScavTrap";
 	hitPoints = 100;
 	energyPoints = 50;
 	attackDamage = 20;
@@ -49,7 +49,7 @@ void ScavTrap::attack(const std::string& target)
 {
 	if (this->energyPoints == 0 || this->hitPoints == 0)
 	{
-		std::cout << "ClapTrap can't do anything" << std::endl;
+		std::cout << "ScavTrap can't do anything" << std::endl;
 		return;
 	}
 	this->energyPoints--;
