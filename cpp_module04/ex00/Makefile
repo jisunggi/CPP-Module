@@ -1,6 +1,6 @@
-NAME = 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp 
+NAME = animal
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
+SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp
 OBJS = $(SRCS:.cpp=.o)
 RMFLAGS = -f
 
