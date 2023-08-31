@@ -1,4 +1,4 @@
-NAME = animalbrain
+NAME = abstractclass
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
 SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)

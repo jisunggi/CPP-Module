@@ -8,36 +8,44 @@ int main()
 {
 	std::cout << "---test---" << std::endl;
 	{
-		const Animal *animal = new Animal[10];
-		const Animal *dog = new Dog();
-		const Animal *cat = new Cat();
+		Animal *animal[10];
 
-		std::cout << "type : " << animal->getType() << " " << std::endl;
-		std::cout << "type : " << dog->getType() << " " << std::endl;
-		std::cout << "type : " << cat->getType() << " " << std::endl;
-
-		animal->makeSound();
-		dog->makeSound();
-		cat->makeSound();
-
-		delete animal;
-		delete dog;
-		delete cat;
+		for (size_t i = 0; i < 10; i++)
+		{
+			if (i % 2)
+			{
+				animal[i] = new Dog();
+			}
+			else
+			{
+				animal[i] = new Cat();
+			}
+		}
+		std::cout << "----------" <<std::endl;
+		
+		for (size_t i = 0; i < 10; i++)
+		{
+			delete animal[i];
+		}
 	}
 	std::cout << std::endl;
-	std::cout << "---Wrong test---" << std::endl;
+	std::cout << "----------" <<std::endl;
 	{
-		const WrongAnimal *wrongAnimal = new WrongAnimal();
-		const WrongAnimal *wrongCat = new WrongCat();
+		Dog *dog = new Dog();
+		Dog *copyDog = new Dog();
 
-		std::cout << "type : " << wrongAnimal->getType() << " " << std::endl;
-		std::cout << "type : " << wrongCat->getType() << " " << std::endl;
+		*dog = *copyDog;
+		std::cout << "dog idea : " << dog->getBrain()->getIdea(0) << std::endl;
+		std::cout << "copyDog idea : " << dog->getBrain()->getIdea(0) << std::endl;
 
-		wrongAnimal->makeSound();
-		wrongCat->makeSound();
+		std::cout <<std::endl;
+		copyDog->getBrain()->setIdea(0, "change");
+		std::cout << "dog idea : " << dog->getBrain()->getIdea(0) << std::endl;
+		std::cout << "copyDog idea : " << copyDog->getBrain()->getIdea(0) << std::endl;
 
-		delete wrongAnimal;
-		delete wrongCat;
+		std::cout <<std::endl;
+		delete dog;
+		delete copyDog;
 	}
 	return 0;
 }
