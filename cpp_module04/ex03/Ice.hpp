@@ -1,10 +1,10 @@
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 #include <iostream>
 #include <string>
 
-class Ice
+class AMateria
 {
     protected:
         std::string type;
