@@ -1,23 +1,23 @@
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
 #include <iostream>
 #include <string>
 
-class Ice : public Ice
+class Cure : public AMateria
 {
     protected:
         std::string type;
 
     public:
-		Ice();
-        Ice(std::string const & type);
-		~Ice();
-		Ice(const Ice &amateria);
-		Ice &operator=(const Ice &amateria);
-	
+		Cure();
+		Cure(std::string const &type);
+		~Cure();
+		Cure(const Cure &cure);
+		Cure &operator=(const Cure &cure);
+		
         std::string const & getType() const; //Returns the materia type
-        virtual Ice* clone() const = 0;
+        virtualCure* clone() const = 0;
         virtual void use(ICharacter& target);
 };
 
