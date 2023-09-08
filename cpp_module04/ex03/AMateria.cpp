@@ -25,14 +25,24 @@ AMateria::AMateria(const AMateria &amateria)
 
 AMateria &AMateria::operator=(const AMateria &amateria)
 {
-    
+    if (this != &amateria)
+		this->type = amateria.getType();
+	std::cout << "AMateria : Copy assignment operator called" << std::endl;
+	return *this;
 }
 		
 std::string const &AMateria::getType() const
-{}
+{
+	return this->type;
+}
 
-AMateria *AMateria::clone() const
-{}
+// AMateria *AMateria::clone() const
+// {
+// 	AMateria *amateria = new AMateria();
+// 	return amateria;
+// }
 
 void AMateria::use(ICharacter& target)
-{}
+{
+	std::cout << "AMateria " << target->name << std::endl;
+}

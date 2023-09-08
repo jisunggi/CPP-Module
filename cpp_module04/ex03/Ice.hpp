@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-class Ice : public Ice
+class Ice : public AMAteria
 {
     protected:
         std::string type;
@@ -16,9 +16,9 @@ class Ice : public Ice
 		Ice(const Ice &amateria);
 		Ice &operator=(const Ice &amateria);
 	
-        std::string const & getType() const; //Returns the materia type
-        virtual Ice* clone() const = 0;
-        virtual void use(ICharacter& target);
+        std::string const & getType() const;
+        Ice* clone() const;
+        void use(ICharacter& target);
 };
 
 #endif

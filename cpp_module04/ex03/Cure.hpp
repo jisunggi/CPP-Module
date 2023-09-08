@@ -16,9 +16,9 @@ class Cure : public AMateria
 		Cure(const Cure &cure);
 		Cure &operator=(const Cure &cure);
 		
-        std::string const & getType() const; //Returns the materia type
-        virtualCure* clone() const = 0;
-        virtual void use(ICharacter& target);
+        std::string const & getType() const;
+		Cure* clone() const;
+        void use(ICharacter& target);
 };
 
 #endif
