@@ -36,11 +36,11 @@ std::string const &AMateria::getType() const
 	return this->type;
 }
 
-// AMateria *AMateria::clone() const
-// {
-// 	AMateria *amateria = new AMateria();
-// 	return amateria;
-// }
+AMateria *AMateria::clone() const
+{
+	AMateria *amateria = new AMateria();
+		return amateria;
+}
 
 void AMateria::use(ICharacter& target)
 {

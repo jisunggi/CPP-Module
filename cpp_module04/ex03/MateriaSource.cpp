@@ -2,24 +2,12 @@
 
 MateriaSource::MateriaSource()
 {
-    this->name = "MateriaSource";
 	for (int slot = 0; slot < 4; slot++)
 	{
 		materias[slot] = new AMateria();
 		materias[slot] = 0;
 	}
     std::cout << "MateriaSource : Default constructor called" << std::endl;
-}
-
-MateriaSource::MateriaSource(std::string const &name)
-{
-    this->name = name;
-	for (int slot = 0; slot < 4; slot++)
-	{
-		materias[slot] = new AMateria();
-		materias[slot] = 0;
-	}
-    std::cout << "MateriaSource name : constructor called" << std::endl;
 }
 
 MateriaSource::~MateriaSource()
@@ -31,7 +19,6 @@ MateriaSource::~MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &materiaSource)
 {
-    this->name = MateriaSource.getName();
 	for (int slot = 0; slot < 4; slot++)
 	{
 		if (materias[slot] != NULL)
@@ -47,9 +34,8 @@ MateriaSource::MateriaSource(const MateriaSource &materiaSource)
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource)
 {
-    if (this != &MateriaSource)
+    if (this != &materiaSource)
 	{
-		this->name = MateriaSource.getName();
 		for (int slot = 0; slot < 4; slot++)
 		{
 			if (materias[slot] != NULL)
@@ -64,30 +50,25 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &materiaSource)
 	std::cout << "MateriaSource : Copy assignment operator called" << std::endl;
 	return *this;
 }
-		
-std::string const &MateriaSource::getName() const
-{
-	return this->name;
-}
 
-void MateriaSource::equip(AMateria *m)
+void MateriaSource::learnMateria(AMateria *m)
 {
-	for (int slot = 0; materias[slot]; slot++);
+	int slot;
+
+	for (slot = 0; materias[slot]; slot++);
 	if (slot > 3)
 		return ;
-	this->materias[slot] = *m;
+	this->materias[slot] = m;
 }
 
-void MateriaSource::unequip(int idx)
+AMateria *MateriaSource::createMateria(std::string const &type)
 {
-	if (materias[idx] == 0)
-		return ;
-	this->materias[idx] = 0;
-}
-
-void MateriaSource::use(int idx, IMateriaSource& target)
-{
-	if (materias[idx] == 0)
-		return ;
-	materias[idx]->use(target);
+	if (!(type == "ice" || type == "cure"))
+		return 0;
+	for (int slot = 0; materias[slot]; slot++)
+	{
+		if (materias[slot]->type == "type")
+			return materias[slot]->clone();
+	}
+	return 0;
 }

@@ -72,7 +72,8 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	for (int slot = 0; materias[slot]; slot++);
+	int slot;
+	for (slot = 0; materias[slot]; slot++);
 	if (slot > 3)
 		return ;
 	this->materias[slot] = *m;

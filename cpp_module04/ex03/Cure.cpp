@@ -44,5 +44,5 @@ Cure *Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target->name << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.type << "'s wounds *" << std::endl;
 }
