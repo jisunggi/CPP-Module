@@ -48,6 +48,7 @@ void MateriaSource::learnMateria(AMateria *m)
 	for (slot = 0; materias[slot]; slot++);
 	if (slot > 3)
 		return ;
+	std::cout << m->getType() << std::endl;
 	this->materias[slot] = m;
 	std::cout << materias[slot]->getType() << std::endl;
 }
