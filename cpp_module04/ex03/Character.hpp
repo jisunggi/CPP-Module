@@ -17,6 +17,7 @@ class Character : public ICharacter
 		Character(const Character &character);
 		Character &operator=(const Character &character);
 
+		void deleteMateriaInventory();
 		std::string const & getName() const;
 		void equip(AMateria *m);
 		void unequip(int idx);
