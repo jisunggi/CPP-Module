@@ -56,7 +56,10 @@ void MateriaSource::learnMateria(AMateria *m)
 AMateria *MateriaSource::createMateria(std::string const &type)
 {
 	if (!(type == "ice" || type == "cure"))
+	{
+		std::cout << "aaa" << std::endl;
 		return 0;
+	}
 	for (int slot = 0; materias[slot]; slot++)
 	{
 		if (materias[slot]->getType() == type)
