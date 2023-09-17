@@ -48,9 +48,9 @@ void MateriaSource::learnMateria(AMateria *m)
 	for (slot = 0; materias[slot]; slot++);
 	if (slot > 3)
 		return ;
-	std::cout << m->getType() << std::endl;
+	//std::cout << m->getType() << std::endl;
 	this->materias[slot] = m;
-	std::cout << materias[slot]->getType() << std::endl;
+	//std::cout << materias[slot]->getType() << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const &type)
@@ -62,6 +62,7 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 	}
 	for (int slot = 0; materias[slot]; slot++)
 	{
+		std::cout << materias[slot]->getType() << std::endl;
 		if (materias[slot]->getType() == type)
 		{
 			std::cout << "bbb" << std::endl;
