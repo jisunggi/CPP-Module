@@ -1,12 +1,12 @@
 #include "Cure.hpp"
 
-Cure::Cure()
+Cure::Cure() : AMateria("cure")
 {
     this->type = "cure";
     std::cout << "Cure : Default constructor called" << std::endl;
 }
       
-Cure::Cure(std::string const &type)
+Cure::Cure(std::string const &type) : AMateria(type)
 {
     this->type = type;
     std::cout << "Cure type : constructor called" << std::endl;
