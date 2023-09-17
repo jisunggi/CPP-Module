@@ -63,7 +63,10 @@ AMateria *MateriaSource::createMateria(std::string const &type)
 	for (int slot = 0; materias[slot]; slot++)
 	{
 		if (materias[slot]->getType() == type)
+		{
+			std::cout << "bbb" << std::endl;
 			return materias[slot]->clone();
+		}
 	}
 	return 0;
 }
