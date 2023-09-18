@@ -5,7 +5,6 @@ Character::Character()
     this->name = "Character";
 	for (int slot = 0; slot < 4; slot++)
 		materias[slot] = 0;
-    std::cout << "Character : Default constructor called" << std::endl;
 }
 
 Character::Character(std::string const &name)
@@ -13,13 +12,11 @@ Character::Character(std::string const &name)
     this->name = name;
 	for (int slot = 0; slot < 4; slot++)
 		materias[slot] = 0;
-    std::cout << "Character name : constructor called" << std::endl;
 }
 
 Character::~Character()
 {
 	deleteMateriaInventory();
-    std::cout << "Character : Destructor called" << std::endl;
 }
 
 Character::Character(const Character &character)
@@ -32,7 +29,6 @@ Character::Character(const Character &character)
 	}
 	for (int slot = 0; slot < 4; slot++)
 		materias[slot] = character.materias[slot]->clone();
-    std::cout << "Character : Copy constructor called" << std::endl;
 }
 
 Character &Character::operator=(const Character &character)
@@ -48,7 +44,6 @@ Character &Character::operator=(const Character &character)
 		for (int slot = 0; slot < 4; slot++)
 			materias[slot] = character.materias[slot]->clone();
 	}
-	std::cout << "Character : Copy assignment operator called" << std::endl;
 	return *this;
 }
 
@@ -69,7 +64,6 @@ void Character::equip(AMateria *m)
 	for (slot = 0; materias[slot]; slot++);
 	if (slot > 3)
 		return ;
-	std::cout << m->getType() << std::endl;
 	this->materias[slot] = m;
 }
 
@@ -84,7 +78,6 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (materias[idx] == 0)
 	{
-		std::cout << "aaa" << std::endl;
 		return ;
 	}
 	materias[idx]->use(target);
