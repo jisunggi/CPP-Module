@@ -6,9 +6,29 @@
 
 class Bureaucrat
 {
-	public :
-		std::string name;
+	class GradeTooHighException : public std::exception
+	{
+		
+	};
+
+	class GradeTooLowException : public std::exception
+	{};
+
+	private :
+		std::string const name;
 		unsigned int grade;
+	
+	public :
+		Bureaucrat();
+        Bureaucrat(std::string const &name);
+		~Bureaucrat();
+		Bureaucrat(const Bureaucrat &bureaucrat);
+		Bureaucrat &operator=(const Bureaucrat &bureaucrat);
+
+		void getName();
+		void getGrade();
+		void incrementGrade();
+		void decrementGrade();
 
 };
 
