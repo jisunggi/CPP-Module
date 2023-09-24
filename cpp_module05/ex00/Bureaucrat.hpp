@@ -8,29 +8,32 @@ class Bureaucrat
 {
 	class GradeTooHighException : public std::exception
 	{
-		
+		public:
+			virtual const char * what() const throw();
 	};
 
 	class GradeTooLowException : public std::exception
-	{};
+	{
+		public:
+			virtual const char * what() const throw();
+	};
 
 	private :
-		std::string const name;
-		unsigned int grade;
+		const std::string name;
+		int grade;
 	
 	public :
 		Bureaucrat();
-        Bureaucrat(std::string const &name);
+        Bureaucrat(std::string setName, int setGrade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &bureaucrat);
 		Bureaucrat &operator=(const Bureaucrat &bureaucrat);
 
-		void getName();
-		void getGrade();
+		std::string getName() const;
+		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-
+		int checkGrade();
 };
-
 
 #endif
