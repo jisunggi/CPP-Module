@@ -71,12 +71,20 @@ void Bureaucrat::decrementGrade()
 		this->grade--;
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	if (form.getBeSigned() == true)
+		std::cout << this->name << " signed " <<  form.getName() << std::endl;
+	else
+		std::cout << this->name << " couldn’t sign " <<  form.getName() << " because bureaucrat grade lower than form grade" << std::endl;
+}
+
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return "grade too high";
+	return "bureaucrat grade too high";
 }
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return "grade too low";
+	return "bureaucrat grade too low";
 }

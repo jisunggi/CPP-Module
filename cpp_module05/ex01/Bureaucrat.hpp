@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -34,6 +35,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		int checkGrade();
+		void signForm(Form &form);
 };
 
 #endif

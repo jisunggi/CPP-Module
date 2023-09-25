@@ -6,23 +6,33 @@ std::ostream &operator<<(std::ostream &ostream, const Bureaucrat &bureaucrat)
 	return ostream;
 }
 
+std::ostream &operator<<(std::ostream &ostream, const Form &form)
+{
+	ostream << form.getName() << ", form grade " << form.getGrade() << ".";
+	return ostream;
+}
+
 int main ()
 {
-	Bureaucrat bureaucratA;
+	Bureaucrat bureaucratA("Bureaucrate_A", 60);
 	if (bureaucratA.checkGrade())
 		return 1;
-	Bureaucrat bureaucratB("Bureaucrate_B", 150);
-	if (bureaucratB.checkGrade())
+	Form formA("Form_A", 61);
+	if (formA.checkGrade())
 		return 1;
 
-	bureaucratA.incrementGrade();
 	std::cout << bureaucratA << std::endl;
+	std::cout << formA << std::endl;
+	std::cout << "-----------------" << std::endl;
+	
+	formA.beSigned(bureaucratA);
+	std::cout << "-----------------" << std::endl;
+
+	bureaucratA.decrementGrade();
 	bureaucratA.decrementGrade();
 	std::cout << bureaucratA << std::endl;
-
 	std::cout << "-----------------" << std::endl;
-	bureaucratB.decrementGrade();
-	std::cout << bureaucratB << std::endl;
-	bureaucratB.incrementGrade();
-	std::cout << bureaucratB << std::endl;
+	
+	formA.beSigned(bureaucratA);
+
 }
