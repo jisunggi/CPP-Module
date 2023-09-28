@@ -8,31 +8,32 @@ std::ostream &operator<<(std::ostream &ostream, const Bureaucrat &bureaucrat)
 
 std::ostream &operator<<(std::ostream &ostream, const Form &form)
 {
-	ostream << form.getName() << ", form grade " << form.getGrade() << ".";
+	ostream << form.getName() << ", form grade " << form.getSignGrade() << ".";
 	return ostream;
 }
 
 int main ()
 {
-	Bureaucrat bureaucratA("Bureaucrate_A", 60);
-	if (bureaucratA.checkGrade())
+	Bureaucrat bureaucrat("Bureaucrate", 60);
+	if (bureaucrat.checkGrade())
 		return 1;
-	Form formA("Form_A", 61);
-	if (formA.checkGrade())
+	Form form("Form", 61, 61);
+	if (form.checkGrade())
 		return 1;
 
-	std::cout << bureaucratA << std::endl;
-	std::cout << formA << std::endl;
+	std::cout << bureaucrat << std::endl;
+	std::cout << form << std::endl;
 	std::cout << "-----------------" << std::endl;
 	
-	formA.beSigned(bureaucratA);
+	bureaucrat.signForm(form);
 	std::cout << "-----------------" << std::endl;
 
-	bureaucratA.decrementGrade();
-	bureaucratA.decrementGrade();
-	std::cout << bureaucratA << std::endl;
+	bureaucrat.decrementGrade();
+	bureaucrat.decrementGrade();
+	std::cout << bureaucrat << std::endl;
 	std::cout << "-----------------" << std::endl;
 	
-	formA.beSigned(bureaucratA);
+	bureaucrat.signForm(form);
+	std::cout << "-----------------" << std::endl;
 
 }

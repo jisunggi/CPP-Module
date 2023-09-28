@@ -3,40 +3,51 @@
 
 #include <string>
 #include <iostream>
-class Bureaucrat;
+#include <fstream>
+#include "Bureaucrat.hpp"
 
 class AForm
 {
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw();
-	};
-
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw();
-	};
-
-	protected :
+	private :
 		const std::string name;
 		bool sign;
-		const int grade;
+		const int signGrade;
+		const int execGrade;
 
 	public :
 		AForm();
-        AForm(std::string setName, int setGrade);
+        AForm(std::string setName);
 		virtual ~AForm();
 		AForm(const AForm &aform);
 		AForm &operator=(const AForm &aform);
 
-		std::string getName() const;
-		int getGrade() const;
-		bool getBeSigned() const;
-		int checkGrade();
-		void beSigned(Bureaucrat &bureaucrat);
-		virtual void execute(Bureaucrat const & executor) const = 0;
+		virtual std::string getName() const;
+		virtual int getSignGrade() const;
+		virtual int getExecGrade() const;
+		virtual bool getSign() const;
+		virtual void beSigned(Bureaucrat &executor);
+
+		virtual int execute(Bureaucrat const &executor) const = 0;
+		int checkExecute(Bureaucrat const &executor, int formExecGrade) const;
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class NoExecuteException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
 };
 
 #endif

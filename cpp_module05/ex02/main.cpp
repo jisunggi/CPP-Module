@@ -1,4 +1,6 @@
-#include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 std::ostream &operator<<(std::ostream &ostream, const Bureaucrat &bureaucrat)
 {
@@ -6,33 +8,49 @@ std::ostream &operator<<(std::ostream &ostream, const Bureaucrat &bureaucrat)
 	return ostream;
 }
 
-std::ostream &operator<<(std::ostream &ostream, const Form &form)
+std::ostream &operator<<(std::ostream &ostream, const AForm &aform)
 {
-	ostream << form.getName() << ", form grade " << form.getGrade() << ".";
+	ostream << aform.getName() << ", form sign grade : " << aform.getSignGrade();
+	ostream << ", form exec grade : " << aform.getExecGrade() << ".";
 	return ostream;
 }
 
 int main ()
 {
-	Bureaucrat bureaucratA("Bureaucrate_A", 60);
+	Bureaucrat bureaucratA("Bureaucrate_A", 145);
 	if (bureaucratA.checkGrade())
 		return 1;
-	Form formA("Form_A", 61);
-	if (formA.checkGrade())
+	Bureaucrat bureaucratB("Bureaucrate_B", 44);
+	if (bureaucratB.checkGrade())
 		return 1;
-
-	std::cout << bureaucratA << std::endl;
-	std::cout << formA << std::endl;
-	std::cout << "-----------------" << std::endl;
+	Bureaucrat bureaucratC("Bureaucrate_C", 26);
+	if (bureaucratC.checkGrade())
+		return 1;
+	ShrubberyCreationForm shrubberyCreationForm("home");
+	RobotomyRequestForm robotomyRequestForm("robot");
+	PresidentialPardonForm presidentialPardonForm("Presidential");
 	
-	formA.beSigned(bureaucratA);
-	std::cout << "-----------------" << std::endl;
-
-	bureaucratA.decrementGrade();
-	bureaucratA.decrementGrade();
+	std::cout << "<<---------------------->>" << std::endl;
 	std::cout << bureaucratA << std::endl;
+	std::cout << bureaucratB << std::endl;
+	std::cout << bureaucratC << std::endl;
+	std::cout << shrubberyCreationForm << std::endl;
+	std::cout << robotomyRequestForm << std::endl;
+	std::cout << presidentialPardonForm << std::endl;
+	std::cout << std::endl;
+
 	std::cout << "-----------------" << std::endl;
+	bureaucratA.signForm(shrubberyCreationForm);
+	bureaucratA.executeForm(shrubberyCreationForm);
+
+	std::cout << "-----------------" << std::endl;
+	bureaucratB.signForm(robotomyRequestForm);
+	bureaucratB.executeForm(robotomyRequestForm);
+
+	std::cout << "-----------------" << std::endl;
+	bureaucratC.signForm(presidentialPardonForm);
+	bureaucratC.executeForm(presidentialPardonForm);
 	
-	formA.beSigned(bureaucratA);
+	std::cout << "-----------------" << std::endl;
 
 }

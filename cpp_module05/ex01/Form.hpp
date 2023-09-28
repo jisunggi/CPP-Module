@@ -7,35 +7,37 @@ class Bureaucrat;
 
 class Form
 {
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw();
-	};
-
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw();
-	};
-
 	private :
 		const std::string name;
 		bool sign;
-		const int grade;
+		const int signGrade;
+		const int execGrade;
 
 	public :
 		Form();
-        Form(std::string setName, int setGrade);
+        Form(std::string setName, int setSignGrade, int setExecGrade);
 		~Form();
 		Form(const Form &form);
 		Form &operator=(const Form &form);
 
 		std::string getName() const;
-		int getGrade() const;
-		bool getBeSigned() const;
+		int getSignGrade() const;
+		int getExecGrade() const;
+		bool getSign() const;
 		int checkGrade();
 		void beSigned(Bureaucrat &bureaucrat);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 };
 
 #endif

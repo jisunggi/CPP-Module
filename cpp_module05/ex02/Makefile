@@ -1,6 +1,6 @@
-NAME = form
+NAME = forms
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS = $(SRCS:.cpp=.o)
 RMFLAGS = -f
 

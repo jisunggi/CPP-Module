@@ -7,17 +7,6 @@
 
 class Bureaucrat
 {
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw();
-	};
-
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw();
-	};
 
 	private :
 		const std::string name;
@@ -36,6 +25,18 @@ class Bureaucrat
 		void decrementGrade();
 		int checkGrade();
 		void signForm(Form &form);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 };
 
 #endif

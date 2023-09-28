@@ -1,13 +1,13 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("AForm"), grade(1)
+AForm::AForm() : name("AForm"), signGrade(1), execGrade(1)
 {
 	this->sign = false;
 	std::cout << "AForm : Default constructor called" << std::endl;
 }
 
-AForm::AForm(std::string setName, int setGrade) : name(setName), grade(setGrade) 
+AForm::AForm(std::string setName) : name(setName), signGrade(1), execGrade(1) 
 {
 	this->sign = false;
 	std::cout << "AForm : Constructor called" << std::endl;
@@ -18,9 +18,9 @@ AForm::~AForm()
 	std::cout << "AForm : Destructor called" << std::endl;
 }
 
-AForm::AForm(const AForm &aform) : name(aform.getName()), grade(aform.getGrade())
+AForm::AForm(const AForm &aform) : name(aform.getName()), signGrade(aform.getSignGrade()), execGrade(aform.getExecGrade())
 {
-	this->sign = aform.getBeSigned();
+	this->sign = aform.getSign();
 	std::cout << "AForm : Copy constructor called" << std::endl;
 }
 
@@ -28,7 +28,7 @@ AForm &AForm::operator=(const AForm &aform)
 {
 	if (this != &aform)
 	{
-		this->sign = aform.getBeSigned();
+		this->sign = aform.getSign();
 	}
 	std::cout << "AForm : Copy assignment operator called" << std::endl;
 	return *this;
@@ -39,29 +39,30 @@ std::string AForm::getName() const
 	return this->name;
 }
 
-int AForm::getGrade() const
+int AForm::getSignGrade() const
 {
-	return this->grade;
+	return this->signGrade;
 }
 
-bool AForm::getBeSigned() const
+int AForm::getExecGrade() const
+{
+	return this->execGrade;
+}
+
+bool AForm::getSign() const
 {
 	return this->sign;
 }
 
-void AForm::beSigned(Bureaucrat &bureaucrat)
+void AForm::beSigned(Bureaucrat &executor)
 {
 	try
 	{
-		if (bureaucrat.getGrade() <= this->grade)
-		{
+		if (executor.getGrade() <= this->signGrade)
 			this->sign = true;
-			bureaucrat.signAForm(*this);
-		}
 		else
 		{
 			this->sign = false;
-			bureaucrat.signAForm(*this);
 			throw AForm::GradeTooLowException();
 		}
 	}
@@ -71,13 +72,13 @@ void AForm::beSigned(Bureaucrat &bureaucrat)
 	}
 }
 
-int AForm::checkGrade()
+
+int AForm::checkExecute(Bureaucrat const &executor, int formExecGrade) const
 {
-	try {
-		if (this->grade < 1)
-			throw AForm::GradeTooHighException();
-		if (this->grade > 150)
-			throw AForm::GradeTooLowException();
+	try
+	{
+		if (executor.getGrade() > formExecGrade)
+			throw AForm::NoExecuteException();
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
@@ -88,10 +89,15 @@ int AForm::checkGrade()
 
 const char * AForm::GradeTooHighException::what() const throw()
 {
-	return "aform grade too high";
+	return "form grade too high";
 }
 
 const char * AForm::GradeTooLowException::what() const throw()
 {
-	return "aform grade too low";
+	return "form grade too low";
+}
+
+const char * AForm::NoExecuteException::what() const throw()
+{
+	return "The beuraucrat grade is low, and can't execute the form";
 }
