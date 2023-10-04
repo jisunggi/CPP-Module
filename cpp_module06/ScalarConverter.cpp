@@ -2,12 +2,11 @@
 
 ScalarConverter::ScalarConverter()
 {
+	charValue = 0;
+	intValue = 0;
+	floatValue = 0;
+	doubleValue = 0;
 	std::cout << "ScalarConverter : Default constructor called" << std::endl;
-}
-
-ScalarConverter::~ScalarConverter()
-{
-	std::cout << "ScalarConverter : Constructor called" << std::endl;
 }
 
 ScalarConverter::~ScalarConverter()
@@ -17,6 +16,11 @@ ScalarConverter::~ScalarConverter()
 
 ScalarConverter::ScalarConverter(const ScalarConverter &scalarConverter)
 {
+	dataType = scalarConverter.dataType;
+	charValue = scalarConverter.charValue;
+	intValue =  scalarConverter.intValue;
+	floatValue = scalarConverter.floatValue;
+	doubleValue = scalarConverter.doubleValue;
 	std::cout << "ScalarConverter : Copy constructor called" << std::endl;
 }
 
@@ -24,70 +28,111 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConvert
 {
 	if (this != &scalarConverter)
 	{
-		
+		dataType = scalarConverter.dataType;
+		charValue = scalarConverter.charValue;
+		intValue =  scalarConverter.intValue;
+		floatValue = scalarConverter.floatValue;
+		doubleValue = scalarConverter.doubleValue;
 	}
 	std::cout << "ScalarConverter : Copy assignment operator called" << std::endl;
 	return *this;
 }
 
+void ScalarConverter::printValue()
+{
+	if (dataType == "char")
+		changeCharToDataType(str);
+	if (dataType == "int")
+		changeIntToDataType(str);
+	if (dataType == "float")
+		changeFloatToDataType(str);
+	if (dataType == "double")
+		changeDoubleToDataType(str);
+	std::cout << "char : ";
+
+
+	if (!charValue)
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << charValue << std::endl;
+	std::cout << "int : ";
+	std::cout << intValue << std::endl;
+	std::cout << "float : ";
+	std::cout << floatValue << ".0f" << std::endl;
+	std::cout << "double : ";
+	std::cout << doubleValue << ".0" << std::endl;
+}
+
 std::string ScalarConverter::checkFloatOrDouble(char *argv)
 {
-	std::string dataType;
-
-	for (idx = 0; argv[idx]; idx++)
+	for (int idx = 0; argv[idx]; idx++)
 	{
 		if (argv[idx] == 'f')
+		{
+			argv[idx] = '\0';
 			return dataType = "float";
+		}
 	}
-	return dataType = "double"
+	return dataType = "double";
 }
 
 std::string ScalarConverter::checkDataType(char *argv)
 {
 	int idx = 0;
-	std::string dataType;
 
-	if (argv[idx] == "'" && argv[idx + 2] == "'")
+	if (argv[idx] == '\'' && argv[idx + 2] == '\'')
 		return dataType = "char";
 	for (idx = 0; argv[idx]; idx++)
 	{
 		if (argv[idx] == '.')
 			return dataType = checkFloatOrDouble(&argv[idx]);
 	}
-	return dataType == "int";
+	return dataType = "int";
 }
 
 void ScalarConverter::changeCharToDataType(std::string str)
 {
-	charValue = c_str(str);
 	intValue = stringToInt(str);
+	charValue = static_cast<int>(intValue);
 	floatValue = static_cast<float>(intValue);
 	doubleValue = static_cast<double>(intValue);
 }
 
 void ScalarConverter::changeIntToDataType(std::string str)
 {
-	charValue = 
-	intValue = 
+	intValue = stringToInt(str);
+	charValue = static_cast<int>(intValue);
+	floatValue = static_cast<float>(intValue);
+	doubleValue = static_cast<double>(intValue);
 }
 
 void ScalarConverter::changeFloatToDataType(std::string str)
-{}
+{
+	std::cout << str << "--------" << std::endl;
+	floatValue = stringToFloat(str);
+	charValue = static_cast<char>(floatValue);
+	intValue = static_cast<int>(floatValue);
+	doubleValue = static_cast<double>(intValue);
+	std::cout << floatValue << "--------" << std::endl;
+}
 
 void ScalarConverter::changeDoubleToDataType(std::string str)
-{}
-
-void ScalarConverter::convert(std::string str, std::string dataType)
 {
-	if (dataType == char)
+	(void)str;
+	//intValue = stringToDouble(str);
+	charValue = static_cast<int>(intValue);
+	floatValue = static_cast<float>(intValue);
+	doubleValue = static_cast<double>(intValue);
+}
+
+void ScalarConverter::convert(std::string str)
+{
+	if (dataType == "char")
 		changeCharToDataType(str);
-	if (dataType == int)
-		changeIntToDataType();
-	if (dataType == float)
-		changeFloatToDataType();
-	if (dataType == double)
-		changeDoubleToDataType();
-	intValue = static_cast<int>();
-	floatValue = static_cast<float>();
-	doubleValue = static_cast<double>();
+	if (dataType == "int")
+		changeIntToDataType(str);
+	if (dataType == "float")
+		changeFloatToDataType(str);
+	if (dataType == "double")
+		changeDoubleToDataType(str);
 }

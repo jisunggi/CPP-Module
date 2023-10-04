@@ -1,4 +1,4 @@
-#include "ScalarConverter.cpp"
+#include "ScalarConverter.hpp"
 
 int	stringToInt(std::string string)
 {
@@ -10,12 +10,40 @@ int	stringToInt(std::string string)
 	return integer;
 }
 
+float stringToFloat(std::string string)
+{
+	std::stringstream stream;
+	float rtnFloat;
+
+	stream << string;
+	stream >> rtnFloat;
+	return rtnFloat;
+}
+
+// std::string floatToString(float floatValue)
+// {
+// 	std::stringstream stream;
+// 	std::string string;
+
+// 	stream << floatValue;
+// 	stream >> string;
+// 	return string; 
+// }
+
+// int stringToFloat()
+// {
+
+// }
+
+
 int main (int argc, char **argv)
 {
-	std::string str(argv[1]);
-	std::string dataType;
-	static ScalarConverter scalarConverter();
+	if (argc < 2)
+		return 1;
+	ScalarConverter scalarConverter;
 
-	dataType = scalarConverter.checkDataType(argv[1]);
-	scalarConverter.convert(str, dataType);
+	scalarConverter.checkDataType(argv[1]);
+	std::string str(argv[1]);
+	scalarConverter.convert(str);
+	scalarConverter.printValue();
 }
