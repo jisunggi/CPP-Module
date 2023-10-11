@@ -175,6 +175,7 @@ void ScalarConverter::changeDoubleToDataType(std::string str)
 
 void ScalarConverter::convert(std::string str)
 {
+	std::cout << dataType << "--------" << std::endl;
 	if (dataType == "char")
 		changeCharToDataType(str);
 	if (dataType == "int")
