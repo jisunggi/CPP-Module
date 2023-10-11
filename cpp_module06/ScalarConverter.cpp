@@ -90,8 +90,30 @@ void ScalarConverter::printFloatChangeValue()
 	}
 }
 
-// void ScalarConverter::printDoubleChangeValue()
-// {}
+void ScalarConverter::printDoubleChangeValue()
+{
+		std::cout << "char : ";
+	if ((charValue >= 0 && charValue <= 31) || charValue == 127)
+		std::cout << "Non displayable" << std::endl;
+	else
+		std::cout << "\'" << charValue << "\'" << std::endl;
+	std::cout << "int : ";
+	std::cout << intValue << std::endl;
+	if (intValue != floatValue)
+	{
+		std::cout << "float : ";
+		std::cout << floatValue << "f" << std::endl;
+		std::cout << "double : ";
+		std::cout << doubleValue << std::endl;
+	}
+	else
+	{
+		std::cout << "float : ";
+		std::cout << floatValue << ".0f" << std::endl;
+		std::cout << "double : ";
+		std::cout << doubleValue << ".0" << std::endl;
+	}
+}
 
 void ScalarConverter::printValue()
 {
@@ -101,8 +123,8 @@ void ScalarConverter::printValue()
 		printIntChangeValue();
 	if (dataType == "float")
 		printFloatChangeValue();
-	//if (dataType == "double")
-		//printDoubleChangeValue();
+	if (dataType == "double")
+		printDoubleChangeValue();
 }
 
 std::string ScalarConverter::checkFloatOrDouble(char *argv)
@@ -122,8 +144,7 @@ std::string ScalarConverter::checkDataType(char *argv)
 {
 	int idx = 0;
 
-	std::cout << argv[idx] << std::endl;
-	if (argv[idx] == 39 && argv[idx + 2] == 39)
+	if (argv[idx] == '\'' && argv[idx + 2] == '\'')
 	{
 		argv[idx + 2] = '\0';
 		argv = &argv[idx];
@@ -167,11 +188,10 @@ void ScalarConverter::changeFloatToDataType(std::string str)
 
 void ScalarConverter::changeDoubleToDataType(std::string str)
 {
-	(void)str;
-	//intValue = stringToDouble(str);
-	charValue = static_cast<int>(intValue);
-	floatValue = static_cast<float>(intValue);
-	doubleValue = static_cast<double>(intValue);
+	doubleValue = stringToDouble(str);
+	charValue = static_cast<int>(doubleValue);
+	floatValue = static_cast<float>(doubleValue);
+	intValue = static_cast<int>(doubleValue);
 }
 
 void ScalarConverter::convert(std::string str)

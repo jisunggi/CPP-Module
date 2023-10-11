@@ -33,12 +33,12 @@ class ScalarConverter
 		void printCharChangeValue();
 		void printIntChangeValue();
 		void printFloatChangeValue();
-		//void printDoubleChangeValue();
+		void printDoubleChangeValue();
 
 };
 
 int	stringToInt(std::string string);
 float stringToFloat(std::string string);
-//std::string floatToString(int integer);
+double stringToDouble(std::string string);
 
 #endif

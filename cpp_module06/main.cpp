@@ -20,20 +20,15 @@ float stringToFloat(std::string string)
 	return rtnFloat;
 }
 
-// std::string floatToString(float floatValue)
-// {
-// 	std::stringstream stream;
-// 	std::string string;
+double stringToDouble(std::string string)
+{
+	std::stringstream stream;
+	double rtnDouble;
 
-// 	stream << floatValue;
-// 	stream >> string;
-// 	return string; 
-// }
-
-// int stringToFloat()
-// {
-
-// }
+	stream << string;
+	stream >> rtnDouble;
+	return rtnDouble;
+}
 
 
 int main (int argc, char **argv)
