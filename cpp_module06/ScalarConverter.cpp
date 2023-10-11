@@ -43,7 +43,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConvert
 
 void ScalarConverter::printIntChangeValue()
 {
-	std::cout << "aa" << std::endl;
 	std::cout << "char : ";
 	if (!charValue)
 		std::cout << "Non displayable" << std::endl;
@@ -87,6 +86,7 @@ void ScalarConverter::printFloatChangeValue()
 
 void ScalarConverter::printValue()
 {
+	std::cout << dataType << std::endl;
 	if (dataType == "char")
 		//printCharChangeValue();
 	if (dataType == "int")
@@ -134,7 +134,6 @@ void ScalarConverter::changeCharToDataType(std::string str)
 
 void ScalarConverter::changeIntToDataType(std::string str)
 {
-	std::cout << str << "--------" << std::endl;
 	intValue = stringToInt(str);
 	charValue = static_cast<int>(intValue);
 	floatValue = static_cast<float>(intValue);
