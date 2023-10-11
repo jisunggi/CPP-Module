@@ -47,7 +47,7 @@ void ScalarConverter::printIntChangeValue()
 	if (!charValue)
 		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << charValue << std::endl;
+		std::cout << "\'" << charValue << "\'" << std::endl;
 	std::cout << "int : ";
 	std::cout << intValue << std::endl;
 	std::cout << "float : ";
@@ -62,13 +62,23 @@ void ScalarConverter::printFloatChangeValue()
 	if (!charValue)
 		std::cout << "Non displayable" << std::endl;
 	else
-		std::cout << charValue << std::endl;
+		std::cout << "\'" << charValue << "\'" << std::endl;
 	std::cout << "int : ";
 	std::cout << intValue << std::endl;
-	std::cout << "float : ";
-	std::cout << floatValue << "f" << std::endl;
-	std::cout << "double : ";
-	std::cout << doubleValue << std::endl;
+	if (intValue != floatValue)
+	{
+		std::cout << "float : ";
+		std::cout << floatValue << "f" << std::endl;
+		std::cout << "double : ";
+		std::cout << doubleValue << ".0" << std::endl;
+	}
+	else
+	{
+		std::cout << "float : ";
+		std::cout << floatValue << ".0f" << std::endl;
+		std::cout << "double : ";
+		std::cout << doubleValue << std::endl;
+	}
 }
 
 // void ScalarConverter::printDoubleChangeValue()
