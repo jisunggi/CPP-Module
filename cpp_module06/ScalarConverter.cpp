@@ -138,10 +138,12 @@ std::string ScalarConverter::checkDataType(char *argv)
 
 void ScalarConverter::changeCharToDataType(std::string str)
 {
+	std::cout << str << "--------" << std::endl;
 	intValue = stringToInt(str);
 	charValue = static_cast<int>(intValue);
 	floatValue = static_cast<float>(intValue);
 	doubleValue = static_cast<double>(intValue);
+	std::cout << intValue << "--------" << std::endl;
 }
 
 void ScalarConverter::changeIntToDataType(std::string str)
