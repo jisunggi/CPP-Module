@@ -56,7 +56,7 @@ void ScalarConverter::printCharChangeValue()
 void ScalarConverter::printIntChangeValue()
 {
 	std::cout << "char : ";
-	std::cout << charValue << std::endl;
+	std::cout << "\'" << charValue << "\'" << std::endl;
 	std::cout << "int : ";
 	std::cout << intValue << std::endl;
 	std::cout << "float : ";
@@ -123,7 +123,11 @@ std::string ScalarConverter::checkDataType(char *argv)
 	int idx = 0;
 
 	if (argv[idx] == '\'' && argv[idx + 2] == '\'')
+	{
+		argv[idx + 2] = '\0';
+		argv = &argv[idx];
 		return dataType = "char";
+	}
 	for (idx = 0; argv[idx]; idx++)
 	{
 		if (argv[idx] == '.')
