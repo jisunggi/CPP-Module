@@ -86,6 +86,7 @@ void ScalarConverter::printFloatChangeValue()
 
 void ScalarConverter::printValue()
 {
+	std::cout << "--------" << std::endl;
 	if (dataType == "char")
 		//printCharChangeValue();
 	if (dataType == "int")
