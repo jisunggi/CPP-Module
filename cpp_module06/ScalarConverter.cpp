@@ -122,6 +122,7 @@ std::string ScalarConverter::checkDataType(char *argv)
 {
 	int idx = 0;
 
+	std::cout << argv[idx] << std::endl;
 	if (argv[idx] == 39 && argv[idx + 2] == 39)
 	{
 		argv[idx + 2] = '\0';
