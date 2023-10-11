@@ -43,6 +43,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConvert
 
 void ScalarConverter::printIntChangeValue()
 {
+	std::cout << "--------" << std::endl;
 	std::cout << "char : ";
 	if (!charValue)
 		std::cout << "Non displayable" << std::endl;
@@ -86,7 +87,6 @@ void ScalarConverter::printFloatChangeValue()
 
 void ScalarConverter::printValue()
 {
-	std::cout << "--------" << std::endl;
 	if (dataType == "char")
 		//printCharChangeValue();
 	if (dataType == "int")
