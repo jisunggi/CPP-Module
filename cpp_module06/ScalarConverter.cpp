@@ -44,7 +44,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConvert
 void ScalarConverter::printIntChangeValue()
 {
 	std::cout << "char : ";
-	if (!charValue)
+	if ((charValue >= 0 && charValue <= 31) || charValue == 127)
 		std::cout << "Non displayable" << std::endl;
 	else
 		std::cout << "\'" << charValue << "\'" << std::endl;
