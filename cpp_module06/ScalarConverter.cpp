@@ -66,7 +66,7 @@ void ScalarConverter::printFloatChangeValue()
 	std::cout << "int : ";
 	std::cout << intValue << std::endl;
 	std::cout << "float : ";
-	std::cout << floatValue << ".f" << std::endl;
+	std::cout << floatValue << "f" << std::endl;
 	std::cout << "double : ";
 	std::cout << doubleValue << std::endl;
 }
@@ -135,7 +135,7 @@ void ScalarConverter::changeFloatToDataType(std::string str)
 	floatValue = stringToFloat(str);
 	charValue = static_cast<char>(floatValue);
 	intValue = static_cast<int>(floatValue);
-	doubleValue = static_cast<double>(intValue);
+	doubleValue = static_cast<double>(floatValue);
 	std::cout << floatValue << "--------" << std::endl;
 }
 
