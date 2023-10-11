@@ -82,7 +82,7 @@ void ScalarConverter::printValue()
 		printIntChangeValue();
 	if (dataType == "float")
 		printFloatChangeValue();
-	if (dataType == "double")
+	//if (dataType == "double")
 		//printDoubleChangeValue();
 }
 
