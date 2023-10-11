@@ -70,14 +70,14 @@ void ScalarConverter::printFloatChangeValue()
 		std::cout << "float : ";
 		std::cout << floatValue << "f" << std::endl;
 		std::cout << "double : ";
-		std::cout << doubleValue << ".0" << std::endl;
+		std::cout << doubleValue << std::endl;
 	}
 	else
 	{
 		std::cout << "float : ";
 		std::cout << floatValue << ".0f" << std::endl;
 		std::cout << "double : ";
-		std::cout << doubleValue << std::endl;
+		std::cout << doubleValue << ".0" << std::endl;
 	}
 }
 
