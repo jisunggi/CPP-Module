@@ -38,8 +38,8 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConvert
 	return *this;
 }
 
-void ScalarConverter::printCharChangeValue()
-{}
+// void ScalarConverter::printCharChangeValue()
+// {}
 
 void ScalarConverter::printIntChangeValue()
 {
@@ -71,8 +71,8 @@ void ScalarConverter::printFloatChangeValue()
 	std::cout << doubleValue << std::endl;
 }
 
-void ScalarConverter::printDoubleChangeValue()
-{}
+// void ScalarConverter::printDoubleChangeValue()
+// {}
 
 void ScalarConverter::printValue()
 {

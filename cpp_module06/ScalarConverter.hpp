@@ -30,6 +30,11 @@ class ScalarConverter
 		void changeFloatToDataType(std::string str);
 		void changeDoubleToDataType(std::string str);
 
+		//void printCharChangeValue();
+		void printIntChangeValue();
+		void printFloatChangeValue();
+		//void printDoubleChangeValue();
+
 };
 
 int	stringToInt(std::string string);
