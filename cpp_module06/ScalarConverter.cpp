@@ -133,6 +133,7 @@ void ScalarConverter::changeCharToDataType(std::string str)
 
 void ScalarConverter::changeIntToDataType(std::string str)
 {
+	std::cout << str << "--------" << std::endl;
 	intValue = stringToInt(str);
 	charValue = static_cast<int>(intValue);
 	floatValue = static_cast<float>(intValue);
