@@ -77,13 +77,13 @@ void ScalarConverter::printFloatChangeValue()
 void ScalarConverter::printValue()
 {
 	if (dataType == "char")
-		printCharChangeValue();
+		//printCharChangeValue();
 	if (dataType == "int")
 		printIntChangeValue();
 	if (dataType == "float")
 		printFloatChangeValue();
 	if (dataType == "double")
-		printDoubleChangeValue();
+		//printDoubleChangeValue();
 }
 
 std::string ScalarConverter::checkFloatOrDouble(char *argv)
