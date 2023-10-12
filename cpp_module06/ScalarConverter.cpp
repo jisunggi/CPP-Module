@@ -165,7 +165,7 @@ std::string ScalarConverter::checkDataType(std::string str)
 		return dataType = "error222" ;
 	if (str.find(".") == std::string::npos && str.find("f", str.length() - 1) != std::string::npos)
 		return dataType = "error333" ;
-	if (str.find(".", str.length() - 2) == std::string::npos && str.find("f", str.length() - 1) != std::string::npos)
+	if (str.find(".", str.length() - 2) != std::string::npos && str.find("f", str.length() - 1) != std::string::npos)
 		return dataType = "error222" ;
 	if (str.find(".") != std::string::npos && str.find("f", str.length() - 1) != std::string::npos)
 		return dataType = "float";
