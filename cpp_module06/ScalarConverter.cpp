@@ -1,5 +1,11 @@
 #include "ScalarConverter.hpp"
 
+std::string ScalarConverter::dataType;
+char ScalarConverter::charValue;
+int ScalarConverter::intValue;
+float ScalarConverter::floatValue;
+double ScalarConverter::doubleValue;
+
 ScalarConverter::ScalarConverter()
 {
 	charValue = 0;
