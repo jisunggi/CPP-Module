@@ -148,9 +148,10 @@ std::string ScalarConverter::checkDataType(std::string str)
 		return dataType = "double";
 	if (str.length() == 1 && !(str >= "0" && str <= "9"))
 		return dataType = "char";
-	if (str.find(".") == -1)
+	if (str.find(".") == std::string::npos)
 		return dataType = "int";
-	if (str.find("f") == str.length())
+	std::cout << str.find("f", str.length() - 1) << std::endl;
+	if (str.find("f", str.length() - 1))
 		return dataType = "float";
 	return dataType = "double";
 }
