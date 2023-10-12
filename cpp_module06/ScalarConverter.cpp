@@ -161,7 +161,7 @@ std::string ScalarConverter::checkDataType(std::string str)
 		if (!(str[i] >= '0' && str[i] <= '9') && i != dotIdx && i != str.size() - 1)
 			return dataType = "error" ;
 	}
-	if (str[size() - 1] != 'f')
+	if (str.find("f", str.length() - 1) == std::string::npos)
 		return dataType = "error222" ;
 	if (str.find(".") != std::string::npos && str.find("f", str.length() - 1) != std::string::npos)
 		return dataType = "float";
