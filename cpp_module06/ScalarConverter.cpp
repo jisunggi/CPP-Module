@@ -156,8 +156,8 @@ std::string ScalarConverter::checkDataType(std::string str)
 		return dataType = "char";
 	
 	int idx = str.find(".");
-	if (str.find(".", idx))
-		throw ;
+	// if (str.find(".", idx))
+	// 	throw ;
 	if (str.find(".") && str.find("f", str.length() - 1))
 		return dataType = "float";
 	else
