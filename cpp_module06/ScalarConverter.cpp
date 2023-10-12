@@ -155,9 +155,14 @@ std::string ScalarConverter::checkDataType(std::string str)
 	if (str.length() == 1 && !(str >= "0" && str <= "9"))
 		return dataType = "char";
 	
-	//int idx = str.find(".");
-	// if (str.find(".", idx))
-	// 	throw ;
+	int dotIdx = str.find(".");
+	if (str.find(".", dotIdx + 1))
+		return dataType = "...too many" ;
+	for (int i = 0; i < str.length(); i++)
+	{
+		if (!(str[i] >= "0" && str[i] <= "9") && i != dotIdx && i != str.length() - 1)
+			return dataType = "error" ;
+	}
 	if (str.find(".") && str.find("f", str.length() - 1))
 		return dataType = "float";
 	else
