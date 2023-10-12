@@ -20,7 +20,7 @@ class ScalarConverter
 		ScalarConverter(const ScalarConverter &scalarConverter);
 		ScalarConverter &operator=(const ScalarConverter &scalarConverter);
 
-		std::string checkDataType(char *argv);
+		std::string checkDataType(std::string str);
 		std::string checkFloatOrDouble(char *argv);
 		void convert(std::string str);
 		void printValue();

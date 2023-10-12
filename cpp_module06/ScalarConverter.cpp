@@ -140,22 +140,19 @@ std::string ScalarConverter::checkFloatOrDouble(char *argv)
 	return dataType = "double";
 }
 
-std::string ScalarConverter::checkDataType(char *argv)
+std::string ScalarConverter::checkDataType(std::string str)
 {
-	int idx = 0;
-
-	if (argv[idx] == '\'' && argv[idx + 2] == '\'')
-	{
-		argv[idx + 2] = '\0';
-		argv = &argv[idx];
+	if (str == "-inff" || str == "+inff" || str == "nanf")
+		return dataType = "float";
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		return dataType = "double";
+	if (str.length() == 1 && !(str >= "0" && str <= "9"))
 		return dataType = "char";
-	}
-	for (idx = 0; argv[idx]; idx++)
-	{
-		if (argv[idx] == '.')
-			return dataType = checkFloatOrDouble(&argv[idx]);
-	}
-	return dataType = "int";
+	if (str.find(".") == -1)
+		return dataType = "int";
+	if (str.find("f") == str.length())
+		return dataType = "float";
+	return dataType = "double";
 }
 
 void ScalarConverter::changeCharToDataType(std::string str)

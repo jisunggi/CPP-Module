@@ -37,8 +37,8 @@ int main (int argc, char **argv)
 		return 1;
 	ScalarConverter scalarConverter;
 
-	scalarConverter.checkDataType(argv[1]);
 	std::string str(argv[1]);
+	scalarConverter.checkDataType(argv[1]);
 	scalarConverter.convert(str);
 	scalarConverter.printValue();
 }
