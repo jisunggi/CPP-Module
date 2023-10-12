@@ -8,32 +8,32 @@
 class ScalarConverter
 {
 	private :
-		std::string dataType;
-		char charValue;
-		int intValue;
-		float floatValue;
-		double doubleValue;
+		static std::string dataType;
+		static char charValue;
+		static int intValue;
+		static float floatValue;
+		static double doubleValue;
 
 	public :
-		ScalarConverter();
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &scalarConverter);
-		ScalarConverter &operator=(const ScalarConverter &scalarConverter);
+		static ScalarConverter();
+		static ~ScalarConverter();
+		static ScalarConverter(const ScalarConverter &scalarConverter);
+		static ScalarConverter &operator=(const ScalarConverter &scalarConverter);
 
-		std::string checkDataType(std::string str);
-		std::string checkFloatOrDouble(char *argv);
-		void convert(std::string str);
-		void printValue();
+		static std::string checkDataType(std::string str);
+		static std::string checkFloatOrDouble(char *argv);
+		static void convert(std::string str);
+		static void printValue();
 
-		void changeCharToDataType(std::string str);
-		void changeIntToDataType(std::string str);
-		void changeFloatToDataType(std::string str);
-		void changeDoubleToDataType(std::string str);
+		static void changeCharToDataType(std::string str);
+		static void changeIntToDataType(std::string str);
+		static void changeFloatToDataType(std::string str);
+		static void changeDoubleToDataType(std::string str);
 
-		void printCharChangeValue();
-		void printIntChangeValue();
-		void printFloatChangeValue();
-		void printDoubleChangeValue();
+		static void printCharChangeValue();
+		static void printIntChangeValue();
+		static void printFloatChangeValue();
+		staticvoid printDoubleChangeValue();
 
 };
 
