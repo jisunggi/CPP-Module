@@ -154,12 +154,15 @@ std::string ScalarConverter::checkDataType(std::string str)
 		return dataType = "double";
 	if (str.length() == 1 && !(str >= "0" && str <= "9"))
 		return dataType = "char";
-	if (str.find(".") == std::string::npos)
-		return dataType = "int";
-	std::cout << str.find("f", str.length() - 1) << std::endl;
-	if (str.find("f", str.length() - 1))
+	
+	int idx = str.find(".");
+	if (str.find(".", idx))
+		throw ;
+	if (str.find(".") && str.find("f", str.length() - 1))
 		return dataType = "float";
-	return dataType = "double";
+	else
+		return dataType = "double";
+	return dataType = "int";
 }
 
 void ScalarConverter::changeCharToDataType(std::string str)
