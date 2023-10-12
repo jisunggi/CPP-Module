@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-static ScalarConverter::ScalarConverter()
+ScalarConverter::ScalarConverter()
 {
 	charValue = 0;
 	intValue = 0;
@@ -9,12 +9,12 @@ static ScalarConverter::ScalarConverter()
 	std::cout << "ScalarConverter : Default constructor called" << std::endl;
 }
 
-static ScalarConverter::~ScalarConverter()
+ScalarConverter::~ScalarConverter()
 {
 	std::cout << "ScalarConverter : Destructor called" << std::endl;
 }
 
-static ScalarConverter::ScalarConverter(const ScalarConverter &scalarConverter)
+ScalarConverter::ScalarConverter(const ScalarConverter &scalarConverter)
 {
 	dataType = scalarConverter.dataType;
 	charValue = scalarConverter.charValue;
@@ -24,7 +24,7 @@ static ScalarConverter::ScalarConverter(const ScalarConverter &scalarConverter)
 	std::cout << "ScalarConverter : Copy constructor called" << std::endl;
 }
 
-static ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConverter)
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &scalarConverter)
 {
 	if (this != &scalarConverter)
 	{

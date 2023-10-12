@@ -15,10 +15,10 @@ class ScalarConverter
 		static double doubleValue;
 
 	public :
-		static ScalarConverter();
-		static ~ScalarConverter();
-		static ScalarConverter(const ScalarConverter &scalarConverter);
-		static ScalarConverter &operator=(const ScalarConverter &scalarConverter);
+		ScalarConverter();
+		~ScalarConverter();
+		ScalarConverter(const ScalarConverter &scalarConverter);
+		ScalarConverter &operator=(const ScalarConverter &scalarConverter);
 
 		static std::string checkDataType(std::string str);
 		static std::string checkFloatOrDouble(char *argv);
@@ -33,7 +33,7 @@ class ScalarConverter
 		static void printCharChangeValue();
 		static void printIntChangeValue();
 		static void printFloatChangeValue();
-		staticvoid printDoubleChangeValue();
+		static void printDoubleChangeValue();
 
 };
 
