@@ -59,7 +59,7 @@ void ScalarConverter::printCharChangeValue()
 	std::cout << doubleValue << ".0" << std::endl;
 }
 
-void ScalarConverter::printIntChangeValue()
+void ScalarConverter::printIntChangeValue(std::string str)
 {
 	std::cout << "char : ";
 	if ((charValue >= 0 && charValue <= 31) || charValue == 127)
@@ -68,7 +68,7 @@ void ScalarConverter::printIntChangeValue()
 		std::cout << "\'" << charValue << "\'" << std::endl;
 	std::cout << "int : ";
 	std::cout << intValue << std::endl;
-	if (intValue != floatValue)
+	if (str.size() >= 6)
 	{
 		std::cout << "float : ";
 		std::cout << floatValue << std::endl;
@@ -134,12 +134,12 @@ void ScalarConverter::printDoubleChangeValue()
 	}
 }
 
-void ScalarConverter::printValue()
+void ScalarConverter::printValue(std::string str)
 {
 	if (dataType == "char")
 		printCharChangeValue();
 	if (dataType == "int")
-		printIntChangeValue();
+		printIntChangeValue(str);
 	if (dataType == "float")
 		printFloatChangeValue();
 	if (dataType == "double")
@@ -225,5 +225,5 @@ void ScalarConverter::convert(std::string str)
 		changeFloatToDataType(str);
 	if (dataType == "double")
 		changeDoubleToDataType(str);
-	printValue();
+	printValue(str);
 }

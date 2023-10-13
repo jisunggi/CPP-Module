@@ -7,6 +7,8 @@ int	stringToInt(std::string string)
 
 	stream << string;
 	stream >> integer;
+	if (stream.fail())
+		std::cout << "overflow" << std::endl;
 	return integer;
 }
 
