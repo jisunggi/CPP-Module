@@ -68,10 +68,20 @@ void ScalarConverter::printIntChangeValue()
 		std::cout << "\'" << charValue << "\'" << std::endl;
 	std::cout << "int : ";
 	std::cout << intValue << std::endl;
-	std::cout << "float : ";
-	std::cout << floatValue << ".0f" << std::endl;
-	std::cout << "double : ";
-	std::cout << doubleValue << ".0" << std::endl;
+	if (intValue != floatValue)
+	{
+		std::cout << "float : ";
+		std::cout << floatValue << std::endl;
+		std::cout << "double : ";
+		std::cout << doubleValue << std::endl;
+	}
+	else
+	{
+		std::cout << "float : ";
+		std::cout << floatValue << ".0f" << std::endl;
+		std::cout << "double : ";
+		std::cout << doubleValue << ".0" << std::endl;
+	}
 }
 
 void ScalarConverter::printFloatChangeValue()
