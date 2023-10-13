@@ -182,6 +182,7 @@ void ScalarConverter::changeIntToDataType(std::string str)
 	charValue = static_cast<int>(intValue);
 	floatValue = static_cast<float>(intValue);
 	doubleValue = static_cast<double>(intValue);
+	std::cout << intValue << "--------" << std::endl;
 }
 
 void ScalarConverter::changeFloatToDataType(std::string str)
