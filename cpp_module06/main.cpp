@@ -19,6 +19,8 @@ float stringToFloat(std::string string)
 
 	stream << string;
 	stream >> rtnFloat;
+	if (stream.fail())
+		std::cout << "overflow" << std::endl;
 	return rtnFloat;
 }
 
@@ -29,6 +31,8 @@ double stringToDouble(std::string string)
 
 	stream << string;
 	stream >> rtnDouble;
+	if (stream.fail())
+		std::cout << "overflow" << std::endl;
 	return rtnDouble;
 }
 
