@@ -61,7 +61,6 @@ void ScalarConverter::printCharChangeValue()
 
 void ScalarConverter::printIntChangeValue()
 {
-	std::cout << charValue << std::endl;
 	std::cout << "char : ";
 	if ((charValue >= 0 && charValue <= 31) || charValue == 127)
 		std::cout << "Non displayable" << std::endl;
@@ -170,10 +169,10 @@ std::string ScalarConverter::checkDataType(std::string str)
 void ScalarConverter::changeCharToDataType(std::string str)
 {
 	std::cout << str << "--------" << std::endl;
-	intValue = stringToInt(str);
-	charValue = static_cast<int>(intValue);
-	floatValue = static_cast<float>(intValue);
-	doubleValue = static_cast<double>(intValue);
+	charValue = str;
+	intValue = static_cast<int>(charValue);
+	floatValue = static_cast<float>(charValue);
+	doubleValue = static_cast<double>(charValue);
 	std::cout << intValue << "--------" << std::endl;
 }
 
