@@ -13,9 +13,9 @@ class ScalarConverter
 		static int intValue;
 		static float floatValue;
 		static double doubleValue;
+		ScalarConverter();
 
 	public :
-		ScalarConverter();
 		~ScalarConverter();
 		ScalarConverter(const ScalarConverter &scalarConverter);
 		ScalarConverter &operator=(const ScalarConverter &scalarConverter);

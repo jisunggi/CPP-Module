@@ -169,7 +169,7 @@ std::string ScalarConverter::checkDataType(std::string str)
 void ScalarConverter::changeCharToDataType(std::string str)
 {
 	std::cout << str << "--------" << std::endl;
-	charValue = str;
+	charValue = str.c_str();
 	intValue = static_cast<int>(charValue);
 	floatValue = static_cast<float>(charValue);
 	doubleValue = static_cast<double>(charValue);
