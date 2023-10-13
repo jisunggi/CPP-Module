@@ -61,6 +61,7 @@ void ScalarConverter::printCharChangeValue()
 
 void ScalarConverter::printIntChangeValue()
 {
+	std::cout << charValue << std::endl;
 	std::cout << "char : ";
 	if ((charValue >= 0 && charValue <= 31) || charValue == 127)
 		std::cout << "Non displayable" << std::endl;
@@ -134,19 +135,6 @@ void ScalarConverter::printValue()
 		printFloatChangeValue();
 	if (dataType == "double")
 		printDoubleChangeValue();
-}
-
-std::string ScalarConverter::checkFloatOrDouble(char *argv)
-{
-	for (int idx = 0; argv[idx]; idx++)
-	{
-		if (argv[idx] == 'f')
-		{
-			argv[idx] = '\0';
-			return dataType = "float";
-		}
-	}
-	return dataType = "double";
 }
 
 std::string ScalarConverter::checkDataType(std::string str)
