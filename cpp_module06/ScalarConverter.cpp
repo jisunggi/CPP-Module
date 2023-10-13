@@ -161,6 +161,8 @@ std::string ScalarConverter::checkDataType(std::string str)
 	std::string::size_type dotIdx = str.find(".");
 	for (std::string::size_type i = 0; i < str.size(); i++)
 	{
+		if (str[0] == '-')
+			continue;
 		if (!(str[i] >= '0' && str[i] <= '9') && i != dotIdx && i != str.size() - 1)
 			return dataType = "error" ;
 	}
