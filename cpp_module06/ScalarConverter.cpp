@@ -170,6 +170,93 @@ void ScalarConverter::printDoubleChangeValue(std::string str)
 // 		printDoubleChangeValue();
 // }
 
+int	ScalarConverter::stringToInt(std::string string)
+{
+	std::stringstream stream;
+	int integer;
+
+	stream << string;
+	stream >> integer;
+	if (stream.fail())
+	{
+		dataType = "double";
+		error = 1;
+	}
+	return integer;
+}
+
+float ScalarConverter::stringToFloat(std::string string)
+{
+	std::stringstream stream;
+	float rtnFloat;
+
+	stream << string;
+	stream >> rtnFloat;
+	if (stream.fail())
+		return error = 1;
+	std::cout << rtnFloat << std::endl;
+	return rtnFloat;
+}
+
+double ScalarConverter::stringToDouble(std::string string)
+{
+	std::stringstream stream;
+	double rtnDouble;
+
+	stream << string;
+	stream >> rtnDouble;
+	if (stream.fail())
+		return error = 1;
+	return rtnDouble;
+}
+
+void ScalarConverter::changeCharToDataType(std::string str)
+{
+	std::cout << str << "--------" << std::endl;
+	charValue = str[0];
+	intValue = static_cast<int>(charValue);
+	floatValue = static_cast<float>(charValue);
+	doubleValue = static_cast<double>(charValue);
+	std::cout << intValue << "--------" << std::endl;
+	printCharChangeValue();
+}
+
+void ScalarConverter::changeIntToDataType(std::string str)
+{
+	intValue = stringToInt(str);
+	if (dataType == "double")
+		return ;
+	charValue = static_cast<char>(intValue);
+	floatValue = static_cast<float>(intValue);
+	doubleValue = static_cast<double>(intValue);
+	std::cout << floatValue << "--------" << std::endl;
+	printIntChangeValue(str);
+}
+
+void ScalarConverter::changeFloatToDataType(std::string str)
+{
+	//str.resize(str.size() - 1);
+	std::cout << str << "--------" << std::endl;
+	floatValue = stringToFloat(str);
+	charValue = static_cast<char>(floatValue);
+	intValue = static_cast<int>(floatValue);
+	doubleValue = static_cast<double>(floatValue);
+	std::cout << floatValue << "--------" << std::endl;
+	printFloatChangeValue(str);
+}
+
+void ScalarConverter::changeDoubleToDataType(std::string str)
+{
+	std::cout << dataType << "--------" << std::endl;
+	doubleValue = stringToDouble(str);
+	charValue = static_cast<char>(doubleValue);
+	floatValue = static_cast<float>(doubleValue);
+	intValue = static_cast<int>(doubleValue);
+	std::cout << doubleValue << "--------" << std::endl;
+	std::cout << floatValue << "--------" << std::endl;
+	printDoubleChangeValue(str);
+}
+
 std::string ScalarConverter::checkDataType(std::string str)
 {
 	if (str == "-inff" || str == "+inff" || str == "nanf")
@@ -204,53 +291,6 @@ std::string ScalarConverter::checkDataType(std::string str)
 	if (str.find(".") != std::string::npos)
 		return dataType = "double";
 	return dataType = "int";
-}
-
-void ScalarConverter::changeCharToDataType(std::string str)
-{
-	std::cout << str << "--------" << std::endl;
-	charValue = str[0];
-	intValue = static_cast<int>(charValue);
-	floatValue = static_cast<float>(charValue);
-	doubleValue = static_cast<double>(charValue);
-	std::cout << intValue << "--------" << std::endl;
-	printCharChangeValue();
-}
-
-void ScalarConverter::changeIntToDataType(std::string str)
-{
-	intValue = stringToInt(str);
-	if (dataType == "double")
-		return ;
-	charValue = static_cast<char>(intValue);
-	floatValue = static_cast<float>(intValue);
-	doubleValue = static_cast<double>(intValue);
-	std::cout << floatValue << "--------" << std::endl;
-	printIntChangeValue(str);
-}
-
-void ScalarConverter::changeFloatToDataType(std::string str)
-{
-	//str = "42.0";
-	std::cout << str << "--------" << std::endl;
-	floatValue = stringToFloat(str);
-	charValue = static_cast<char>(floatValue);
-	intValue = static_cast<int>(floatValue);
-	doubleValue = static_cast<double>(floatValue);
-	std::cout << floatValue << "--------" << std::endl;
-	printFloatChangeValue(str);
-}
-
-void ScalarConverter::changeDoubleToDataType(std::string str)
-{
-	std::cout << dataType << "--------" << std::endl;
-	doubleValue = stringToDouble(str);
-	charValue = static_cast<char>(doubleValue);
-	floatValue = static_cast<float>(doubleValue);
-	intValue = static_cast<int>(doubleValue);
-	std::cout << doubleValue << "--------" << std::endl;
-	std::cout << floatValue << "--------" << std::endl;
-	printDoubleChangeValue(str);
 }
 
 void ScalarConverter::convert(std::string str)

@@ -23,7 +23,6 @@ class ScalarConverter
 
 		static std::string checkDataType(std::string str);
 		static void convert(std::string str);
-		//static void printValue(std::string str);
 
 		static void changeCharToDataType(std::string str);
 		static void changeIntToDataType(std::string str);
