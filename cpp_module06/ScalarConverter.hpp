@@ -13,6 +13,7 @@ class ScalarConverter
 		static int intValue;
 		static float floatValue;
 		static double doubleValue;
+		static int error;
 		ScalarConverter();
 
 	public :
@@ -22,22 +23,28 @@ class ScalarConverter
 
 		static std::string checkDataType(std::string str);
 		static void convert(std::string str);
-		static void printValue(std::string str);
+		//static void printValue(std::string str);
 
 		static void changeCharToDataType(std::string str);
 		static void changeIntToDataType(std::string str);
 		static void changeFloatToDataType(std::string str);
 		static void changeDoubleToDataType(std::string str);
 
+		static int	stringToInt(std::string string);
+		static float stringToFloat(std::string string);
+		static double stringToDouble(std::string string);
+
 		static void printCharChangeValue();
 		static void printIntChangeValue(std::string str);
-		static void printFloatChangeValue();
-		static void printDoubleChangeValue();
+		static void printFloatChangeValue(std::string str);
+		static void printDoubleChangeValue(std::string str);
+
+		class wrongInputException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
 };
-
-int	stringToInt(std::string string);
-float stringToFloat(std::string string);
-double stringToDouble(std::string string);
 
 #endif

@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-int	stringToInt(std::string string)
+int	ScalarConverter::stringToInt(std::string string)
 {
 	std::stringstream stream;
 	int integer;
@@ -8,23 +8,27 @@ int	stringToInt(std::string string)
 	stream << string;
 	stream >> integer;
 	if (stream.fail())
-		std::cout << "overflow" << std::endl;
+	{
+		dataType = "double";
+		error = 1;
+	}
 	return integer;
 }
 
-float stringToFloat(std::string string)
+float ScalarConverter::stringToFloat(std::string string)
 {
 	std::stringstream stream;
 	float rtnFloat;
 
 	stream << string;
 	stream >> rtnFloat;
-	if (stream.fail())
-		std::cout << "overflow" << std::endl;
+	// if (stream.fail())
+	// 	return error = 1;
+	std::cout << rtnFloat << std::endl;
 	return rtnFloat;
 }
 
-double stringToDouble(std::string string)
+double ScalarConverter::stringToDouble(std::string string)
 {
 	std::stringstream stream;
 	double rtnDouble;
@@ -32,7 +36,7 @@ double stringToDouble(std::string string)
 	stream << string;
 	stream >> rtnDouble;
 	if (stream.fail())
-		std::cout << "overflow" << std::endl;
+		return error = 1;
 	return rtnDouble;
 }
 
