@@ -231,6 +231,7 @@ void ScalarConverter::changeIntToDataType(std::string str)
 
 void ScalarConverter::changeFloatToDataType(std::string str)
 {
+	str = "42.0";
 	std::cout << str << "--------" << std::endl;
 	floatValue = stringToFloat(str);
 	charValue = static_cast<char>(floatValue);
