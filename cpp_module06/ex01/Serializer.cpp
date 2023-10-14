@@ -19,6 +19,7 @@ Serializer &Serializer::operator=(const Serializer &serializer)
 {
 	if (this != &serializer)
 	{
+        (void)&serializer;
 	}
 	std::cout << "Serializer : Copy assignment operator called" << std::endl;
 	return *this;
