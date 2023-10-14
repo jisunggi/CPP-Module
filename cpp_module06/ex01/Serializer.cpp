@@ -23,6 +23,7 @@ Serializer &Serializer::operator=(const Serializer &serializer)
         std::cout << "Serializer : Copy assignment operator called" << std::endl;
 	    return *this;
 	}
+    return *this;
 }
 
 uintptr_t Serializer::serialize(Data* ptr)
