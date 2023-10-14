@@ -1,10 +1,5 @@
 #include "Serializer.hpp"
 
-struct Data
-{
-    std::string name;
-};
-
 int main (void)
 {
     Data data;
