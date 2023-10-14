@@ -158,18 +158,6 @@ void ScalarConverter::printDoubleChangeValue(std::string str)
 	}
 }
 
-// void ScalarConverter::printValue(std::string str)
-// {
-// 	if (dataType == "char")
-// 		printCharChangeValue();
-// 	if (dataType == "int")
-// 		printIntChangeValue(str);
-// 	if (dataType == "float")
-// 		printFloatChangeValue();
-// 	if (dataType == "double")
-// 		printDoubleChangeValue();
-// }
-
 int	ScalarConverter::stringToInt(std::string string)
 {
 	std::stringstream stream;
