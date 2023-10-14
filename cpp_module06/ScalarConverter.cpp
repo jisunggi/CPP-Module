@@ -194,7 +194,6 @@ float ScalarConverter::stringToFloat(std::string string)
 	stream >> rtnFloat;
 	if (stream.fail())
 		return error = 1;
-	std::cout << rtnFloat << std::endl;
 	return rtnFloat;
 }
 
