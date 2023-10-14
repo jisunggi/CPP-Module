@@ -12,6 +12,7 @@ Serializer::~Serializer()
 
 Serializer::Serializer(const Serializer &serializer)
 {
+    (void)&serializer;
 	std::cout << "Serializer : Copy constructor called" << std::endl;
 }
 
@@ -19,10 +20,9 @@ Serializer &Serializer::operator=(const Serializer &serializer)
 {
 	if (this != &serializer)
 	{
-        (void)&serializer;
+        std::cout << "Serializer : Copy assignment operator called" << std::endl;
+	    return *this;
 	}
-	std::cout << "Serializer : Copy assignment operator called" << std::endl;
-	return *this;
 }
 
 uintptr_t Serializer::serialize(Data* ptr)
