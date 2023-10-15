@@ -199,12 +199,10 @@ double ScalarConverter::stringToDouble(std::string string)
 
 void ScalarConverter::changeCharToDataType(std::string str)
 {
-	std::cout << str << "--------" << std::endl;
 	charValue = str[0];
 	intValue = static_cast<int>(charValue);
 	floatValue = static_cast<float>(charValue);
 	doubleValue = static_cast<double>(charValue);
-	std::cout << intValue << "--------" << std::endl;
 	printCharChangeValue();
 }
 
@@ -216,31 +214,25 @@ void ScalarConverter::changeIntToDataType(std::string str)
 	charValue = static_cast<char>(intValue);
 	floatValue = static_cast<float>(intValue);
 	doubleValue = static_cast<double>(intValue);
-	std::cout << floatValue << "--------" << std::endl;
 	printIntChangeValue(str);
 }
 
 void ScalarConverter::changeFloatToDataType(std::string str)
 {
-	//str.resize(str.size() - 1);
-	std::cout << str << "--------" << std::endl;
+	str.resize(str.size() - 1);
 	floatValue = stringToFloat(str);
 	charValue = static_cast<char>(floatValue);
 	intValue = static_cast<int>(floatValue);
 	doubleValue = static_cast<double>(floatValue);
-	std::cout << floatValue << "--------" << std::endl;
 	printFloatChangeValue(str);
 }
 
 void ScalarConverter::changeDoubleToDataType(std::string str)
 {
-	std::cout << dataType << "--------" << std::endl;
 	doubleValue = stringToDouble(str);
 	charValue = static_cast<char>(doubleValue);
 	floatValue = static_cast<float>(doubleValue);
 	intValue = static_cast<int>(doubleValue);
-	std::cout << doubleValue << "--------" << std::endl;
-	std::cout << floatValue << "--------" << std::endl;
 	printDoubleChangeValue(str);
 }
 
@@ -285,7 +277,6 @@ void ScalarConverter::convert(std::string str)
 	try
 	{
 		checkDataType(str);
-		std::cout << dataType << "--------" << std::endl;
 		if (dataType == "char")
 			changeCharToDataType(str);
 		if (dataType == "int")
