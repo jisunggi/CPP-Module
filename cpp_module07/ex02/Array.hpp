@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <ctime>
 
 template <class T>
 class Array
