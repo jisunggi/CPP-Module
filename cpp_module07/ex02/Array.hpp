@@ -16,7 +16,7 @@ class Array
 	public :
 		Array()
 		{
-			array = new T[0];
+			array = new T;
 		};
 		Array(unsigned int n)
 		{
@@ -25,13 +25,14 @@ class Array
 		};
 		~Array()
 		{
-			delete [] array;
+			if (this->array != NULL)
+				delete [] array;
 		};
 		Array(const Array &object)
 		{
 			this->n = object.size();
 			if (array != NULL)
-				delete array;
+				delete [] array;
 			array = new T[n];
 			for (unsigned int i = 0; i < n; i++)
         		array[i] = object.array[i];
@@ -42,7 +43,7 @@ class Array
 			{
 				this->n = object.size();
 				if (array != NULL)
-					delete array;
+					delete [] array;
 				array = new T[n];
 				for (unsigned int i = 0; i < n; i++)
         			array[i] = object.array[i];
