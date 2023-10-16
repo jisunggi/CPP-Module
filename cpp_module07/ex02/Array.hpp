@@ -53,7 +53,10 @@ class Array
 		T &operator[](unsigned int n)
 		{
 			if (n >= this->size())
-				throw std::exception();
+			{
+
+				return 0;
+			}
 			return array[n];
 		};
 
