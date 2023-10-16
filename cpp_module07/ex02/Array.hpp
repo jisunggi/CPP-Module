@@ -16,7 +16,7 @@ class Array
 	public :
 		Array()
 		{
-			array = new T;
+			array = new T[0];
 		};
 		Array(unsigned int n)
 		{
@@ -25,7 +25,7 @@ class Array
 		};
 		~Array()
 		{
-			//delete [] array;
+			delete [] array;
 		};
 		Array(const Array &object)
 		{
