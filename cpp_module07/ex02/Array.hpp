@@ -55,7 +55,7 @@ class Array
 			if (n >= this->size())
 			{
 
-				return 0;
+				return array[0];
 			}
 			return array[n];
 		};
