@@ -25,7 +25,7 @@ class Array
 		};
 		~Array()
 		{
-			delete [] array;
+			//delete [] array;
 		};
 		Array(const Array &object)
 		{
