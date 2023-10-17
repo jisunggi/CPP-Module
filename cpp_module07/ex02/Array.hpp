@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <ctime>
 
-template <class T>
+template <typename T>
 class Array
 {
 	private :
@@ -77,7 +77,7 @@ class Array
 		};
 };
 
-template <class T>
+template <typename T>
 const char * Array<T>::OutOfBounds::what() const throw()
 {
 	return "Array out of bounds";
