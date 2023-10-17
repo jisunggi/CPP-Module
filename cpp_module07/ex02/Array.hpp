@@ -26,9 +26,9 @@ class Array
 		};
 		~Array()
 		{
-			if (this->array != NULL)
-				delete [] array;
-			array = 0;
+			//if (this->array != NULL)
+			//	delete [] array;
+			//array = 0;
 		};
 		Array(const Array &object)
 		{
