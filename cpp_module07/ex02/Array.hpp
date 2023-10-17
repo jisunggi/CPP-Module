@@ -62,13 +62,13 @@ class Array
 		T &operator[](unsigned int n)
 		{
 			if (n >= this->size())
-				throw OutOfBounds::exception;
+				throw OutOfBounds::exception();
 			return array[n];
 		};
 		const T &operator[](unsigned int n) const
 		{
 			if (n >= this->size())
-				throw OutOfBounds::exception;
+				throw OutOfBounds::exception();
 			return array[n];
 		};
 
