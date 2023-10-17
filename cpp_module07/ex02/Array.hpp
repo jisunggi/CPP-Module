@@ -16,7 +16,8 @@ class Array
 	public :
 		Array()
 		{
-			array = new T;
+			n = 0;
+			array = new T[n];
 		};
 		Array(unsigned int n)
 		{
@@ -53,22 +54,14 @@ class Array
 		T &operator[](unsigned int n)
 		{
 			if (n >= this->size())
-			{
-
-				return array[0];
-			}
+				throw std::exception();
 			return array[n];
 		};
 
 		unsigned int size() const
 		{
 			return this->n;
-		};
-		T *getArray() const
-		{
-			return this->array;
-		}
-		
+		};	
 };
 
 #endif
