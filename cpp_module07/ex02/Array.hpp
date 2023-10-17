@@ -57,7 +57,7 @@ class Array
 				throw std::exception();
 			return array[n];
 		};
-		T &operator[](unsigned int n) const
+		const T &operator[](unsigned int n) const
 		{
 			if (n >= this->size())
 				throw std::exception();
