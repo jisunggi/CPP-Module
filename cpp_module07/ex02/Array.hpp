@@ -32,20 +32,19 @@ class Array
 		};
 		Array(const Array &object)
 		{
-			this->n = object.size();
-			if (array != NULL)
-				//delete [] array;
+			this->n = object.n;
 			array = new T[n];
 			for (unsigned int i = 0; i < n; i++)
         		array[i] = object.array[i];
-    	};
+			*this = object;
+		};
 		Array &operator=(const Array &object)
 		{
 			if (this != &object)
 			{
-				this->n = object.size();
+				this->n = object.n;
 				if (array != NULL)
-					delete [] array;
+					delete[] array;
 				array = new T[n];
 				for (unsigned int i = 0; i < n; i++)
         			array[i] = object.array[i];
@@ -54,13 +53,13 @@ class Array
 		};
 		T &operator[](unsigned int index)
 		{
-			if (index >= this->n || array == NULL)
+			if (index >= this->n)
 				throw Array<T>::OutOfBounds();
 			return array[index];
 		};
 		const T &operator[](unsigned int index) const
 		{
-			if (index >= this->n || array == NULL)
+			if (index >= this->n)
 				throw Array<T>::OutOfBounds();
 			return array[index];
 		};
