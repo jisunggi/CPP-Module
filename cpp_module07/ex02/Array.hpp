@@ -55,13 +55,13 @@ class Array
 		T &operator[](unsigned int n)
 		{
 			if (n >= this->size())
-				throw std::exception();
+				throw OutOfBounds();
 			return array[n];
 		};
 		const T &operator[](unsigned int n) const
 		{
 			if (n >= this->size())
-				throw std::exception();
+				throw OutOfBounds();
 			return array[n];
 		};
 
@@ -69,6 +69,13 @@ class Array
 		{
 			return this->n;
 		};	
+};
+
+class OutOfBounds : public std::exception {
+  public:
+    const char* what() const throw() {
+      return "Array - Out of range";
+    }
 };
 
 #endif
