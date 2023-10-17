@@ -52,15 +52,15 @@ class Array
 			}
 			return *this;
 		};
-		T &operator[](unsigned int n)
+		T &operator[](unsigned int index)
 		{
-			if (n >= this->size() || n == 0)
+			if (index >= this->size() || n == 0)
 				throw OutOfBounds();
 			return array[n];
 		};
-		const T &operator[](unsigned int n) const
+		const T &operator[](unsigned int index) const
 		{
-			if (n >= this->size() || n == 0)
+			if (index >= this->size() || n == 0)
 				throw OutOfBounds();
 			return array[n];
 		};
