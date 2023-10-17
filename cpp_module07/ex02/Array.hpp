@@ -17,7 +17,7 @@ class Array
 		Array()
 		{
 			n = 0;
-			array = NULL;
+			array = new T[n];
 		};
 		Array(unsigned int n)
 		{
@@ -26,9 +26,9 @@ class Array
 		};
 		~Array()
 		{
-			// if (this->array != NULL)
-			// 	delete [] array;
-			// array = 0;
+			if (this->array != NULL)
+				delete [] array;
+			array = 0;
 		};
 		Array(const Array &object)
 		{
@@ -56,13 +56,13 @@ class Array
 		{
 			if (index >= this->n || array == NULL)
 				throw Array<T>::OutOfBounds();
-			return array[n];
+			return array[index];
 		};
 		const T &operator[](unsigned int index) const
 		{
 			if (index >= this->n || array == NULL)
 				throw Array<T>::OutOfBounds();
-			return array[n];
+			return array[index];
 		};
 
 		unsigned int size() const
