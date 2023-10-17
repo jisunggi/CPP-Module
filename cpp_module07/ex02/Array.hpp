@@ -6,13 +6,6 @@
 #include <cstdlib>
 #include <ctime>
 
-class OutOfBounds : public std::exception {
-  public:
-    const char* what() const throw() {
-      return "Array - Out of range";
-    }
-};
-
 template <class T>
 class Array
 {
@@ -62,20 +55,32 @@ class Array
 		T &operator[](unsigned int n)
 		{
 			if (n >= this->size() || n == 0)
-				throw OutOfBounds::exception();
+				throw OutOfBounds();
 			return array[n];
 		};
 		const T &operator[](unsigned int n) const
 		{
 			if (n >= this->size() || n == 0)
-				throw OutOfBounds::exception();
+				throw OutOfBounds();
 			return array[n];
 		};
 
 		unsigned int size() const
 		{
 			return this->n;
-		};	
+		};
+
+		class OutOfBounds : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 };
+
+template <class T>
+const char * Array<T>::OutOfBounds::what() const throw()
+{
+	return "Array out of bounds";
+}
 
 #endif
