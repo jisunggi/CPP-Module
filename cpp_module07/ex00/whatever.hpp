@@ -1,49 +1,27 @@
-#ifndef SCALARCONVERTER_CPP
-# define SCALARCONVERTER_CPP
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
 #include <iostream>
 #include <string>
-#include <sstream>
 
-class ScalarConverter
+template <typename T>
+void swap(T &a, T &b)
 {
-	private :
-		static std::string dataType;
-		static char charValue;
-		static int intValue;
-		static float floatValue;
-		static double doubleValue;
-		static int error;
-		ScalarConverter();
+	T temp = a;
+	a = b;
+	b = temp;
+}
 
-	public :
-		~ScalarConverter();
-		ScalarConverter(const ScalarConverter &scalarConverter);
-		ScalarConverter &operator=(const ScalarConverter &scalarConverter);
+template <typename T>
+T max (T &a, T &b)
+{
+	return b >= a ? b : a;
+}
 
-		static std::string checkDataType(std::string str);
-		static void convert(std::string str);
-
-		static void changeCharToDataType(std::string str);
-		static void changeIntToDataType(std::string str);
-		static void changeFloatToDataType(std::string str);
-		static void changeDoubleToDataType(std::string str);
-
-		static int	stringToInt(std::string string);
-		static float stringToFloat(std::string string);
-		static double stringToDouble(std::string string);
-
-		static void printCharChangeValue();
-		static void printIntChangeValue(std::string str);
-		static void printFloatChangeValue(std::string str);
-		static void printDoubleChangeValue(std::string str);
-
-		class wrongInputException : public std::exception
-		{
-			public:
-				virtual const char *what() const throw();
-		};
-
-};
+template <typename T>
+T min (T &a, T &b)
+{
+	return b <= a ? b : a;
+}
 
 #endif
