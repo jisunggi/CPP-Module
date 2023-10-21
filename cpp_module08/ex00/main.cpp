@@ -20,9 +20,21 @@ int main (void)
     {
         std::cerr << e.what() << std::endl;
     }
-    
-    std::cout << *easyfind(vectorArray, 3) << std::endl;
-    //std::cout << *easyfind(listArray, 7) << std::endl;
-    //std::cout << *easyfind(dequeArray, 10) << std::endl;
+    try
+    {
+        std::cout << *easyfind(listArray, 7) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    try
+    {
+        std::cout << *easyfind(dequeArray, 10) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
 }

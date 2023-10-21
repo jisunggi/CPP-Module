@@ -26,21 +26,6 @@ typename T::iterator easyfind(T container, int value)
     if (iter == container.end())
         throw notFound();
     return iter;
-
-    // try
-    // {
-    //     typename T::iterator iter;
-
-    //     iter = std::find(container.begin(), container.end(), value);
-    //     if (iter == container.end())
-    //         throw notFound();
-    //     return iter;
-    // }
-    // catch(const std::exception& e)
-    // {
-    //     std::cerr << e.what() << std::endl;
-    //     return container.end();
-    // }
 };
 
 #endif
