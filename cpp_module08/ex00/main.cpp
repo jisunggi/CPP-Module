@@ -12,8 +12,17 @@ int main (void)
         listArray.push_back(i);
         dequeArray.push_back(i);
     }
+    try
+    {
+        std::cout << *easyfind(vectorArray, 3) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+    
     std::cout << *easyfind(vectorArray, 3) << std::endl;
-    std::cout << *easyfind(listArray, 7) << std::endl;
-    std::cout << *easyfind(dequeArray, 10) << std::endl;
+    //std::cout << *easyfind(listArray, 7) << std::endl;
+    //std::cout << *easyfind(dequeArray, 10) << std::endl;
 
 }
