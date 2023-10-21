@@ -24,6 +24,19 @@ class  Span
         unsigned int longestSpan();
 
         std::vector<int> getVectorArray() const;
+
+        template <typename T>
+        void addManyNumbers(T &container)
+        {
+            if (std::distance(container.begin(), container.end()) > static_cast<int>(vectorArray.capacity() - vectorArray.size()))
+                throw Span::fullVectorArray();
+            typename T::iterator iter = container.begin();
+            while (iter != container.end())
+            {
+                vectorArray.push_back(*iter);
+                iter++;
+            }
+        }
     
         class noElements: public std::exception
         {
@@ -35,7 +48,7 @@ class  Span
         {
             public:
                 virtual const char* what() const throw();
-        };
+        };      
 };
 
 #endif
