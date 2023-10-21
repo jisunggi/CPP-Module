@@ -27,20 +27,22 @@ Span &Span::operator=(const Span &span)
     return *this;
 }
 
-std::vector<int> Span::getVectorArray()
+std::vector<int> Span::getVectorArray() const
 {
 	return this->vectorArray;
 }
 
 void Span::addNumber(int num)
 {
+	if (vectorArray.size() == vectorArray.capacity())
+		throw Span::fullVectorArray;
 	vectorArray.push_back(num);
 }
 
 unsigned int Span::longestSpan()
 {
 	if (vectorArray.size() < 2)
-		throw ;
+		throw Span::noElements();
 	return (*std::max_element(vectorArray.begin(), vectorArray.end())
 				- *std::min_element(vectorArray.begin(), vectorArray.end()));
 }
@@ -48,7 +50,7 @@ unsigned int Span::longestSpan()
 unsigned int Span::shortestSpan()
 {
 	if (vectorArray.size() < 2)
-		throw ;
+		throw Span::noElements();
 	
 	std::vector<int> sortVectorArray;
 	std::vector<int>::iterator iter;
@@ -67,12 +69,12 @@ unsigned int Span::shortestSpan()
 	return returnValue;
 }
 
-virtual const char* Span::noElements::what() const throw()
+const char* Span::noElements::what() const throw()
 {
 	return "More than one element is needed";
 }
 
-virtual const char* Span::fullVectorArray::what() const throw()
+const char* Span::fullVectorArray::what() const throw()
 {
 	return "Can't save it anymore";
 }

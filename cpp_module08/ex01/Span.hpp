@@ -23,19 +23,19 @@ class  Span
         unsigned int shortestSpan();
         unsigned int longestSpan();
 
-        std::vector<int> getVectorArray();
+        std::vector<int> getVectorArray() const;
     
-    class noElements: public std::exception
-    {
-        public:
-            virtual const char* what() const throw();
-    };
+        class noElements: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 
-    class fullVectorArray: public std::exception
-    {
-        public:
-            virtual const char* what() const throw();
-    };
+        class fullVectorArray: public std::exception
+        {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
 #endif
