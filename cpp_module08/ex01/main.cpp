@@ -1,3 +1,5 @@
+#include "Span.hpp"
+
 int main()
 {
     Span sp = Span(5);
@@ -9,6 +11,6 @@ int main()
 
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
-    
+
     return 0;
 }
