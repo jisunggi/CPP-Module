@@ -4,7 +4,7 @@ int main (void)
 {
     std::vector<int> vectorArray;
     std::list<int> listArray;
-    std::decue<int> decueArray;
+    std::deque<int> decueArray;
 
     for (int i = 0; i < 10; i++)
     {
