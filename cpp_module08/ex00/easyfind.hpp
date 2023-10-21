@@ -32,7 +32,8 @@ typename T::iterator easyfind(T container, int value)
     catch(const std::exception& e)
     {
         std::cerr << e.what() << std::endl;
-    };
+        return container.end();
+    }
 };
 
 #endif
