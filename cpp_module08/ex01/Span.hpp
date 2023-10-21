@@ -14,7 +14,7 @@ class  Span
         Span();
     
     public :
-        Span(unsigend int N);
+        Span(unsigned int N);
         ~Span();
 		Span(const Span &span);
 		Span &operator=(const Span &span);
