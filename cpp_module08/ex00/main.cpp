@@ -4,16 +4,16 @@ int main (void)
 {
     std::vector<int> vectorArray;
     std::list<int> listArray;
-    std::deque<int> decueArray;
+    std::deque<int> dequeArray;
 
     for (int i = 0; i < 10; i++)
     {
-        vector.push_back(i);
-        list.push_back(i);
-        decue.push_back(i);
+        vectorArray.push_back(i);
+        listArray.push_back(i);
+        dequeArray.push_back(i);
     }
-    std::cout << *easyfind(vector, 3) << std::endl;
-    std::cout << *easyfind(list, 7) << std::endl;
-    std::cout << *easyfind(decue, 10) << std::endl;
+    std::cout << *easyfind(vectorArray, 3) << std::endl;
+    std::cout << *easyfind(listArray, 7) << std::endl;
+    std::cout << *easyfind(dequeArray, 10) << std::endl;
 
 }
