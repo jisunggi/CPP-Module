@@ -35,7 +35,7 @@ std::vector<int> Span::getVectorArray() const
 void Span::addNumber(int num)
 {
 	if (vectorArray.size() == vectorArray.capacity())
-		throw Span::fullVectorArray;
+		throw Span::fullVectorArray();
 	vectorArray.push_back(num);
 }
 
