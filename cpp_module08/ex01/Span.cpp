@@ -2,7 +2,7 @@
 
 Span::Span() {}
 
-Span::Span(unsigend int N)
+Span::Span(unsigned int N)
 {
 	this->vectorArray.reserve(N);
 }
@@ -34,7 +34,7 @@ std::vector<int> Span::getVectorArray()
 
 void Span::addNumber(int num)
 {
-	vector.push_back(num);
+	vectorArray.push_back(num);
 }
 
 unsigned int Span::longestSpan()
