@@ -6,6 +6,16 @@
 #include <vector>
 #include <list>
 #include <deque>
+#include <algorithm>
+
+class notFound : public std::exception
+{
+    public:
+		virtual const char* what() const throw()
+        {
+            return "value was not found";
+        };
+};
 
 template <typename T>
 typename T::iterator easyfind(T container, int value)
@@ -23,15 +33,6 @@ typename T::iterator easyfind(T container, int value)
     {
         std::cerr << e.what() << std::endl;
     }
-};
-
-class notFound : public std::exception
-{
-    public:
-		virtual const char* what() const throw()
-        {
-            return "value was not found";
-        };
 };
 
 #endif
