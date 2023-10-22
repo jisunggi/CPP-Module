@@ -51,14 +51,14 @@ int main()
     std::list<int>::iterator listIt = list.begin();
     std::list<int>::iterator listIte = list.end();
 
-    ++istIt;
-    --istIt;
-    while (istIt != listIte)
+    ++listIt;
+    --listIt;
+    while (listIt != listIte)
     {
-        std::cout << *istIt << std::endl;
-        ++istIt;
+        std::cout << *listIt << std::endl;
+        ++listIt;
     }
-    std::stack<int> s(list);
+    std::stack<int> sLIst(list);
 
     return 0;
 }
