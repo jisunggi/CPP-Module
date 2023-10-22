@@ -48,15 +48,15 @@ int main()
     list.push_back(737);
     list.push_back(0);
 
-    std::list<int>::iterator it = list.begin();
-    std::list<int>::iterator ite = list.end();
+    std::list<int>::iterator listIt = list.begin();
+    std::list<int>::iterator listIte = list.end();
 
-    ++it;
-    --it;
-    while (it != ite)
+    ++istIt;
+    --istIt;
+    while (istIt != listIte)
     {
-        std::cout << *it << std::endl;
-        ++it;
+        std::cout << *istIt << std::endl;
+        ++istIt;
     }
     std::stack<int> s(list);
 
