@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <list>
 #include <stack>
+#include <iterator>
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -46,6 +47,6 @@ class MutantStack : public std::stack<T>
         {
             return c.rend();
         }
-}
+};
 
 #endif
