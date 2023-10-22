@@ -31,21 +31,21 @@ class MutantStack : public std::stack<T>
         typedef typename MutantStack<T>::stack::container_type::iterator iterator;
         iterator begin()
         {
-            return c.begin();
+            return this->c.begin();
         }
         iterator end()
         {
-            return c.end();
+            return this->c.end();
         }
 
         typedef typename MutantStack<T>::stack::container_type::reverse_iterator reverse_iterator;
         reverse_iterator rbegin()
         {
-            return c.rbegin();
+            return this->c.rbegin();
         }
         reverse_iterator rend()
         {
-            return c.rend();
+            return this->c.rend();
         }
 };
 
