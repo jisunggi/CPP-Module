@@ -58,7 +58,7 @@ int main()
         std::cout << *listIt << std::endl;
         ++listIt;
     }
-    std::stack<int> sLIst(list);
+    //std::stack<int> sLIst(list);
 
     return 0;
 }
