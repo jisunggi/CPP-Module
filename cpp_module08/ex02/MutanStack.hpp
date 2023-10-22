@@ -1,6 +1,9 @@
 #ifndef MUTANSTACK_HPP
 # define MUTANSTACK_HPP
 
+#include <iostream>
+#include <algorithm>
+
 template <typename T>
 class MutanStack : public std::stack<>
 {
