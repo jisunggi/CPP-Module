@@ -48,8 +48,8 @@ int main()
     list.push_back(737);
     list.push_back(0);
 
-    MutantStack<int>::iterator it = list.begin();
-    MutantStack<int>::iterator ite = list.end();
+    std::list::iterator it = list.begin();
+    std::list::iterator ite = list.end();
 
     ++it;
     --it;
