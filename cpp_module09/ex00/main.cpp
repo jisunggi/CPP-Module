@@ -2,7 +2,15 @@
 
 int main()
 {
-	BitcoinExchange bitcoinExchange;
+	try
+	{
+			
+		BitcoinExchange bitcoinExchange;
 
-	bitcoinExchange.btcExecute();
+		bitcoinExchange.btcExecute();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
