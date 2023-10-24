@@ -30,7 +30,7 @@ int	BitcoinExchange::stringToInt(std::string string)
 struct tm BitcoinExchange::stringToDate(std::string string)
 {
 	struct tm tmStruct;
-	if (strptime(string.c_str(), "%Y-%m-%d", &tmStruct) == nullptr)
+	if (strptime(string.c_str(), "%Y-%m-%d", &tmStruct) == null)
 		throw std::exception();
 	tmStruct.tm_hour = 0;
 	tmStruct.tm_min = 0;
