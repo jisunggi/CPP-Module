@@ -14,7 +14,6 @@ class BitcoinExchange
 {
 	private :
 		std::map<std::string, float> data;
-		//std::map<std::string, float> input;
 		std::string inputDate;
 		float inputValue;
 
@@ -34,6 +33,7 @@ class BitcoinExchange
 		void storeInputFile(char *inputFile);
 		void checkInputFile(std::string line);
 		float checkStringValue(std::string valueString);
+		void printBitcoinValue();
 };
 
 #endif

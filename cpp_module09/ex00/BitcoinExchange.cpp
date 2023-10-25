@@ -97,6 +97,20 @@ void BitcoinExchange::checkInputFile(std::string line)
 	inputValue = checkStringValue(valueString);
 }
 
+void BitcoinExchange::printBitcoinValue()
+{
+	float value;
+	std::map<std::string, float>::iterator iter;
+
+	for (iter = data.begin(); iter != data.end(); iter++)
+	{
+		if ((*iter).first == inputDate)
+			value = (*iter).second * inputValue;
+		else
+			value = (*--iter).second * inputValue;
+	}
+	std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
+}
 
 void BitcoinExchange::storeInputFile(char *inputFile)
 {
@@ -114,6 +128,7 @@ void BitcoinExchange::storeInputFile(char *inputFile)
 		std::getline(ifs, line);
 		if (line.size())
 			checkInputFile(line);
+		printBitcoinValue();
 	}
 	std::cout << inputDate << std::endl;
 	std::cout << inputValue << std::endl;
