@@ -106,7 +106,10 @@ void BitcoinExchange::printBitcoinValue()
 	for (iter = data.begin(); iter != data.end(); iter++)
 	{
 		if ((*iter).first == inputDate)
+		{
+			std::cout << (*iter).second << std::endl;
 			value = (*iter).second * inputValue;
+		}
 		else
 		{
 			iterPrev = iter;
