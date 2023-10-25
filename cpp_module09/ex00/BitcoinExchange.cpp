@@ -75,6 +75,8 @@ float BitcoinExchange::checkStringValue(std::string valueString)
 		if (!(valueString[i] >= '0' && valueString[i] <= '9') && i != dotIdx)
 			throw std::exception();
 	}
+	if (valueString[0] == '.' || valueString[valueString.size() - 1] == '.')
+		throw std::exception();
 	floatValue = stringToFloat(valueString);
 	if (!(floatValue >= 0 && floatValue <= 1000))
 		throw std::exception();
