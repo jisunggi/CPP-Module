@@ -101,13 +101,17 @@ void BitcoinExchange::printBitcoinValue()
 {
 	float value;
 	std::map<std::string, float>::iterator iter;
+	std::map<std::string, float>::iterator iterPrev;
 
 	for (iter = data.begin(); iter != data.end(); iter++)
 	{
 		if ((*iter).first == inputDate)
 			value = (*iter).second * inputValue;
 		else
-			value = (*--iter).second * inputValue;
+		{
+			iterPrev = iter;
+			value = (*--iterPrev).second * inputValue;
+		}
 	}
 	std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
 }
@@ -130,9 +134,6 @@ void BitcoinExchange::storeInputFile(char *inputFile)
 			checkInputFile(line);
 		printBitcoinValue();
 	}
-	std::cout << inputDate << std::endl;
-	std::cout << inputValue << std::endl;
-
 }
 
 void BitcoinExchange::btcExecute(char *inputFile)
