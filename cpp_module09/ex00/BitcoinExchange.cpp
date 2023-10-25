@@ -109,6 +109,7 @@ void BitcoinExchange::printBitcoinValue()
 		{
 			std::cout << iter->second << std::endl;
 			value = (iter->second) * inputValue;
+			break;
 		}
 		else
 		{
