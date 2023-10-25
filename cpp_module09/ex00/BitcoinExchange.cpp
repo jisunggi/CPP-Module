@@ -58,11 +58,11 @@ void BitcoinExchange::storeDataFile()
 			makeMapData(line);
 	}
 
-	// std::map<std::string, float>::iterator iter = data.begin();
-	// while (iter != data.end()) {
-	// 	std::cout << iter->first << " " << iter->second << std::endl;
-	// 	iter++;
-	// }
+	std::map<std::string, float>::iterator iter = data.begin();
+	while (iter != data.end()) {
+		std::cout << iter->first << " " << iter->second << std::endl;
+		iter++;
+	}
 }
 
 float BitcoinExchange::checkStringValue(std::string valueString)
