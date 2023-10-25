@@ -85,8 +85,8 @@ float BitcoinExchange::checkStringValue(std::string valueString)
 
 void BitcoinExchange::checkInputFile(std::string line)
 {
-	if (line.find(" ") != std::string::npos)
-		throw std::exception();
+	// if (.find(" ") != std::string::npos)
+	// 	throw std::exception();
 	std::string dateString = line.substr(0, 10);
 	std::string middleString = line.substr(10, 3);
 	std::string valueString = line.substr(13);
