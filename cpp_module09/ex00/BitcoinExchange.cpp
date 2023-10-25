@@ -17,36 +17,29 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &bitcoinExchan
     return *this;
 }
 
-int	BitcoinExchange::stringToInt(std::string string)
+float BitcoinExchange::stringToFloat(std::string string)
 {
 	std::stringstream stream;
-	int integer;
+	float floatValue;
 
 	stream << string;
-	stream >> integer;
-	return integer;
+	stream >> floatValue;
+	return floatValue;
 }
 
-struct tm BitcoinExchange::stringToDate(std::string string)
+void BitcoinExchange::checkStringDate(std::string string)
 {
 	struct tm tmStruct;
 	if (strptime(string.c_str(), "%Y-%m-%d", &tmStruct) == NULL)
 		throw std::exception();
-	tmStruct.tm_hour = 0;
-	tmStruct.tm_min = 0;
-	tmStruct.tm_sec = 0;
-	return tmStruct;
 }
 
 void BitcoinExchange::makeMapData(std::string line)
 {
 	std::string dateString = line.substr(0, 10);
 	std::string valueString = line.substr(11);
-	stringToDate(dateString);
-	//data.insert(std::pair<struct tm, int>(stringToDate(dateString), stringToInt(valueString)));
-	// for (auto iter : data) {
-	// std::cout << iter.first << " " << iter.second << std::endl;
-//}
+	checkStringDate(dateString);
+	data.insert(std::pair<std::string, float>(dateString, stringToFloat(valueString)));
 }
 
 void BitcoinExchange::storeDataFile()
@@ -56,7 +49,7 @@ void BitcoinExchange::storeDataFile()
 
 	ifs.open("data.csv");
 	if (!ifs.is_open())
-		throw ;
+		throw std::exception();
 	std::getline(ifs, line);
 	while (!ifs.eof())
 	{
@@ -64,15 +57,67 @@ void BitcoinExchange::storeDataFile()
 		if (line.size())
 			makeMapData(line);
 	}
+
+	// std::map<std::string, float>::iterator iter = data.begin();
+	// while (iter != data.end()) {
+	// 	std::cout << iter->first << " " << iter->second << std::endl;
+	// 	iter++;
+	// }
 }
 
-// void checkInputFile()
-// {
+float BitcoinExchange::checkStringValue(std::string valueString)
+{
+	float floatValue;
 
-// }
+	std::string::size_type dotIdx = valueString.find(".");
+	for (std::string::size_type i = 0; i < valueString.size(); i++)
+	{
+		if (!(valueString[i] >= '0' && valueString[i] <= '9') && i != dotIdx)
+			throw std::exception();
+	}
+	floatValue = stringToFloat(valueString);
+	if (!(floatValue >= 0 && floatValue <= 1000))
+		throw std::exception();
+	return floatValue;
+}
 
-void BitcoinExchange::btcExecute()
+void BitcoinExchange::checkInputFile(std::string line)
+{
+	std::string dateString = line.substr(0, 10);
+	std::string middleString = line.substr(10, 3);
+	std::string valueString = line.substr(14);
+	if (middleString != " | ")
+		throw std::exception();
+	checkStringDate(dateString);
+	inputDate = dateString;
+	inputValue = checkStringValue(valueString);
+}
+
+
+void BitcoinExchange::storeInputFile(char *inputFile)
+{
+	std::ifstream ifs;
+	std::string line;
+
+	ifs.open(inputFile);
+	if (!ifs.is_open())
+		throw std::exception();
+	std::getline(ifs, line);
+	if (line != "date | value")
+		throw std::exception();
+	while (!ifs.eof())
+	{
+		std::getline(ifs, line);
+		if (line.size())
+			checkInputFile(line);
+	}
+	std::cout << inputDate << std::endl;
+	std::cout << inputValue << std::endl;
+
+}
+
+void BitcoinExchange::btcExecute(char *inputFile)
 {
 	storeDataFile();
-	//checkInputFile();
+	storeInputFile(inputFile);
 }

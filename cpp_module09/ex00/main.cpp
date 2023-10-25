@@ -1,13 +1,13 @@
 #include "BitcoinExchange.hpp"
 
-int main()
+int main(int argc, char **argv)
 {
 	try
 	{
 			
 		BitcoinExchange bitcoinExchange;
-
-		bitcoinExchange.btcExecute();
+		(void)argc;;
+		bitcoinExchange.btcExecute(argv[1]);
 	}
 	catch(const std::exception& e)
 	{

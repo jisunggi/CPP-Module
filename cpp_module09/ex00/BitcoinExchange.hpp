@@ -13,8 +13,10 @@
 class BitcoinExchange
 {
 	private :
-		std::map<struct tm, int> data;
-		std::map<struct tm, int> input;
+		std::map<std::string, float> data;
+		//std::map<std::string, float> input;
+		std::string inputDate;
+		float inputValue;
 
     public :
         BitcoinExchange();
@@ -22,14 +24,16 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &bitcoinExchange);
 		BitcoinExchange &operator=(const BitcoinExchange &bitcoinExchange);
 
-		void btcExecute();
+		void btcExecute(char *inputFile);
 
 		void storeDataFile();
 		void makeMapData(std::string line);
-		int	stringToInt(std::string string);
-		struct tm stringToDate(std::string string);
+		float stringToFloat(std::string string);
+		void checkStringDate(std::string string);
 
-		//void checkInputFile(char *inputFile);
+		void storeInputFile(char *inputFile);
+		void checkInputFile(std::string line);
+		float checkStringValue(std::string valueString);
 };
 
 #endif
