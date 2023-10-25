@@ -85,10 +85,12 @@ void BitcoinExchange::checkInputFile(std::string line)
 {
 	std::string dateString = line.substr(0, 10);
 	std::string middleString = line.substr(10, 3);
-	std::string valueString = line.substr(14);
+	std::string valueString = line.substr(13);
 	if (middleString != " | ")
 		throw std::exception();
 	checkStringDate(dateString);
+	std::cout << valueString << std::endl;
+
 	inputDate = dateString;
 	inputValue = checkStringValue(valueString);
 }
@@ -111,8 +113,8 @@ void BitcoinExchange::storeInputFile(char *inputFile)
 		if (line.size())
 			checkInputFile(line);
 	}
-	std::cout << inputDate << std::endl;
-	std::cout << inputValue << std::endl;
+	//std::cout << inputDate << std::endl;
+	//std::cout << inputValue << std::endl;
 
 }
 
