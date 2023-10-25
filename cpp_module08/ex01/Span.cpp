@@ -62,8 +62,8 @@ unsigned int Span::shortestSpan()
 	returnValue = std::abs(*iter - *(iter - 1));
 	while (iter != sortVectorArray.end())
 	{
-		if (returnValue > std::abs(*iter - *(iter - 1)))
-			returnValue = std::abs(*iter - *(iter - 1));
+		if (returnValue > (unsigned int)std::abs(*iter - *(iter - 1)))
+			returnValue = (unsigned int)std::abs(*iter - *(iter - 1));
 		iter++;
 	}
 	return returnValue;
