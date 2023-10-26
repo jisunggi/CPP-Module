@@ -7,10 +7,12 @@
 #include <iterator>
 #include <algorithm>
 #include <sstream>
+#include <stack>
 
 class RPN
 {
-	//private :
+	private :
+		std::stack<char> rpnStack;
 
     public :
         RPN();
@@ -18,7 +20,7 @@ class RPN
 		RPN(const RPN &RPN);
 		RPN &operator=(const RPN &RPN);
 
-		void executeRPN(std::string input)
+		void executeRPN(std::string input);
 };
 
 #endif
