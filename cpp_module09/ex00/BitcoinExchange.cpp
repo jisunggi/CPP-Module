@@ -132,7 +132,7 @@ void BitcoinExchange::printBitcoinValue()
 		std::cout << "Error : invalid date" << std::endl;
 		return ;
 	}
-	value = (*--iter).second * inputValue;
+	//value = (*--iter).second * inputValue;
 	std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
 }
 
