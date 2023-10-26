@@ -35,7 +35,6 @@ class BitcoinExchange
 		void checkInputFile(std::string line);
 		float checkStringValue(std::string valueString);
 		void printBitcoinValue();
-		float findClosestValue();
 
 };
 
