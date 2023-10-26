@@ -120,7 +120,7 @@ void BitcoinExchange::printBitcoinValue()
 	{
 		if ((*iter).first == inputDate)
 		{
-			std::cout << iter->second << std::endl;
+			//std::cout << iter->second << std::endl;
 			value = (iter->second) * inputValue;
 			std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
 			return ;
@@ -151,8 +151,10 @@ void BitcoinExchange::storeInputFile(char *inputFile)
 	{
 		std::getline(ifs, line);
 		if (line.size())
+		{
 			checkInputFile(line);
-		printBitcoinValue();
+			printBitcoinValue();
+		}
 	}
 }
 
