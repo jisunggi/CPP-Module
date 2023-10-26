@@ -126,13 +126,13 @@ void BitcoinExchange::printBitcoinValue()
 			return ;
 		}
 	}
-	//iter = std::lower_bound(data.begin(), data.end(), inputDate);
+	iter = data.lower_bound(inputDate);
 	if (iter == data.begin())
 	{
 		std::cout << "Error : invalid date" << std::endl;
 		return ;
 	}
-	//value = (*--iter).second * inputValue;
+	value = (*--iter).second * inputValue;
 	std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
 }
 
