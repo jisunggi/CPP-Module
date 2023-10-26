@@ -97,11 +97,24 @@ void BitcoinExchange::checkInputFile(std::string line)
 	inputValue = checkStringValue(valueString);
 }
 
+// float BitcoinExchange::findClosestValue()
+// {
+// 	float value = 0;
+// 	std::map<std::string, float>::iterator iter;
+
+// 	iter = std::lower_bound(data.begin(), data.end(), inputDate);
+// 	if (iter == data.begin())
+// 	{
+// 		std::cout << "Error : invalid date" << std::endl;
+// 		return ;
+// 	}
+// 	return (*--iter).second * inputValue;
+// }
+
 void BitcoinExchange::printBitcoinValue()
 {
-	float value;
+	float value = 0;
 	std::map<std::string, float>::iterator iter;
-	std::map<std::string, float>::iterator iterPrev;
 
 	for (iter = data.begin(); iter != data.end(); iter++)
 	{
@@ -109,14 +122,17 @@ void BitcoinExchange::printBitcoinValue()
 		{
 			std::cout << iter->second << std::endl;
 			value = (iter->second) * inputValue;
-			break;
-		}
-		else
-		{
-			iterPrev = iter;
-			value = (*--iterPrev).second * inputValue;
+			std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
+			return ;
 		}
 	}
+	iter = std::lower_bound(data.begin(), data.end(), inputDate);
+	if (iter == data.begin())
+	{
+		std::cout << "Error : invalid date" << std::endl;
+		return ;
+	}
+	value = (*--iter).second * inputValue;
 	std::cout << inputDate << " => " << inputValue << " = " << value << std::endl;
 }
 
