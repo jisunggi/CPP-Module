@@ -38,7 +38,7 @@ void storeStack(std::string input)
 	}
 	while (!splitStack.empty())
 	{
-		std::cout << splitStack.top() << std::endl;
+		std::cout << splitStack.top();
 		//checkInputElement(splitStack.top());
 		splitStack.pop();
 	}
