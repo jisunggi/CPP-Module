@@ -29,12 +29,24 @@ class BitcoinExchange
 		void storeDataFile();
 		void makeMapData(std::string line);
 		float stringToFloat(std::string string);
-		void checkStringDate(std::string string);
+		int checkStringDate(std::string string);
 
 		void storeInputFile(char *inputFile);
-		void checkInputFile(std::string line);
-		float checkStringValue(std::string valueString);
+		int checkInputFile(std::string line);
+		int checkStringValue(std::string valueString);
 		void printBitcoinValue();
+
+		class wrongInputException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+
+		class notOpenFile : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
 
 };
 

@@ -27,11 +27,12 @@ float BitcoinExchange::stringToFloat(std::string string)
 	return floatValue;
 }
 
-void BitcoinExchange::checkStringDate(std::string string)
+int BitcoinExchange::checkStringDate(std::string string)
 {
 	struct tm tmStruct;
 	if (strptime(string.c_str(), "%Y-%m-%d", &tmStruct) == NULL)
-		throw std::exception();
+		return 1;
+	return 0;
 }
 
 void BitcoinExchange::makeMapData(std::string line)
@@ -49,7 +50,7 @@ void BitcoinExchange::storeDataFile()
 
 	ifs.open("data.csv");
 	if (!ifs.is_open())
-		throw std::exception();
+		throw BitcoinExchange::notOpenFile();
 	std::getline(ifs, line);
 	while (!ifs.eof())
 	{
@@ -65,51 +66,59 @@ void BitcoinExchange::storeDataFile()
 	// }
 }
 
-float BitcoinExchange::checkStringValue(std::string valueString)
+int BitcoinExchange::checkStringValue(std::string valueString)
 {
-	float floatValue;
-
 	std::string::size_type dotIdx = valueString.find(".");
 	for (std::string::size_type i = 0; i < valueString.size(); i++)
 	{
-		if (!(valueString[i] >= '0' && valueString[i] <= '9') && i != dotIdx)
-			throw std::exception();
+		if (valueString[0] == '-')
+			continue;
+		if (!(valueString[i] >= '0' && valueString[i] <= '9') && i != dotIdx
+				)
+			return 1;
 	}
 	if (valueString[0] == '.' || valueString[valueString.size() - 1] == '.')
-		throw std::exception();
-	floatValue = stringToFloat(valueString);
-	if (!(floatValue >= 0 && floatValue <= 1000))
-		throw std::exception();
-	return floatValue;
+		return 1;
+	return 0;
 }
 
-void BitcoinExchange::checkInputFile(std::string line)
+int BitcoinExchange::checkInputFile(std::string line)
 {
-	if (line.size() < 14)
-		throw std::exception();
-	std::string dateString = line.substr(0, 10);
+	float floatValue;
+
+	std::string dateString = line.substr(0, 10);	
+	if (checkStringDate(dateString))
+	{
+		std::cout << "Error: bad input => " << dateString << std::endl;
+		return 1;
+	}
+	if (line.size() < 11)
+		throw BitcoinExchange::wrongInputException();
 	std::string middleString = line.substr(10, 3);
-	std::string valueString = line.substr(13);
 	if (middleString != " | ")
-		throw std::exception();
-	checkStringDate(dateString);
+		throw BitcoinExchange::wrongInputException();
+	std::string valueString = line.substr(13);
+	if (checkStringValue(valueString))
+	{
+		std::cout << "Error: bad input => " << valueString << std::endl;
+		return 1;
+	}
+	
+	floatValue = stringToFloat(valueString);
+	if (floatValue < 0)
+	{
+		std::cout << "Error: not a positive number." << std::endl;
+		return 1;
+	}
+	if (floatValue > 1000)
+	{
+		std::cout << "Error: too large a number." << std::endl;
+		return 1;
+	}
 	inputDate = dateString;
-	inputValue = checkStringValue(valueString);
+	inputValue = floatValue;
+	return 0;
 }
-
-// float BitcoinExchange::findClosestValue()
-// {
-// 	float value = 0;
-// 	std::map<std::string, float>::iterator iter;
-
-// 	iter = std::lower_bound(data.begin(), data.end(), inputDate);
-// 	if (iter == data.begin())
-// 	{
-// 		std::cout << "Error : invalid date" << std::endl;
-// 		return ;
-// 	}
-// 	return (*--iter).second * inputValue;
-// }
 
 void BitcoinExchange::printBitcoinValue()
 {
@@ -142,17 +151,17 @@ void BitcoinExchange::storeInputFile(char *inputFile)
 
 	ifs.open(inputFile);
 	if (!ifs.is_open())
-		throw std::exception();
+		throw BitcoinExchange::notOpenFile();
 	std::getline(ifs, line);
 	if (line != "date | value")
-		throw std::exception();
+		throw BitcoinExchange::wrongInputException();
 	while (!ifs.eof())
 	{
 		std::getline(ifs, line);
 		if (line.size())
 		{
-			checkInputFile(line);
-			printBitcoinValue();
+			if(!checkInputFile(line))
+				printBitcoinValue();
 		}
 	}
 }
@@ -161,4 +170,14 @@ void BitcoinExchange::btcExecute(char *inputFile)
 {
 	storeDataFile();
 	storeInputFile(inputFile);
+}
+
+const char *BitcoinExchange::wrongInputException::what() const throw()
+{
+	return "Error: wrong input file form";
+}
+
+const char *BitcoinExchange::notOpenFile::what() const throw()
+{
+	return "Error: could not open file.";
 }
