@@ -30,7 +30,7 @@ void storeStack(std::string input)
 	std::stringstream stringstream(input);
 	std::string element;
 
-	if (input.find("  "))
+	if (input.find("  ") != std::string::npos)
 		throw std::exception();
 	while (stringstream >> element)
 	{
