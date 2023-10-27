@@ -24,6 +24,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 
 void PmergeMe::executePmergeMe()
 {
+	std::vector<int>::iterator iter;
 	iter = inputData.begin();
 	while (iter != inputData.end())
 	{
