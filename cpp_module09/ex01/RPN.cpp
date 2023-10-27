@@ -1,6 +1,9 @@
 #include "RPN.hpp"
 
-RPN::RPN() {}
+RPN::RPN() {
+	numbersOfNum = 0;
+	numbersOfOperator = 0;
+}
 
 RPN::~RPN(){}
 
@@ -17,35 +20,103 @@ RPN &RPN::operator=(const RPN &RPN)
     return *this;
 }
 
-void checkInputElement(std::string element)
+int RPN::isOperator(std::string element)
 {
-	if (isOperator(element))
-		return ;
-	if (element.find("."))
-	if (element.find("f"))
-	if (element >= '0' && element <= '9')
+	if (element == "+" || element == "-" || element == "/" || element == "*")
+		return 1;
+	return 0;
 }
 
-void storeStack(std::string input)
+void RPN::checkInputElement(std::string element)
 {
-	std::stack<std::string> splitStack;
+	if (element.size() > 1)
+		throw std::exception();
+	if (isOperator(element))
+	{
+		numbersOfOperator++;
+		return ;
+	}
+	if (!(element >= "0" && element <= "9"))
+		throw std::exception();
+	numbersOfNum++;
+}
+
+void RPN::storeStack(std::string input)
+{
+	std::stack<std::string> reverseStack;
 	std::stringstream stringstream(input);
 	std::string element;
 
 	if (input.find("  ") != std::string::npos)
 		throw std::exception();
 	while (stringstream >> element)
-		splitStack.push(element);
-	while (!splitStack.empty())
+		reverseStack.push(element);
+	while (!reverseStack.empty())
 	{
-		//std::cout << splitStack.top();
-		checkInputElement(splitStack.top());
-		splitStack.pop();
+		checkInputElement(reverseStack.top());
+		elementsStack.push(reverseStack.top());
+		reverseStack.pop();
 	}
+	if ((numbersOfNum - 1) != numbersOfOperator)
+		throw std::exception();
+}
+
+int RPN::elementsCalculate(int a, int b, std::string op)
+{
+	if (op == "+")
+		return (a + b);
+	if (op == "-")
+		return (a - b);
+	if (op == "*")
+		return (a * b);
+	if (op == "/")
+		return (a / b);
+	return 0;
+}
+
+void RPN::storeRPNStack(std::string op)
+{
+	int a;
+	int b;
+
+	if (rpnStack.size() < 2)
+		throw std::exception();
+	b = rpnStack.top();
+	rpnStack.pop();
+	a = rpnStack.top();
+	rpnStack.pop();
+	rpnStack.push(elementsCalculate(a, b, op));
+}
+
+int	RPN::stringToInt(std::string string)
+{
+	std::stringstream stream;
+	int integer;
+
+	stream << string;
+	stream >> integer;
+	return integer;
+}
+
+void RPN::calculate()
+{
+	while (!elementsStack.empty())
+	{
+		if (!isOperator(elementsStack.top()))
+		{
+			rpnStack.push(stringToInt(elementsStack.top()));
+		}
+		else
+		{
+			storeRPNStack(elementsStack.top());
+		}
+		elementsStack.pop();
+	}
+	std::cout << rpnStack.top() << std::endl;	
 }
 
 void RPN::executeRPN(std::string input)
 {
 	storeStack(input);
-	//calculate();
+	calculate();
 }

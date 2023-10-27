@@ -3,16 +3,16 @@
 
 #include <iostream>
 #include <string>
-#include <cstring>
-#include <iterator>
-#include <algorithm>
 #include <sstream>
 #include <stack>
 
 class RPN
 {
 	private :
-		std::stack<char> rpnStack;
+		std::stack<int> rpnStack;
+		std::stack<std::string> elementsStack;
+		int numbersOfOperator;
+		int numbersOfNum;
 
     public :
         RPN();
@@ -21,6 +21,15 @@ class RPN
 		RPN &operator=(const RPN &RPN);
 
 		void executeRPN(std::string input);
+		void storeStack(std::string input);
+		void checkInputElement(std::string element);
+		int isOperator(std::string element);
+
+		void calculate();
+		void storeRPNStack(std::string op);
+		int	stringToInt(std::string string);
+		int elementsCalculate(int a, int b, std::string op);
+
 };
 
 #endif
