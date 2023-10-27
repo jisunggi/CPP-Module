@@ -1,6 +1,10 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() {
+PmergeMe::PmergeMe() {}
+
+PmergeMe::PmergeMe(std::vector<int> inputData)
+{
+	this->inputData = inputData;
 }
 
 PmergeMe::~PmergeMe(){}
@@ -18,7 +22,12 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
     return *this;
 }
 
-void PmergeMe::executePmergeMe(std::string input)
+void PmergeMe::executePmergeMe()
 {
-	
+	iter = inputData.begin();
+	while (iter != inputData.end())
+	{
+		std::cout << *iter << std::endl;
+		iter++;
+	}
 }

@@ -1,5 +1,22 @@
 #include "PmergeMe.hpp"
 
+int	stringToInt(std::string string)
+{
+	std::stringstream stream;
+	int integer;
+
+	stream << string;
+	stream >> integer;
+	return integer;
+}
+
+int checkInput(std::string argv)
+{
+	if (!(argv >= "0" && argv <= "9"))
+		throw std::exception();
+	return stringToInt(argv);
+}
+
 int main (int argc, char **argv)
 {
 	try
@@ -8,12 +25,10 @@ int main (int argc, char **argv)
 
 		if (argc < 2)
 			throw std::exception();
-		for (int i = 0; i < argc; i ++)
-		{
-			inputData.push(checkInput());
-		}
-		PmergeMe pmergeMe();
-		PmergeMe.executePmergeMe());
+		for (int i = 1; i < argc; i ++)
+			inputData.push(checkInput(argv[i]));
+		PmergeMe pmergeMe(inputData);
+		pmergeMe.executePmergeMe();
 	}
 	catch(const std::exception& e)
 	{
