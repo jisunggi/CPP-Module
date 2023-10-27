@@ -14,7 +14,7 @@ int checkInput(std::string argv)
 {
 	for (std::string::size_type i = 0; i < argv.size(); i++)
 	{
-		if (!(argv[i] >= "0" && argv[i] <= "9"))
+		if (!(argv[i] >= '0' && argv[i] <= '9'))
 			throw std::exception();
 	}
 	return stringToInt(argv);
