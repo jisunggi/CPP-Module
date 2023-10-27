@@ -26,7 +26,7 @@ int main (int argc, char **argv)
 		if (argc < 2)
 			throw std::exception();
 		for (int i = 1; i < argc; i ++)
-			inputData.push(checkInput(argv[i]));
+			inputData.push_back(checkInput(argv[i]));
 		PmergeMe pmergeMe(inputData);
 		pmergeMe.executePmergeMe();
 	}
