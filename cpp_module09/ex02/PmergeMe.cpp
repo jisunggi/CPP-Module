@@ -114,7 +114,7 @@ void PmergeMe::insertionSort()
 			index = insert_element(mainChain, otherChain[jacobsthalNum]);
         	mainChain.insert(mainChain.begin() + index, otherChain[jacobsthalNum]);
 			
-			std::cout << otherChain[i] << std::endl;
+			std::cout << otherChain[jacobsthalNum] << std::endl;
 			std::cout << "numbersof : " << numbersOfinsert << std::endl;
 
 			numbersOfinsert++;
