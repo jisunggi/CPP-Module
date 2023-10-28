@@ -20,7 +20,7 @@ PmergeMe::PmergeMe(const PmergeMe &pmergeMe)
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &pmergeMe)
 {
-	if (this != &PmergeMe)
+	if (this != &mergeMe)
 	{
 		this->inputData = pmergeMe.inputData;
         this->mainChain = pmergeMe.mainChain;
