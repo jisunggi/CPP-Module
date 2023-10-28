@@ -147,10 +147,11 @@ void PmergeMe::printsortedValue()
 	// 	iter++;
 	// }
 
-	std::cout << mainChain.size();
+	std::cout << "mainChain : ";
 	for (std::size_t i = 0; i < mainChain.size(); i++)
 		std::cout << mainChain[i] << " ";
 	std::cout << std::endl;
+	std::cout << "otherChain : ";
 	for (int i = 0; otherChain[i]; i++)
 		std::cout << otherChain[i] << " ";
 	std::cout << std::endl;
