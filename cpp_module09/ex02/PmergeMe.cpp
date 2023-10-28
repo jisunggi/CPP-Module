@@ -42,21 +42,12 @@ void PmergeMe::makeMainChain()
 			otherChain.push_back(inputData[i]);
 		}
 	}
-	std::cout << mainChain.size() << std::endl;
-	std::cout << otherChain.size() << std::endl;
-	std::vector<int>::iterator iter;
-	iter = mainChain.begin();
-	while (iter != mainChain.end())
-	{
-		std::cout << *iter << std::endl;
-		iter++;
-	}
-	// for (int i = 0; mainChain[i]; i++)
-	// 	std::cout << mainChain[i] << " ";
-	// std::cout << std::endl;
-	// for (int i = 0; otherChain[i]; i++)
-	// 	std::cout << otherChain[i] << " ";
-	// std::cout << std::endl;
+	for (int i = 0; mainChain[i]; i++)
+		std::cout << mainChain[i] << " ";
+	std::cout << std::endl;
+	for (int i = 0; otherChain[i]; i++)
+		std::cout << otherChain[i] << " ";
+	std::cout << std::endl;
 	//mainChainSort();
 }
 
