@@ -30,6 +30,13 @@ int main (int argc, char **argv)
 			throw std::exception();
 		for (int i = 1; i < argc; i ++)
 			inputData.push_back(checkInput(argv[i]));
+			std::vector<int>::iterator iter;
+	iter = inputData.begin();
+	while (iter != inputData.end())
+	{
+		std::cout << *iter << std::endl;
+		iter++;
+	}
 		PmergeMe pmergeMe(inputData);
 		pmergeMe.executePmergeMe();
 	}
