@@ -74,10 +74,6 @@ void PmergeMe::makeMainChain()
 		mainChain.push_back(inputData[i]);
 		otherChain.push_back(inputData[i + 1]);
 	}
-	if (inputData[i])
-		otherChain.push_back(inputData[i]);
-
-
 }
 
 int insert_element(std::vector<int>& mainChain, int element) {
