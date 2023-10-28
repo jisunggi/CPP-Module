@@ -59,6 +59,7 @@ void PmergeMe::makeMainChain()
 	std::size_t i;
 	for (i = 0; i < inputData.size(); i += 2)
 	{
+		std::cout << inputData[i] << std::endl;
 		if (!inputData[i + 1])
 		{
 			otherChain.push_back(inputData[i]);
