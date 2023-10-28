@@ -54,6 +54,8 @@ void PmergeMe::makeMainChain()
 	{
     	for(std::size_t j = i; j < inputData.size(); j += 2)
 		{
+			if (!inputData[j + 2])
+				break;
       		if (inputData[j] > inputData[j + 2])
 			{
         		mainChainTemp = inputData[j + 2];
