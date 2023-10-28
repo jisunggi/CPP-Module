@@ -22,15 +22,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
     return *this;
 }
 
-// void PmergeMe::mergeSort(int left, int right)
-// {
-// 	if (left < right)
-// }
-
-
-
-
-
 void PmergeMe::makeMainChain()
 {
 	int temp;
@@ -90,13 +81,48 @@ int insert_element(std::vector<int>& mainChain, int element) {
     return left;
 }
 
+int jacobsthal(int n) {
+    if (n == 0)
+        return 0;
+    if (n == 1)
+        return 1;
+    return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+}
+
+int insertionSort()
+{
+	std::size_t numbersOfinsert = 0;
+	int n = 0;
+	int jacobsthalNum = 0;
+	int prevJacobsthal = 0;
+
+	while (1)
+	{
+		prevJacobsthal = jacobsthalNum;
+		jacobsthalNum = jacobsthal(n);
+		for (int i = jacobsthalNum; i != prevJacobsthal; i--)
+		{
+			int index = insert_element(mainChain, otherChain[i]);
+        	mainChain.insert(mainChain.begin() + index, otherChain[i]);
+			numbersOfinsert++;
+			if (numbersOfinsert >= otherChain.size())
+				break ;
+		}
+		if (numbersOfinsert >= otherChain.size())
+			break ;
+		n++;
+	}
+}
+
 void PmergeMe::mergeInsertionSort()
 {
-	//mergeSort(0, inputData.size() - 1);
 	makeMainChain();
-	//insertionSort();
+	insertionSort();
 	std::size_t i;
-	for (i = 0; i < otherChain.size(); i++) {
+	
+	for (i = 0; i < otherChain.size(); i++)
+	{
+		//int index = selectIndex();
         int index = insert_element(mainChain, otherChain[i]);
         mainChain.insert(mainChain.begin() + index, otherChain[i]);
     }
