@@ -101,8 +101,8 @@ void PmergeMe::insertionSort()
 	numbersOfinsert++;
 	while (1)
 	{
-		jacobsthalNum = jacobsthal(n);
 		prevJacobsthal = jacobsthalNum;
+		jacobsthalNum = jacobsthal(n);
 
 		std::cout << "prev : " << prevJacobsthal << std::endl;
 		std::cout << "jacobsthalNum : " << jacobsthalNum << std::endl;
