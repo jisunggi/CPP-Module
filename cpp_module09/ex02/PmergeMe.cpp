@@ -44,10 +44,11 @@ void PmergeMe::makeMainChain()
 	}
 	for (int i = 0; mainChain[i]; i++)
 		std::cout << mainChain[i] << " ";
-	std::cout << stt::endl;
+	std::cout << std::endl;
 	for (int i = 0; otherChain[i]; i++)
 		std::cout << otherChain[i] << " ";
-	std::cout << stt::endl;
+	std::cout << std::endl;
+	mainChainSort();
 }
 
 void PmergeMe::mergeInsertionSort()
