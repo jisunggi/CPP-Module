@@ -37,6 +37,7 @@ void PmergeMe::makeMainChain()
 		}
 	}
   	
+	printsortedValue();
 	int mainChainTemp, otherChainTemp;
 	for (std::size_t i = 0; i < inputData.size(); i += 2)
 	{
@@ -55,7 +56,7 @@ void PmergeMe::makeMainChain()
       		}
     	}
   	}
-
+printsortedValue();
 	std::size_t i;
 	for (i = 0; i < inputData.size(); i += 2)
 	{
