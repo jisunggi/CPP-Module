@@ -93,9 +93,9 @@ void PmergeMe::printsortedValue()
 	for (int i = 0; mainChain[i]; i++)
 		std::cout << mainChain[i] << " ";
 	std::cout << std::endl;
-	// for (int i = 0; otherChain[i]; i++)
-	// 	std::cout << otherChain[i] << " ";
-	// std::cout << std::endl;
+	for (int i = 0; otherChain[i]; i++)
+		std::cout << otherChain[i] << " ";
+	std::cout << std::endl;
 }
 
 void PmergeMe::vectorSort()
