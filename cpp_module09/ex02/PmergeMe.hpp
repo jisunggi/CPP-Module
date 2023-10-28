@@ -16,8 +16,8 @@ class PmergeMe
 		std::vector<int> inputData;
 		std::vector<int> mainChain;
 		std::vector<int> otherChain;
-		std::deque<int> mainChainDeque;
-		std::deque<int> otherChainDeque;
+		//std::deque<int> mainChainDeque;
+		//std::deque<int> otherChainDeque;
 
     public :
         PmergeMe(std::vector<int> inputData);
