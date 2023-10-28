@@ -116,6 +116,8 @@ void PmergeMe::insertionSort()
 		{
 			if (numbersOfinsert >= otherChain.size())
 				break ;
+			if (i > otherChain.size() - 1)
+				i = otherChain.size() - 1;
 			std::cout << "index : " << i << std::endl;
 
 			index = insert_element(mainChain, otherChain[i]);
