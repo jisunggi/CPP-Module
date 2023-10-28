@@ -184,7 +184,7 @@ void PmergeMe::vectorSort()
 	mergeInsertionSort();
 	clock_t end = clock();
 	printsortedValue();
-	std::cout << "Time to process a range of " << std::setw(4) << this->vectorData.size() << " elements with std::vector : " << end - start << "ms" << std::endl;
+	std::cout << "Time to process a range of " << std::setw(4) << mainChain.size() << " elements with std::vector : " << end - start << "ms" << std::endl;
 }
 
 // void PmergeMe::deaueSort()

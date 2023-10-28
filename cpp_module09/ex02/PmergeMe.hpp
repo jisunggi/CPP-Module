@@ -7,6 +7,7 @@
 #include <deque>
 #include <sstream>
 #include <iterator>
+#include <iomanip>
 
 class PmergeMe
 {
