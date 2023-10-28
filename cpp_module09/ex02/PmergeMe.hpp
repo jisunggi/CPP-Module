@@ -24,12 +24,16 @@ class PmergeMe
 
 		void printsortedValue();
 		void printInputDataValue();
-		
+
 		void executePmergeMe();
 		void vectorSort();
 		void mergeInsertionSort();
 		void makeMainChain();
 
+		void merge(int left, int mid, int right);
+		void mergeSort(int left, int right);
+
+		int insert_element(int element);
 		void insertionSort();
 		int jacobsthal(int n);
 };

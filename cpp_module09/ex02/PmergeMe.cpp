@@ -22,7 +22,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
     return *this;
 }
 
-void merge(int left, int mid, int right) 
+void PmergeMe::merge(int left, int mid, int right) 
 {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -61,7 +61,7 @@ void merge(int left, int mid, int right)
     }
 }
 
-void mergeSort(int left, int right) 
+void PmergeMe::mergeSort(int left, int right) 
 {
 	if (left < right) 
 	{
@@ -90,7 +90,7 @@ void PmergeMe::makeMainChain()
 	mergeSort(0, mainChain.size() - 1);
 }
 
-int insert_element(int element)
+int PmergeMe::insert_element(int element)
 {
     int left = 0;
     int right = mainChain.size() - 1;
@@ -171,7 +171,7 @@ void PmergeMe::printsortedValue()
 	std::cout << std::endl;
 }
 
-void printInputDataValue()
+void PmergeMe::printInputDataValue()
 {
 	for (std::size_t i = 0; i < inputData.size(); i++)
 		std::cout << inputData[i] << " ";
@@ -191,5 +191,5 @@ void PmergeMe::executePmergeMe()
 {
 	printInputDataValue();
 	vectorSort();
-	dequeSort();
+	//dequeSort();
 }
