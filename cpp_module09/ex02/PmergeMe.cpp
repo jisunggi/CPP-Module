@@ -49,15 +49,14 @@ void PmergeMe::insertionSort(std::vector<int>& arr) {
     for (int i = 1; i < n; i++) {
         int key = arr[i];
         int j = i - 1;
-
-        // Change the comparison to ascending order
-        while (j >= 0 && arr[j] > key) {
+        while (j >= 0 && arr[j] > key) { // Change the comparison to ascending order
             arr[j + 1] = arr[j];
             j--;
         }
         arr[j + 1] = key;
     }
 }
+
 
 
 
