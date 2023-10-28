@@ -112,7 +112,7 @@ void PmergeMe::insertionSort()
 		std::cout << "prev : " << prevJacobsthal << std::endl;
 		std::cout << "jacobsthalNum : " << jacobsthalNum << std::endl;
 
-		for (int i = jacobsthalNum; i != prevJacobsthal; i--)
+		for (std::size_t i = jacobsthalNum; i != prevJacobsthal; i--)
 		{
 			if (numbersOfinsert >= otherChain.size())
 				break ;
