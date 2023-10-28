@@ -28,6 +28,8 @@ class PmergeMe
 		void mergeInsertionSort();
 		void makeMainChain();
 
+		int binarySearch(const std::vector<int>& arr, int left, int right, int key);
+		void insertionSort(std::vector<int>& arr);
 };
 
 #endif

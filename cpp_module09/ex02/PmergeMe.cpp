@@ -116,21 +116,21 @@ void PmergeMe::mergeInsertionSort()
     int i = 0, j = 0;
     while (i < mainChain.size() && j < otherChain.size()) {
         if (mainChain[i] >= otherChain[j]) {
-            arr[i + j] = mainChain[i];
+            inputData[i + j] = mainChain[i];
             i++;
         } else {
-            arr[i + j] = otherChain[j];
+            inputData[i + j] = otherChain[j];
             j++;
         }
     }
 
     while (i < mainChain.size()) {
-        arr[i + j] = mainChain[i];
+        inputData[i + j] = mainChain[i];
         i++;
     }
 
     while (j < otherChain.size()) {
-        arr[i + j] = otherChain[j];
+        inputData[i + j] = otherChain[j];
         j++;
     }
 }
