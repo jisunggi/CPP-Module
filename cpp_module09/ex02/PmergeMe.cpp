@@ -284,7 +284,7 @@ void PmergeMe::dequeMergeInsertionSort()
 
 void PmergeMe::printsortedValue()
 {
-	std::cout << "After :    " ;
+	std::cout << "After  :    " ;
 	for (std::size_t i = 0; i < mainChain.size(); i++)
 		std::cout << mainChain[i] << " ";
 	std::cout << std::endl;
