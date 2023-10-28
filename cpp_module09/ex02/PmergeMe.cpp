@@ -49,6 +49,10 @@ void PmergeMe::makeMainChain()
 			inputData[i] = temp;
 		}
 	}
+		std::cout << "mainChain : ";
+	for (int i = 0; mainChain[i]; i++)
+		std::cout << mainChain[i] << " ";
+	std::cout << std::endl;
 	std::sort(mainChain.begin(), mainChain.end());
 	//mainChainSort();
 	int mainChainIdx = 0;
