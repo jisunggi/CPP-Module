@@ -5,13 +5,13 @@ int main (int argc, char **argv)
 	try
 	{
 		if (argc != 2)
-			throw std::exception();
+			throw std::exception("Error");
 		RPN rpn;
 		rpn.executeRPN(std::string(argv[1]));
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Error" << '\n';
+		std::cerr << e.what() << '\n';
 	}
 
 }
