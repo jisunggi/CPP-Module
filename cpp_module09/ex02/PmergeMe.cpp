@@ -22,41 +22,59 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
     return *this;
 }
 
+void merge(std::vector<int>& mainChain, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    std::vector<int> L(n1);
+    std::vector<int> R(n2);
+
+    for (int i = 0; i < n1; i++) {
+        L[i] = mainChain[left + i];
+    }
+    for (int i = 0; i < n2; i++) {
+        R[i] = mainChain[mid + 1 + i];
+    }
+
+    int i = 0, j = 0, k = left;
+
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j]) {
+            mainChain[k] = L[i];
+            i++;
+        } else {
+            mainChain[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) {
+        mainChain[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2) {
+        mainChain[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(std::vector<int>& mainChain, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergeSort(mainChain, left, mid);
+        mergeSort(mainChain, mid + 1, right);
+
+        merge(mainChain, left, mid, right);
+    }
+}
+
 void PmergeMe::makeMainChain()
 {
-	// int temp;
-	// for (std::size_t i = 0; i < inputData.size(); i += 2)
-	// {
-	// 	if (!inputData[i + 1])
-	// 		break;
-	// 	if (inputData[i] < inputData[i + 1])
-	// 	{
-	// 		temp = inputData[i + 1];
-	// 		inputData[i + 1] = inputData[i];
-	// 		inputData[i] = temp;
-	// 	}
-	// }
-  	
-
-	// int mainChainTemp, otherChainTemp;
-	// for (std::size_t i = 0; i < inputData.size(); i += 2)
-	// {
-    // 	for(std::size_t j = i; j < inputData.size(); j += 2)
-	// 	{
-	// 		if (!inputData[j + 3])
-	// 			break;
-    //   		if (inputData[j] > inputData[j + 2])
-	// 		{
-    //     		mainChainTemp = inputData[j + 2];
-	// 			otherChainTemp = inputData[j + 3];
-    //     		inputData[j + 2]  = inputData[j];
-    //     		inputData[j + 3] = inputData[j + 1];
-	// 			inputData[j] = mainChainTemp;
-	// 			inputData[j + 1] = otherChainTemp;
-    //   		}
-    // 	}
-  	// }
-
 	std::size_t i;
 	for (i = 0; i < inputData.size(); i += 2)
 	{
@@ -69,8 +87,7 @@ void PmergeMe::makeMainChain()
 		mainChain.push_back(inputData[i]);
 		otherChain.push_back(inputData[i + 1]);
 	}
-
-	std::sort(mainChain.begin(), mainChain.end());
+	mergeSort(mainChain, 0, mainChain.size() - 1);
 	printsortedValue();
 }
 
@@ -144,14 +161,6 @@ void PmergeMe::mergeInsertionSort()
 
 void PmergeMe::printsortedValue()
 {
-	// std::vector<int>::iterator iter;
-	// iter = inputData.begin();
-	// while (iter != inputData.end())
-	// {
-	// 	std::cout << *iter << std::endl;
-	// 	iter++;
-	// }
-
 	std::cout << "mainChain : ";
 	for (std::size_t i = 0; i < mainChain.size(); i++)
 		std::cout << mainChain[i] << " ";
