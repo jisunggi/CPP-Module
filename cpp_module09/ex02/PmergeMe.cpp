@@ -99,6 +99,9 @@ void PmergeMe::insertionSort()
 	int index = insert_element(mainChain, otherChain[0]);
 	mainChain.insert(mainChain.begin() + index, otherChain[0]);
 	numbersOfinsert++;
+	index = insert_element(mainChain, otherChain[1]);
+	mainChain.insert(mainChain.begin() + index, otherChain[1]);
+	numbersOfinsert++;
 	while (1)
 	{
 		prevJacobsthal = jacobsthalNum;
