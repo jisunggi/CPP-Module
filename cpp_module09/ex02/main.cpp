@@ -22,7 +22,7 @@ int checkInput(std::string argv)
 
 void leaks()
 {
-	system("PmergeMe leaks");
+	system("leaks PmergeMe");
 }
 
 int main (int argc, char **argv)
