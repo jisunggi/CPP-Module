@@ -81,6 +81,6 @@ void PmergeMe::executePmergeMe()
 		iter++;
 	}
 
-	//vectorSort();
+	vectorSort();
 	//dequeSort();
 }
