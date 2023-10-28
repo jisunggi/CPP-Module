@@ -313,7 +313,6 @@ void PmergeMe::dequeSort()
 	clock_t start = clock();
 	dequeMergeInsertionSort();
 	clock_t end = clock();
-	printsortedValue();
 	std::cout << "Time to process a range of " << std::setw(4) << mainChainDeque.size() << " elements with std::deque : " << end - start << "ms" << std::endl;
 }
 
