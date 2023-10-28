@@ -100,6 +100,8 @@ void PmergeMe::insertionSort()
 	{
 		prevJacobsthal = jacobsthalNum;
 		jacobsthalNum = jacobsthal(n);
+		std::cout << "jacobsthalNum" << jacobsthalNum << std::endl;
+
 		for (int i = jacobsthalNum; i != prevJacobsthal; i--)
 		{
 			int index = insert_element(mainChain, otherChain[i]);
@@ -132,7 +134,7 @@ void PmergeMe::printsortedValue()
 	// }
 
 	std::cout << "mainChain : ";
-	for (int i = 0; mainChain[i]; i++)
+	for (std::size_t i; i < mainChain.size(); i++)
 		std::cout << mainChain[i] << " ";
 	std::cout << std::endl;
 	for (int i = 0; otherChain[i]; i++)
