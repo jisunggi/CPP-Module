@@ -59,7 +59,8 @@ void PmergeMe::makeMainChain()
     	}
   	}
 
-	for (std::size_t i = 0; i < inputData.size(); i += 2)
+	std::size_t i;
+	for (i = 0; i < inputData.size(); i += 2)
 	{
 		mainChain.push_back(inputData[i]);
 		otherChain.push_back(inputData[i + 1]);
