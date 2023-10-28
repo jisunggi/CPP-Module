@@ -38,7 +38,6 @@ int main (int argc, char **argv)
 			inputData.push_back(checkInput(argv[i]));
 		PmergeMe pmergeMe(inputData);
 		pmergeMe.executePmergeMe();
-		std::cout << 111 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
