@@ -79,7 +79,6 @@ void PmergeMe::makeMainChain()
 	std::size_t i;
 	for (i = 0; i < inputData.size(); i += 2)
 	{
-		std::cout << inputData[i] << std::endl;
 		if (!inputData[i + 1])
 		{
 			otherChain.push_back(inputData[i]);
@@ -129,22 +128,15 @@ void PmergeMe::insertionSort()
 		prevJacobsthal = jacobsthalNum;
 		jacobsthalNum = jacobsthal(n);
 
-		std::cout << "prev : " << prevJacobsthal << std::endl;
-		std::cout << "jacobsthalNum : " << jacobsthalNum << std::endl;
-
 		for (std::size_t i = jacobsthalNum; i != prevJacobsthal; i--)
 		{
 			if (numbersOfinsert >= otherChain.size())
 				break ;
 			if (i > otherChain.size() - 1)
 				i = otherChain.size() - 1;
-			std::cout << "index : " << i << std::endl;
 
 			index = insertElement(otherChain[i]);
         	mainChain.insert(mainChain.begin() + index, otherChain[i]);
-			
-			std::cout << otherChain[i] << std::endl;
-			std::cout << "numbersof : " << numbersOfinsert << std::endl;
 
 			numbersOfinsert++;
 		}
@@ -217,7 +209,6 @@ void PmergeMe::dequeMakemainChain()
 	std::size_t i;
 	for (i = 0; i < inputData.size(); i += 2)
 	{
-		std::cout << inputData[i] << std::endl;
 		if (!inputData[i + 1])
 		{
 			otherChainDeque.push_back(inputData[i]);
@@ -259,23 +250,15 @@ void PmergeMe::dequeInsertionSort()
 		prevJacobsthal = jacobsthalNum;
 		jacobsthalNum = jacobsthal(n);
 
-		std::cout << "prev : " << prevJacobsthal << std::endl;
-		std::cout << "jacobsthalNum : " << jacobsthalNum << std::endl;
-
 		for (std::size_t i = jacobsthalNum; i != prevJacobsthal; i--)
 		{
 			if (numbersOfinsert >= otherChainDeque.size())
 				break ;
 			if (i > otherChainDeque.size() - 1)
 				i = otherChainDeque.size() - 1;
-			std::cout << "index : " << i << std::endl;
 
 			index = dequeInsertElement(otherChainDeque[i]);
         	mainChainDeque.insert(mainChainDeque.begin() + index, otherChainDeque[i]);
-			
-			std::cout << otherChainDeque[i] << std::endl;
-			std::cout << "numbersof : " << numbersOfinsert << std::endl;
-
 			numbersOfinsert++;
 		}
 		if (numbersOfinsert >= otherChainDeque.size())
@@ -299,6 +282,15 @@ void PmergeMe::printsortedValue()
 	std::cout << "otherChain : ";
 	for (std::size_t i = 0; i < otherChainDeque.size(); i++)
 		std::cout << otherChainDeque[i] << " ";
+	std::cout << std::endl;
+
+	std::cout << "mainChain : ";
+	for (std::size_t i = 0; i < mainChain.size(); i++)
+		std::cout << mainChain[i] << " ";
+	std::cout << std::endl;
+	std::cout << "otherChain : ";
+	for (std::size_t i = 0; i < otherChain.size(); i++)
+		std::cout << otherChain[i] << " ";
 	std::cout << std::endl;
 }
 
