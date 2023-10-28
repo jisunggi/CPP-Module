@@ -29,7 +29,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 
 void PmergeMe::makeMainChain()
 {
-	for (int i = 0; i < inputData.size(); i += 2)
+	for (std::size_t i = 0; i < inputData.size(); i += 2)
 	{
 		if (inputData[i] > inputData[i + 1])
 		{
