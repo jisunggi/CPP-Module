@@ -24,23 +24,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 
 void PmergeMe::makeMainChain()
 {
-
-	mainChain.clear();
-    otherChain.clear();
-
-    for (std::size_t i = 0; i < inputData.size(); i += 2) {
-        if (i + 1 < inputData.size()) {
-            if (inputData[i] >= inputData[i + 1]) {
-                mainChain.push_back(inputData[i]);
-                otherChain.push_back(inputData[i + 1]);
-            } else {
-                mainChain.push_back(inputData[i + 1]);
-                otherChain.push_back(inputData[i]);
-            }
-        } else {
-            mainChain.push_back(inputData[i]);
-        }
-    }
 	// int temp;
 	// for (std::size_t i = 0; i < inputData.size(); i += 2)
 	// {
@@ -74,19 +57,20 @@ void PmergeMe::makeMainChain()
     // 	}
   	// }
 
-	// std::size_t i;
-	// for (i = 0; i < inputData.size(); i += 2)
-	// {
-	// 	std::cout << inputData[i] << std::endl;
-	// 	if (!inputData[i + 1])
-	// 	{
-	// 		otherChain.push_back(inputData[i]);
-	// 		break;
-	// 	}
-	// 	mainChain.push_back(inputData[i]);
-	// 	otherChain.push_back(inputData[i + 1]);
-	// }
+	std::size_t i;
+	for (i = 0; i < inputData.size(); i += 2)
+	{
+		std::cout << inputData[i] << std::endl;
+		if (!inputData[i + 1])
+		{
+			otherChain.push_back(inputData[i]);
+			break;
+		}
+		mainChain.push_back(inputData[i]);
+		otherChain.push_back(inputData[i + 1]);
+	}
 
+	std::sort(mainChain.begin(), mainChain.end());
 	printsortedValue();
 }
 
