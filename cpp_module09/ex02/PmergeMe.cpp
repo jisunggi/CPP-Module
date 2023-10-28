@@ -24,18 +24,36 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 
 void PmergeMe::makeMainChain()
 {
-	int temp;
-	for (std::size_t i = 0; i < inputData.size(); i += 2)
-	{
-		if (!inputData[i + 1])
-			break;
-		if (inputData[i] < inputData[i + 1])
-		{
-			temp = inputData[i + 1];
-			inputData[i + 1] = inputData[i];
-			inputData[i] = temp;
-		}
-	}
+
+	mainChain.clear();
+    otherChain.clear();
+
+    for (std::size_t i = 0; i < inputData.size(); i += 2) {
+        if (i + 1 < inputData.size()) {
+            if (inputData[i] >= inputData[i + 1]) {
+                mainChain.push_back(inputData[i]);
+                otherChain.push_back(inputData[i + 1]);
+            } else {
+                mainChain.push_back(inputData[i + 1]);
+                otherChain.push_back(inputData[i]);
+            }
+        } else {
+            mainChain.push_back(inputData[i]);
+        }
+    }
+	// int temp;
+	// for (std::size_t i = 0; i < inputData.size(); i += 2)
+	// {
+	// 	if (!inputData[i + 1])
+	// 		break;
+	// 	if (inputData[i] < inputData[i + 1])
+	// 	{
+	// 		temp = inputData[i + 1];
+	// 		inputData[i + 1] = inputData[i];
+	// 		inputData[i] = temp;
+	// 	}
+	// }
+  	
 
 	// int mainChainTemp, otherChainTemp;
 	// for (std::size_t i = 0; i < inputData.size(); i += 2)
@@ -68,24 +86,6 @@ void PmergeMe::makeMainChain()
 	// 	mainChain.push_back(inputData[i]);
 	// 	otherChain.push_back(inputData[i + 1]);
 	// }
-
-	    mainChain.clear();
-    otherChain.clear();
-
-    for (std::size_t i = 0; i < inputData.size(); i += 2) {
-        if (i + 1 < inputData.size()) {
-            if (inputData[i] >= inputData[i + 1]) {
-                mainChain.push_back(inputData[i]);
-                otherChain.push_back(inputData[i + 1]);
-            } else {
-                mainChain.push_back(inputData[i + 1]);
-                otherChain.push_back(inputData[i]);
-            }
-        } else {
-            // Handle the case when there's an odd number of elements
-            mainChain.push_back(inputData[i]);
-        }
-    }
 
 	printsortedValue();
 }
