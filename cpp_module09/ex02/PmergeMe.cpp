@@ -69,7 +69,7 @@ void PmergeMe::makeMainChain()
 		mainChain.push_back(inputData[i]);
 		otherChain.push_back(inputData[i + 1]);
 	}
-	if (!inputData[i])
+	if (inputData[i])
 		otherChain.push_back(inputData[i]);
 
 
@@ -104,13 +104,13 @@ void PmergeMe::mergeInsertionSort()
 
 void PmergeMe::printsortedValue()
 {
-	std::vector<int>::iterator iter;
-	iter = inputData.begin();
-	while (iter != inputData.end())
-	{
-		std::cout << *iter << std::endl;
-		iter++;
-	}
+	// std::vector<int>::iterator iter;
+	// iter = inputData.begin();
+	// while (iter != inputData.end())
+	// {
+	// 	std::cout << *iter << std::endl;
+	// 	iter++;
+	// }
 
 	std::cout << "mainChain : ";
 	for (int i = 0; mainChain[i]; i++)
