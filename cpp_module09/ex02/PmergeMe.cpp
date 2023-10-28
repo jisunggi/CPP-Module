@@ -44,12 +44,19 @@ void PmergeMe::makeMainChain()
 	}
 	std::cout << mainChain.size() << std::endl;
 	std::cout << otherChain.size() << std::endl;
-	for (int i = 0; mainChain[i]; i++)
-		std::cout << mainChain[i] << " ";
-	std::cout << std::endl;
-	for (int i = 0; otherChain[i]; i++)
-		std::cout << otherChain[i] << " ";
-	std::cout << std::endl;
+	std::vector<int>::iterator iter;
+	iter = inpmainChaintData.begin();
+	while (iter != mainChain.end())
+	{
+		std::cout << *iter << std::endl;
+		iter++;
+	}
+	// for (int i = 0; mainChain[i]; i++)
+	// 	std::cout << mainChain[i] << " ";
+	// std::cout << std::endl;
+	// for (int i = 0; otherChain[i]; i++)
+	// 	std::cout << otherChain[i] << " ";
+	// std::cout << std::endl;
 	//mainChainSort();
 }
 
