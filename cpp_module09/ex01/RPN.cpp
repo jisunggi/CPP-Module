@@ -63,6 +63,8 @@ void RPN::storeStack(std::string input)
 
 int RPN::elementsCalculate(int a, int b, std::string op)
 {
+	if (op == "/" && b == 0)
+		throw std::runtime_error("Division by zero is not allowed.");
 	if (op == "+")
 		return (a + b);
 	if (op == "-")
