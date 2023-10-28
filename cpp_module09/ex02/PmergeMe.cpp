@@ -153,7 +153,7 @@ void PmergeMe::printsortedValue()
 		std::cout << mainChain[i] << " ";
 	std::cout << std::endl;
 	std::cout << "otherChain : ";
-	for (int i = 0; otherChain[i]; i++)
+	for (std::size_t i = 0; i < otherChain.size(); i++)
 		std::cout << otherChain[i] << " ";
 	std::cout << std::endl;
 }
