@@ -284,22 +284,9 @@ void PmergeMe::dequeMergeInsertionSort()
 
 void PmergeMe::printsortedValue()
 {
-	std::cout << "mainChain : ";
-	for (std::size_t i = 0; i < mainChainDeque.size(); i++)
-		std::cout << mainChainDeque[i] << " ";
-	std::cout << std::endl;
-	std::cout << "otherChain : ";
-	for (std::size_t i = 0; i < otherChainDeque.size(); i++)
-		std::cout << otherChainDeque[i] << " ";
-	std::cout << std::endl;
-
-	std::cout << "mainChain : ";
+	std::cout << "After :    " ;
 	for (std::size_t i = 0; i < mainChain.size(); i++)
 		std::cout << mainChain[i] << " ";
-	std::cout << std::endl;
-	std::cout << "otherChain : ";
-	for (std::size_t i = 0; i < otherChain.size(); i++)
-		std::cout << otherChain[i] << " ";
 	std::cout << std::endl;
 }
 
@@ -317,7 +304,7 @@ void PmergeMe::vectorSort()
 	clock_t start = clock();
 	mergeInsertionSort();
 	clock_t end = clock();
-	//printsortedValue();
+	printsortedValue();
 	std::cout << "Time to process a range of " << std::setw(4) << mainChain.size() << " elements with std::vector : " << end - start << "ms" << std::endl;
 }
 
@@ -327,7 +314,7 @@ void PmergeMe::dequeSort()
 	dequeMergeInsertionSort();
 	clock_t end = clock();
 	printsortedValue();
-	std::cout << "Time to process a range of " << std::setw(4) << mainChainDeque.size() << " elements with std::deaue : " << end - start << "ms" << std::endl;
+	std::cout << "Time to process a range of " << std::setw(4) << mainChainDeque.size() << " elements with std::deque : " << end - start << "ms" << std::endl;
 }
 
 void PmergeMe::executePmergeMe()
