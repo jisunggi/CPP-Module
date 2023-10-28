@@ -97,9 +97,9 @@ int PmergeMe::jacobsthal(int n) {
 void PmergeMe::insertionSort()
 {
 	std::size_t numbersOfinsert = 0;
+	std::size_t jacobsthalNum = 0;
+	std::size_t prevJacobsthal = 0;
 	int n = 0;
-	int jacobsthalNum = 0;
-	int prevJacobsthal = 0;
 
 	int index = insert_element(mainChain, otherChain[0]);
 	mainChain.insert(mainChain.begin() + index, otherChain[0]);
