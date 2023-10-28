@@ -22,6 +22,54 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
     return *this;
 }
 
+// void PmergeMe::mergeSort(int left, int right)
+// {
+// 	if (left < right)
+// }
+
+void PmergeMe::makeMainChain()
+{
+	for (int i = 0; inputData[i]; i++)
+	{
+		if (inputData[i] > inputData[i + 1])
+		{
+			mainChain.push_back(inputData[i]);
+			otherChain.push_back(inputData[i + 1]);
+		}
+		else
+		{
+			mainChain.push_back(inputData[i + 1]);
+			otherChain.push_back(inputData[i]);
+		}
+	}
+	for (int i = 0; mainChain[i]; i++)
+		std::cout << mainChain[i] << " ";
+	std::cout << stt::endl;
+	for (int i = 0; otherChain[i]; i++)
+		std::cout << otherChain[i] << " ";
+	std::cout << stt::endl;
+}
+
+void PmergeMe::mergeInsertionSort()
+{
+	//mergeSort(0, inputData.size() - 1);
+
+	makeMainChain();
+
+}
+
+// void printsortedValue()
+// {}
+
+void PmergeMe::vectorSort()
+{
+	//start ;
+	mergeInsertionSort();
+	//end ;
+	//printsortedValue();
+	//std::cout;
+}
+
 void PmergeMe::executePmergeMe()
 {
 	std::vector<int>::iterator iter;
@@ -31,4 +79,7 @@ void PmergeMe::executePmergeMe()
 		std::cout << *iter << std::endl;
 		iter++;
 	}
+
+	vectorSort();
+	//dequeSort();
 }

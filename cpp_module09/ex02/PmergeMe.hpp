@@ -12,6 +12,8 @@ class PmergeMe
 	private :
 		PmergeMe();
 		std::vector<int> inputData;
+		std::vector<int> mainChain;
+		std::vector<int> otherChain;
 
     public :
         PmergeMe(std::vector<int> inputData);
@@ -20,6 +22,9 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &pmergeMe);
 
 		void executePmergeMe();
+		void vectorSort();
+		void mergeInsertionSort();
+		void makeMainChain();
 
 };
 
