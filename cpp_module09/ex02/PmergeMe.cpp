@@ -29,44 +29,31 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 
 void PmergeMe::makeMainChain()
 {
-	//int temp;
 
-
- for (size_t i = 0; i < inputData.size(); i += 2) {
-        if (i + 1 < inputData.size()) {
-            if (inputData[i] > inputData[i + 1]) {
-                mainChain.push_back(inputData[i + 1]);
-                mainChain.push_back(inputData[i]);
-            } else {
-                mainChain.push_back(inputData[i]);
-                mainChain.push_back(inputData[i + 1]);
-            }
-        } else {
-            mainChain.push_back(inputData[i]);
-        }
-    }
-	// for (std::size_t i = 0; i < inputData.size(); i += 2)
-	// {
-	// 	if (!inputData[i + 1])
-	// 		otherChain.push_back(inputData[i]);
-	// 	else if (inputData[i] > inputData[i + 1])
-	// 	{
-	// 		mainChain.push_back(inputData[i]);
-	// 		otherChain.push_back(inputData[i + 1]);
-	// 	}
-	// 	else
-	// 	{
-	// 		mainChain.push_back(inputData[i + 1]);
-	// 		otherChain.push_back(inputData[i]);
-	// 		temp = inputData[i + 1];
-	// 		inputData[i + 1] = inputData[i];
-	// 		inputData[i] = temp;
-	// 	}
-	// }
+	
+	int temp;
+	for (std::size_t i = 0; i < inputData.size(); i += 2)
+	{
+		if (!inputData[i + 1])
+			otherChain.push_back(inputData[i]);
+		else if (inputData[i] > inputData[i + 1])
+		{
+			mainChain.push_back(inputData[i]);
+			otherChain.push_back(inputData[i + 1]);
+		}
+		else
+		{
+			mainChain.push_back(inputData[i + 1]);
+			otherChain.push_back(inputData[i]);
+			temp = inputData[i + 1];
+			inputData[i + 1] = inputData[i];
+			inputData[i] = temp;
+		}
+	}
 
 
 	// std::sort(mainChain.begin(), mainChain.end());
-	// //mainChainSort();
+	// // //mainChainSort();
 	// int mainChainIdx = 0;
 	// for (std::size_t i = 0; i < inputData.size(); i += 2)
 	// {
@@ -78,16 +65,16 @@ void PmergeMe::makeMainChain()
 	// }
 }
 
-void insertionSort()
-{
+// void insertionSort()
+// {
 
-}
+// }
 
 void PmergeMe::mergeInsertionSort()
 {
 	//mergeSort(0, inputData.size() - 1);
 	makeMainChain();
-	insertionSort();
+	//insertionSort();
 
 }
 
