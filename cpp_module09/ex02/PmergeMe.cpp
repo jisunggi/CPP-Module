@@ -22,54 +22,54 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
     return *this;
 }
 
-void merge(std::vector<int>& mainChain, int left, int mid, int right) {
+void merge(int left, int mid, int right) 
+{
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
     std::vector<int> L(n1);
     std::vector<int> R(n2);
-
-    for (int i = 0; i < n1; i++) {
+    for (int i = 0; i < n1; i++) 
         L[i] = mainChain[left + i];
-    }
-    for (int i = 0; i < n2; i++) {
+    for (int i = 0; i < n2; i++)
         R[i] = mainChain[mid + 1 + i];
-    }
-
     int i = 0, j = 0, k = left;
-
-    while (i < n1 && j < n2) {
-        if (L[i] <= R[j]) {
+    while (i < n1 && j < n2) 
+	{
+        if (L[i] <= R[j]) 
+		{
             mainChain[k] = L[i];
             i++;
-        } else {
+        } else 
+		{
             mainChain[k] = R[j];
             j++;
         }
         k++;
     }
-
-    while (i < n1) {
+    while (i < n1) 
+	{
         mainChain[k] = L[i];
         i++;
         k++;
     }
-
-    while (j < n2) {
+    while (j < n2) 
+	{
         mainChain[k] = R[j];
         j++;
         k++;
     }
 }
 
-void mergeSort(std::vector<int>& mainChain, int left, int right) {
-    if (left < right) {
+void mergeSort(int left, int right) 
+{
+	if (left < right) 
+	{
         int mid = left + (right - left) / 2;
 
-        mergeSort(mainChain, left, mid);
-        mergeSort(mainChain, mid + 1, right);
-
-        merge(mainChain, left, mid, right);
+        mergeSort(left, mid);
+        mergeSort(mid + 1, right);
+        merge(left, mid, right);
     }
 }
 
@@ -87,20 +87,20 @@ void PmergeMe::makeMainChain()
 		mainChain.push_back(inputData[i]);
 		otherChain.push_back(inputData[i + 1]);
 	}
-	mergeSort(mainChain, 0, mainChain.size() - 1);
-	printsortedValue();
+	mergeSort(0, mainChain.size() - 1);
 }
 
-int insert_element(std::vector<int>& mainChain, int element) {
+int insert_element(int element)
+{
     int left = 0;
     int right = mainChain.size() - 1;
-    while (left <= right) {
+    while (left <= right)
+	{
         int mid = (left + right) / 2;
-        if (element < mainChain[mid]) {
+        if (element < mainChain[mid])
             right = mid - 1;
-        } else {
+		else
             left = mid + 1;
-        }
     }
     return left;
 }
@@ -171,9 +171,16 @@ void PmergeMe::printsortedValue()
 	std::cout << std::endl;
 }
 
+void printInputDataValue()
+{
+	for (std::size_t i = 0; i < inputData.size(); i++)
+		std::cout << inputData[i] << " ";
+}
+
 void PmergeMe::vectorSort()
 {
 	//start ;
+	
 	mergeInsertionSort();
 	//end ;
 	printsortedValue();
@@ -182,5 +189,7 @@ void PmergeMe::vectorSort()
 
 void PmergeMe::executePmergeMe()
 {
+	printInputDataValue();
 	vectorSort();
+	dequeSort();
 }

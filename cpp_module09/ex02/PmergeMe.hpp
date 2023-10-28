@@ -4,9 +4,9 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <deque>
 #include <sstream>
 #include <iterator>
-#include <algorithm>
 
 class PmergeMe
 {
@@ -22,9 +22,11 @@ class PmergeMe
 		PmergeMe(const PmergeMe &pmergeMe);
 		PmergeMe &operator=(const PmergeMe &pmergeMe);
 
+		void printsortedValue();
+		void printInputDataValue();
+		
 		void executePmergeMe();
 		void vectorSort();
-		void printsortedValue();
 		void mergeInsertionSort();
 		void makeMainChain();
 
