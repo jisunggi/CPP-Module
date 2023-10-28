@@ -33,6 +33,8 @@ void PmergeMe::makeMainChain()
 
 	for (std::size_t i = 0; i < inputData.size(); i += 2)
 	{
+		if (!inputData[i + 1])
+			mainChain.push_back(inputData[i]);
 		if (inputData[i] > inputData[i + 1])
 		{
 			mainChain.push_back(inputData[i]);
@@ -53,6 +55,8 @@ void PmergeMe::makeMainChain()
 	for (std::size_t i = 0; i < inputData.size(); i += 2)
 	{
 		inputData[i] = mainChain[mainChainIdx];
+		if (!inputData[i + 1])
+			inputData[i + 1] = otherChain[mainChainIdx];
 		mainChainIdx++;
 	}
 }
@@ -60,8 +64,8 @@ void PmergeMe::makeMainChain()
 void PmergeMe::mergeInsertionSort()
 {
 	//mergeSort(0, inputData.size() - 1);
-
 	makeMainChain();
+
 
 }
 
@@ -75,6 +79,7 @@ void PmergeMe::printsortedValue()
 		iter++;
 	}
 
+	std::cout << "mainChain : ";
 	for (int i = 0; mainChain[i]; i++)
 		std::cout << mainChain[i] << " ";
 	std::cout << std::endl;
