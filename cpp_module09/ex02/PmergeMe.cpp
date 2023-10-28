@@ -27,6 +27,40 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 // 	if (left < right)
 // }
 
+// Binary search for insertion
+int PmergeMe::binarySearch(const std::vector<int>& arr, int left, int right, int key) {
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (arr[mid] == key) {
+            return mid;
+        }
+        if (arr[mid] < key) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    return left;
+}
+
+// Insertion sort with binary search for the "main Chain"
+void PmergeMe::insertionSort(std::vector<int>& arr) {
+    int n = arr.size();
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        int index = binarySearch(arr, 0, j, key);
+
+        while (j >= index) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+
 void PmergeMe::makeMainChain()
 {
 	int temp;
@@ -70,29 +104,35 @@ void PmergeMe::makeMainChain()
 
 
 }
-	// std::sort(mainChain.begin(), mainChain.end());
-	// // //mainChainSort();
-	// int mainChainIdx = 0;
-	// for (std::size_t i = 0; i < inputData.size(); i += 2)
-	// {
-	// 	inputData[i] = mainChain[mainChainIdx];
-	// 	inputData[i + 1] = otherChain[mainChainIdx];
-	// 	if (!inputData[i + 1])
-	// 		inputData[i + 1] = otherChain[mainChainIdx + 1];
-	// 	mainChainIdx++;
-	// }
-
-// void insertionSort()
-// {
-
-// }
 
 void PmergeMe::mergeInsertionSort()
 {
 	//mergeSort(0, inputData.size() - 1);
 	makeMainChain();
 	//insertionSort();
+	insertionSort(otherChain); // Step 4: Insertion Sort for other Chain
 
+    // Merge the main and other chains
+    int i = 0, j = 0;
+    while (i < mainChain.size() && j < otherChain.size()) {
+        if (mainChain[i] >= otherChain[j]) {
+            arr[i + j] = mainChain[i];
+            i++;
+        } else {
+            arr[i + j] = otherChain[j];
+            j++;
+        }
+    }
+
+    while (i < mainChain.size()) {
+        arr[i + j] = mainChain[i];
+        i++;
+    }
+
+    while (j < otherChain.size()) {
+        arr[i + j] = otherChain[j];
+        j++;
+    }
 }
 
 void PmergeMe::printsortedValue()
