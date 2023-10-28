@@ -105,6 +105,7 @@ void PmergeMe::insertionSort()
 			int index = insert_element(mainChain, otherChain[i]);
         	mainChain.insert(mainChain.begin() + index, otherChain[i]);
 			numbersOfinsert++;
+			std::cout << "numbersof" << numbersOfinsert << std::endl;
 			if (numbersOfinsert >= otherChain.size())
 				break ;
 		}
