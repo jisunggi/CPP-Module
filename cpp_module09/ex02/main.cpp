@@ -20,14 +20,14 @@ int checkInput(std::string argv)
 	return stringToInt(argv);
 }
 
-void leaks(void)
-{
-	system("leaks PmergeMe");
-}
+// void leaks(void)
+// {
+// 	system("leaks PmergeMe");
+// }
 
 int main (int argc, char **argv)
 {
-	atexit(leaks);
+	//atexit(leaks);
 	try
 	{
 		std::vector<int> inputData;
@@ -38,6 +38,7 @@ int main (int argc, char **argv)
 			inputData.push_back(checkInput(argv[i]));
 		PmergeMe pmergeMe(inputData);
 		pmergeMe.executePmergeMe();
+		std::cout << 111 << std::endl;
 	}
 	catch(const std::exception& e)
 	{
