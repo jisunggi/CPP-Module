@@ -23,6 +23,7 @@ class PmergeMe
 
 		void executePmergeMe();
 		void vectorSort();
+		void printsortedValue();
 		void mergeInsertionSort();
 		void makeMainChain();
 
