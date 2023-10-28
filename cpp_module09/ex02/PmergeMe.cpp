@@ -94,7 +94,7 @@ void PmergeMe::insertionSort()
 	std::size_t numbersOfinsert = 0;
 	int n = 0;
 	int jacobsthalNum = 0;
-	int prevJacobsthal = 0;
+	int prevJacobsthal = 1;
 
 	while (1)
 	{
