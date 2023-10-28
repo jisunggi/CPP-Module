@@ -109,6 +109,8 @@ void PmergeMe::insertionSort()
 
 		for (int i = jacobsthalNum; i != prevJacobsthal; i--)
 		{
+			if (numbersOfinsert >= otherChain.size())
+				break ;
 			std::cout << "index : " << i << std::endl;
 
 			index = insert_element(mainChain, otherChain[i]);
@@ -118,8 +120,6 @@ void PmergeMe::insertionSort()
 			std::cout << "numbersof : " << numbersOfinsert << std::endl;
 
 			numbersOfinsert++;
-			if (numbersOfinsert >= otherChain.size())
-				break ;
 		}
 		if (numbersOfinsert >= otherChain.size())
 			break ;
