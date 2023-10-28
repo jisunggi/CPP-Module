@@ -36,39 +36,56 @@ void PmergeMe::makeMainChain()
 			inputData[i] = temp;
 		}
 	}
-  	
-	printsortedValue();
-	int mainChainTemp, otherChainTemp;
-	for (std::size_t i = 0; i < inputData.size(); i += 2)
-	{
-    	for(std::size_t j = i; j < inputData.size(); j += 2)
-		{
-			if (!inputData[j + 3])
-				break;
-      		if (inputData[j] > inputData[j + 2])
-			{
-        		mainChainTemp = inputData[j + 2];
-				otherChainTemp = inputData[j + 3];
-        		inputData[j + 2]  = inputData[j];
-        		inputData[j + 3] = inputData[j + 1];
-				inputData[j] = mainChainTemp;
-				inputData[j + 1] = otherChainTemp;
-      		}
-    	}
-  	}
-printsortedValue();
-	std::size_t i;
-	for (i = 0; i < inputData.size(); i += 2)
-	{
-		std::cout << inputData[i] << std::endl;
-		if (!inputData[i + 1])
-		{
-			otherChain.push_back(inputData[i]);
-			break;
-		}
-		mainChain.push_back(inputData[i]);
-		otherChain.push_back(inputData[i + 1]);
-	}
+
+	// int mainChainTemp, otherChainTemp;
+	// for (std::size_t i = 0; i < inputData.size(); i += 2)
+	// {
+    // 	for(std::size_t j = i; j < inputData.size(); j += 2)
+	// 	{
+	// 		if (!inputData[j + 3])
+	// 			break;
+    //   		if (inputData[j] > inputData[j + 2])
+	// 		{
+    //     		mainChainTemp = inputData[j + 2];
+	// 			otherChainTemp = inputData[j + 3];
+    //     		inputData[j + 2]  = inputData[j];
+    //     		inputData[j + 3] = inputData[j + 1];
+	// 			inputData[j] = mainChainTemp;
+	// 			inputData[j + 1] = otherChainTemp;
+    //   		}
+    // 	}
+  	// }
+
+	// std::size_t i;
+	// for (i = 0; i < inputData.size(); i += 2)
+	// {
+	// 	std::cout << inputData[i] << std::endl;
+	// 	if (!inputData[i + 1])
+	// 	{
+	// 		otherChain.push_back(inputData[i]);
+	// 		break;
+	// 	}
+	// 	mainChain.push_back(inputData[i]);
+	// 	otherChain.push_back(inputData[i + 1]);
+	// }
+
+	    mainChain.clear();
+    otherChain.clear();
+
+    for (std::size_t i = 0; i < inputData.size(); i += 2) {
+        if (i + 1 < inputData.size()) {
+            if (inputData[i] >= inputData[i + 1]) {
+                mainChain.push_back(inputData[i]);
+                otherChain.push_back(inputData[i + 1]);
+            } else {
+                mainChain.push_back(inputData[i + 1]);
+                otherChain.push_back(inputData[i]);
+            }
+        } else {
+            // Handle the case when there's an odd number of elements
+            mainChain.push_back(inputData[i]);
+        }
+    }
 
 	printsortedValue();
 }
