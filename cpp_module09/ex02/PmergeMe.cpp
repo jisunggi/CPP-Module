@@ -50,15 +50,15 @@ void PmergeMe::insertionSort(std::vector<int>& arr) {
         int key = arr[i];
         int j = i - 1;
 
-        int index = binarySearch(arr, 0, j, key);
-
-        while (j >= index) {
+        // Change the comparison to ascending order
+        while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j--;
         }
         arr[j + 1] = key;
     }
 }
+
 
 
 void PmergeMe::makeMainChain()
@@ -165,14 +165,5 @@ void PmergeMe::vectorSort()
 
 void PmergeMe::executePmergeMe()
 {
-	// std::vector<int>::iterator iter;
-	// iter = inputData.begin();
-	// while (iter != inputData.end())
-	// {
-	// 	std::cout << *iter << std::endl;
-	// 	iter++;
-	// }
-
 	vectorSort();
-	//dequeSort();
 }
