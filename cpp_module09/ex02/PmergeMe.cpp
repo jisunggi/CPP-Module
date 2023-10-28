@@ -35,7 +35,7 @@ void PmergeMe::makeMainChain()
 	{
 		if (!inputData[i + 1])
 			mainChain.push_back(inputData[i]);
-		if (inputData[i] > inputData[i + 1])
+		else if (inputData[i] > inputData[i + 1])
 		{
 			mainChain.push_back(inputData[i]);
 			otherChain.push_back(inputData[i + 1]);
