@@ -68,7 +68,7 @@ void PmergeMe::makeMainChain()
 	{
 		if (!inputData[i + 1])
 		{
-			otherChain.push_back(inputData[i + 1]);
+			otherChain.push_back(inputData[i]);
 			break;
 		}
 		mainChain.push_back(inputData[i]);
