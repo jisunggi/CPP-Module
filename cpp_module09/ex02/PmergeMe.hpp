@@ -6,6 +6,7 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
+#include <algorithm>
 
 class PmergeMe
 {

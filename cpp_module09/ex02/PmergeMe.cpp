@@ -52,7 +52,7 @@ void PmergeMe::makeMainChain()
 	int mainChainIdx = 0;
 	for (std::size_t i = 0; i < inputData.size(); i += 2)
 	{
-		inputData[i] = mainChainp[mainChainIdx];
+		inputData[i] = mainChain[mainChainIdx];
 		mainChainIdx++;
 	}
 }
