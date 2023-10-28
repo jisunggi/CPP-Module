@@ -45,7 +45,7 @@ void PmergeMe::makeMainChain()
 	std::cout << mainChain.size() << std::endl;
 	std::cout << otherChain.size() << std::endl;
 	std::vector<int>::iterator iter;
-	iter = inpmainChaintData.begin();
+	iter = mainChain.begin();
 	while (iter != mainChain.end())
 	{
 		std::cout << *iter << std::endl;
