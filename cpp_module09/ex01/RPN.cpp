@@ -17,7 +17,7 @@ RPN::RPN(const RPN &rpn)
 
 RPN &RPN::operator=(const RPN &rpn)
 {
-	if (this != &RPN)
+	if (this != &rpn)
 	{
 		this->rpnStack = rpn.rpnStack;
 		this->elementsStack = rpn.elementsStack;
