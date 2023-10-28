@@ -96,7 +96,7 @@ void PmergeMe::mergeInsertionSort()
 	//insertionSort();
 	std::size_t i;
 	for (i = 0; i < otherChain.size(); i++) {
-        int index = insert_element(mainChain, element);
+        int index = insert_element(mainChain, otherChain[i]);
         mainChain.insert(mainChain.begin() + index, element);
     }
 }
