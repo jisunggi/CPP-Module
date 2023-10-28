@@ -113,7 +113,7 @@ void PmergeMe::mergeInsertionSort()
 	insertionSort(otherChain); // Step 4: Insertion Sort for other Chain
 
     // Merge the main and other chains
-    int i = 0, j = 0;
+    std::size_t i = 0, j = 0;
     while (i < mainChain.size() && j < otherChain.size()) {
         if (mainChain[i] >= otherChain[j]) {
             inputData[i + j] = mainChain[i];
