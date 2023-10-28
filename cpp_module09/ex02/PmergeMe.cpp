@@ -29,8 +29,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
 
 void PmergeMe::makeMainChain()
 {
-
-	
 	int temp;
 	for (std::size_t i = 0; i < inputData.size(); i += 2)
 	{
@@ -50,8 +48,24 @@ void PmergeMe::makeMainChain()
 			inputData[i] = temp;
 		}
 	}
-
-
+  	
+	int mainChainTemp, otherChainTemp;
+	for (std::size_t i = 0; i < inputData.size(); i += 2)
+	{
+    	for(std::size_t j = i; j < inputData.size(); j += 2)
+		{
+      		if (inputData[j] > inputData[j + 2])
+			{
+        		mainChainTemp = inputData[j + 2];
+				otherChainTemp = inputData[j + 3];
+        		inputData[j + 2]  = inputData[j];
+        		inputData[j + 3] = inputData[j + 1];
+				inputData[j] = mainChainTemp;
+				inputData[j + 1] = otherChainTemp;
+      		}
+    	}
+  	}
+}
 	// std::sort(mainChain.begin(), mainChain.end());
 	// // //mainChainSort();
 	// int mainChainIdx = 0;
@@ -63,7 +77,6 @@ void PmergeMe::makeMainChain()
 	// 		inputData[i + 1] = otherChain[mainChainIdx + 1];
 	// 	mainChainIdx++;
 	// }
-}
 
 // void insertionSort()
 // {
