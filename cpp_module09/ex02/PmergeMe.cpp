@@ -27,35 +27,36 @@ void PmergeMe::merge(int left, int mid, int right)
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
-    std::vector<int> L(n1);
-    std::vector<int> R(n2);
+    std::vector<int> leftArray(n1);
+    std::vector<int> rightArray(n2);
     for (int i = 0; i < n1; i++) 
-        L[i] = mainChain[left + i];
+        leftArray[i] = mainChain[left + i];
     for (int i = 0; i < n2; i++)
-        R[i] = mainChain[mid + 1 + i];
+        rightArray[i] = mainChain[mid + 1 + i];
     int i = 0, j = 0, k = left;
     while (i < n1 && j < n2) 
 	{
-        if (L[i] <= R[j]) 
+        if (leftArray[i] <= rightArray[j]) 
 		{
-            mainChain[k] = L[i];
+            mainChain[k] = leftArray[i];
             i++;
-        } else 
+        }
+		else 
 		{
-            mainChain[k] = R[j];
+            mainChain[k] = rightArray[j];
             j++;
         }
         k++;
     }
     while (i < n1) 
 	{
-        mainChain[k] = L[i];
+        mainChain[k] = leftArray[i];
         i++;
         k++;
     }
     while (j < n2) 
 	{
-        mainChain[k] = R[j];
+        mainChain[k] = rightArray[j];
         j++;
         k++;
     }
@@ -179,13 +180,21 @@ void PmergeMe::printInputDataValue()
 
 void PmergeMe::vectorSort()
 {
-	//start ;
-	
+	clock_t start = clock();
 	mergeInsertionSort();
-	//end ;
+	clock_t end = clock();
 	printsortedValue();
-	//std::cout;
+	std::cout << "Time to process a range of " << std::setw(4) << this->vectorData.size() << " elements with std::vector : " << end - start << "ms" << std::endl;
 }
+
+// void PmergeMe::deaueSort()
+// {
+// 	clock_t start = clock();
+// 	mergeInsertionSort();
+// 	clock_t end = clock();
+// 	printsortedValue();
+// 	std::cout << "Time to process a range of " << std::setw(4) << this->vectorData.size() << " elements with std::vector : " << end - start << "ms" << std::endl;
+// }
 
 void PmergeMe::executePmergeMe()
 {

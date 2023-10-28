@@ -15,6 +15,8 @@ class PmergeMe
 		std::vector<int> inputData;
 		std::vector<int> mainChain;
 		std::vector<int> otherChain;
+		std::deque<int> mainChainDeque;
+		std::deque<int> otherChainDeque;
 
     public :
         PmergeMe(std::vector<int> inputData);
@@ -36,6 +38,8 @@ class PmergeMe
 		int insert_element(int element);
 		void insertionSort();
 		int jacobsthal(int n);
+
+		void deaueSort();
 };
 
 #endif
