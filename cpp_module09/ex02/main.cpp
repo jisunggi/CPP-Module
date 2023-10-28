@@ -20,10 +20,16 @@ int checkInput(std::string argv)
 	return stringToInt(argv);
 }
 
+void leaks()
+{
+	system("PmergeMe leaks");
+}
+
 int main (int argc, char **argv)
 {
 	try
 	{
+		atexit(leaks);
 		std::vector<int> inputData;
 
 		if (argc < 2)
