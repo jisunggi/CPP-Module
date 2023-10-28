@@ -31,39 +31,51 @@ void PmergeMe::makeMainChain()
 {
 	int temp;
 
-	for (std::size_t i = 0; i < inputData.size(); i += 2)
-	{
-		if (!inputData[i + 1])
-			otherChain.push_back(inputData[i]);
-		else if (inputData[i] > inputData[i + 1])
-		{
-			mainChain.push_back(inputData[i]);
-			otherChain.push_back(inputData[i + 1]);
-		}
-		else
-		{
-			mainChain.push_back(inputData[i + 1]);
-			otherChain.push_back(inputData[i]);
-			temp = inputData[i + 1];
-			inputData[i + 1] = inputData[i];
-			inputData[i] = temp;
-		}
-	}
-	// 	std::cout << "mainChain : ";
-	// for (int i = 0; mainChain[i]; i++)
-	// 	std::cout << mainChain[i] << " ";
-	// std::cout << std::endl;
-	std::sort(mainChain.begin(), mainChain.end());
-	//mainChainSort();
-	int mainChainIdx = 0;
-	for (std::size_t i = 0; i < inputData.size(); i += 2)
-	{
-		inputData[i] = mainChain[mainChainIdx];
-		inputData[i + 1] = otherChain[mainChainIdx];
-		if (!inputData[i + 1])
-			inputData[i + 1] = otherChain[mainChainIdx + 1];
-		mainChainIdx++;
-	}
+
+ for (size_t i = 0; i < inputData.size(); i += 2) {
+        if (i + 1 < inputData.size()) {
+            if (inputData[i] > inputData[i + 1]) {
+                mainChain.push_back(inputData[i + 1]);
+                mainChain.push_back(inputData[i]);
+            } else {
+                mainChain.push_back(inputData[i]);
+                mainChain.push_back(inputData[i + 1]);
+            }
+        } else {
+            mainChain.push_back(inputData[i]);
+        }
+    }
+	// for (std::size_t i = 0; i < inputData.size(); i += 2)
+	// {
+	// 	if (!inputData[i + 1])
+	// 		otherChain.push_back(inputData[i]);
+	// 	else if (inputData[i] > inputData[i + 1])
+	// 	{
+	// 		mainChain.push_back(inputData[i]);
+	// 		otherChain.push_back(inputData[i + 1]);
+	// 	}
+	// 	else
+	// 	{
+	// 		mainChain.push_back(inputData[i + 1]);
+	// 		otherChain.push_back(inputData[i]);
+	// 		temp = inputData[i + 1];
+	// 		inputData[i + 1] = inputData[i];
+	// 		inputData[i] = temp;
+	// 	}
+	// }
+
+
+	// std::sort(mainChain.begin(), mainChain.end());
+	// //mainChainSort();
+	// int mainChainIdx = 0;
+	// for (std::size_t i = 0; i < inputData.size(); i += 2)
+	// {
+	// 	inputData[i] = mainChain[mainChainIdx];
+	// 	inputData[i + 1] = otherChain[mainChainIdx];
+	// 	if (!inputData[i + 1])
+	// 		inputData[i + 1] = otherChain[mainChainIdx + 1];
+	// 	mainChainIdx++;
+	// }
 }
 
 void insertionSort()
