@@ -17,8 +17,8 @@ class RPN
     public :
         RPN();
         ~RPN();
-		RPN(const RPN &RPN);
-		RPN &operator=(const RPN &RPN);
+		RPN(const RPN &rpn);
+		RPN &operator=(const RPN &rpn);
 
 		void executeRPN(std::string input);
 		void storeStack(std::string input);

@@ -6,13 +6,18 @@ BitcoinExchange::~BitcoinExchange(){}
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &bitcoinExchange)
 {
-	(void)bitcoinExchange;
+	this->data = bitcoinExchange.data;
+    this->inputDate = bitcoinExchange.inputDate;
+	this->inputValue = bitcoinExchange.inputValue;
 }
 
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &bitcoinExchange)
 {
 	if (this != &bitcoinExchange)
 	{
+		this->data = bitcoinExchange.data;
+        this->inputDate = bitcoinExchange.inputDate;
+        this->inputValue = bitcoinExchange.inputValue;
 	}
     return *this;
 }

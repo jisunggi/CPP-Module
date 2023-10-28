@@ -7,15 +7,22 @@ RPN::RPN() {
 
 RPN::~RPN(){}
 
-RPN::RPN(const RPN &RPN)
+RPN::RPN(const RPN &rpn)
 {
-	(void)RPN;
+	this->rpnStack = rpn.rpnStack;
+	this->elementsStack = rpn.elementsStack;
+    this->numbersOfOperator = rpn.numbersOfOperator;
+    this->numbersOfNum = rpn.numbersOfNum;
 }
 
-RPN &RPN::operator=(const RPN &RPN)
+RPN &RPN::operator=(const RPN &rpn)
 {
 	if (this != &RPN)
 	{
+		this->rpnStack = rpn.rpnStack;
+		this->elementsStack = rpn.elementsStack;
+		this->numbersOfOperator = rpn.numbersOfOperator;
+		this->numbersOfNum = rpn.numbersOfNum;
 	}
     return *this;
 }
