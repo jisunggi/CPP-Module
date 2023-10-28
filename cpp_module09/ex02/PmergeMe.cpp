@@ -320,7 +320,7 @@ void PmergeMe::vectorSort()
 void PmergeMe::dequeSort()
 {
 	clock_t start = clock();
-	mergeInsertionSort();
+	dequeMergeInsertionSort();
 	clock_t end = clock();
 	printsortedValue();
 	std::cout << "Time to process a range of " << std::setw(4) << mainChainDeque.size() << " elements with std::deaue : " << end - start << "ms" << std::endl;
