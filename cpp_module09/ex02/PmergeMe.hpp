@@ -41,7 +41,7 @@ class PmergeMe
 		void insertionSort();
 		int jacobsthal(int n);
 
-		void deaueSort();
+		void dequeSort();
 		void dequeMergeInsertionSort();
 		void dequeMakemainChain();
 

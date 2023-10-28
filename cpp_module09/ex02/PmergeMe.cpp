@@ -140,7 +140,7 @@ void PmergeMe::insertionSort()
 				i = otherChain.size() - 1;
 			std::cout << "index : " << i << std::endl;
 
-			index = insert_element(otherChain[i]);
+			index = insertElement(otherChain[i]);
         	mainChain.insert(mainChain.begin() + index, otherChain[i]);
 			
 			std::cout << otherChain[i] << std::endl;
@@ -317,7 +317,7 @@ void PmergeMe::vectorSort()
 	std::cout << "Time to process a range of " << std::setw(4) << mainChain.size() << " elements with std::vector : " << end - start << "ms" << std::endl;
 }
 
-void PmergeMe::deaueSort()
+void PmergeMe::dequeSort()
 {
 	clock_t start = clock();
 	mergeInsertionSort();
