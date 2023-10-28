@@ -9,15 +9,24 @@ PmergeMe::PmergeMe(std::vector<int> inputData)
 
 PmergeMe::~PmergeMe(){}
 
-PmergeMe::PmergeMe(const PmergeMe &PmergeMe)
+PmergeMe::PmergeMe(const PmergeMe &pmergeMe)
 {
-	(void)PmergeMe;
+	this->inputData = pmergeMe.inputData;
+    this->mainChain = pmergeMe.mainChain;
+    this->otherChain = pmergeMe.otherChain;
+    this->mainChainDeque = pmergeMe.mainChainDeque;
+    this->otherChainDeque = pmergeMe.otherChainDeque;
 }
 
-PmergeMe &PmergeMe::operator=(const PmergeMe &PmergeMe)
+PmergeMe &PmergeMe::operator=(const PmergeMe &pmergeMe)
 {
 	if (this != &PmergeMe)
 	{
+		this->inputData = pmergeMe.inputData;
+        this->mainChain = pmergeMe.mainChain;
+        this->otherChain = pmergeMe.otherChain;
+        this->mainChainDeque = pmergeMe.mainChainDeque;
+        this->otherChainDeque = pmergeMe.otherChainDeque;
 	}
     return *this;
 }
@@ -296,8 +305,11 @@ void PmergeMe::printsortedValue()
 
 void PmergeMe::printInputDataValue()
 {
+	std::cout << "Before :    " ;
 	for (std::size_t i = 0; i < inputData.size(); i++)
 		std::cout << inputData[i] << " ";
+	std::cout << std::endl;
+	
 }
 
 void PmergeMe::vectorSort()
