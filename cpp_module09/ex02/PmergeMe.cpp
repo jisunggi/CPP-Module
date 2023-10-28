@@ -107,12 +107,13 @@ void PmergeMe::insertionSort()
 		prevJacobsthal = jacobsthalNum;
 		jacobsthalNum = jacobsthal(n);
 		std::cout << "jacobsthalNum : " << jacobsthalNum << std::endl;
-
+	std::cout << "prev : " << jacobsthalNum << std::endl;
 		for (int i = jacobsthalNum; i != prevJacobsthal; i--)
 		{
 			std::cout << "index : " << i << std::endl;
 			index = insert_element(mainChain, otherChain[i]);
         	mainChain.insert(mainChain.begin() + index, otherChain[i]);
+			std::cout << otherChain[i] << i << std::endl;
 			numbersOfinsert++;
 			std::cout << "numbersof : " << numbersOfinsert << std::endl;
 			if (numbersOfinsert >= otherChain.size())
