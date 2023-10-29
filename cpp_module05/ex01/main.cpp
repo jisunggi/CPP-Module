@@ -14,26 +14,30 @@ std::ostream &operator<<(std::ostream &ostream, const Form &form)
 
 int main ()
 {
-	Bureaucrat bureaucrat("Bureaucrate", 60);
-	if (bureaucrat.checkGrade())
-		return 1;
-	Form form("Form", 61, 61);
-	if (form.checkGrade())
-		return 1;
+	try
+	{
+		Bureaucrat bureaucrat("Bureaucrate", 60);
+		bureaucrat.checkGrade();
+		Form form("Form", 61, 61);
+		form.checkGrade();
 
-	std::cout << bureaucrat << std::endl;
-	std::cout << form << std::endl;
-	std::cout << "-----------------" << std::endl;
-	
-	bureaucrat.signForm(form);
-	std::cout << "-----------------" << std::endl;
+		std::cout << bureaucrat << std::endl;
+		std::cout << form << std::endl;
+		std::cout << "-----------------" << std::endl;
+		
+		bureaucrat.signForm(form);
+		std::cout << "-----------------" << std::endl;
 
-	bureaucrat.decrementGrade();
-	bureaucrat.decrementGrade();
-	std::cout << bureaucrat << std::endl;
-	std::cout << "-----------------" << std::endl;
-	
-	bureaucrat.signForm(form);
-	std::cout << "-----------------" << std::endl;
-
+		bureaucrat.decrementGrade();
+		bureaucrat.decrementGrade();
+		std::cout << bureaucrat << std::endl;
+		std::cout << "-----------------" << std::endl;
+		
+		bureaucrat.signForm(form);
+		std::cout << "-----------------" << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }

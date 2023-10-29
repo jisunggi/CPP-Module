@@ -24,8 +24,14 @@ class Form
 		int getSignGrade() const;
 		int getExecGrade() const;
 		bool getSign() const;
-		int checkGrade();
+		void checkGrade();
 		void beSigned(Bureaucrat &bureaucrat);
+
+		class AlreadySigned : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
 
 		class GradeTooHighException : public std::exception
 		{

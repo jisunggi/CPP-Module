@@ -58,13 +58,15 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 {
 	try
 	{
+		if (this->sign == true)
+		{
+			this->sign = false;
+			throw Form::AlreadySigned();
+		}
 		if (bureaucrat.getGrade() <= this->signGrade)
 			this->sign = true;
 		else
-		{
-			this->sign = false;
 			throw Form::GradeTooLowException();
-		}
 	}
 	catch (std::exception &e)
 	{
@@ -72,19 +74,17 @@ void Form::beSigned(Bureaucrat &bureaucrat)
 	}
 }
 
-int Form::checkGrade()
+void Form::checkGrade()
 {
-	try {
-		if (this->signGrade < 1 || this->execGrade < 1)
-			throw Form::GradeTooHighException();
-		if (this->signGrade > 150 || this->execGrade > 150)
-			throw Form::GradeTooLowException();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-		return 1;
-	}
-	return 0;
+	if (this->signGrade < 1 || this->execGrade < 1)
+		throw Form::GradeTooHighException();
+	if (this->signGrade > 150 || this->execGrade > 150)
+		throw Form::GradeTooLowException();
+}
+
+const char * Form::AlreadySigned::what() const throw()
+{
+	return "AlreadySigned";
 }
 
 const char * Form::GradeTooHighException::what() const throw()

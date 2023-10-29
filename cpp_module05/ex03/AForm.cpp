@@ -58,6 +58,11 @@ void AForm::beSigned(Bureaucrat &executor)
 {
 	try
 	{
+		if (this->sign == true)
+		{
+			this->sign = false;
+			throw AForm::AlreadySigned();
+		}
 		if (executor.getGrade() <= this->signGrade)
 			this->sign = true;
 		else
@@ -85,6 +90,11 @@ int AForm::checkExecute(Bureaucrat const &executor, int formExecGrade) const
 		return 1;
 	}
 	return 0;
+}
+
+const char * AForm::AlreadySigned::what() const throw()
+{
+	return "AlreadySigned";
 }
 
 const char * AForm::GradeTooHighException::what() const throw()

@@ -60,6 +60,11 @@ void PresidentialPardonForm::beSigned(Bureaucrat &executor)
 {
 	try
 	{
+		if (this->sign == true)
+		{
+			this->sign = false;
+			throw AForm::AlreadySigned();
+		}
 		if (executor.getGrade() <= this->signGrade)
 			this->sign = true;
 		else

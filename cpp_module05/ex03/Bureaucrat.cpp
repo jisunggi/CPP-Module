@@ -43,7 +43,7 @@ int Bureaucrat::getGrade() const
 	return this->grade;
 }
 
-int Bureaucrat::checkGrade()
+void Bureaucrat::checkGrade()
 {
 	try {
 		if (this->grade < 1)
@@ -53,23 +53,19 @@ int Bureaucrat::checkGrade()
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
-		return 1;
 	}
-	return 0;
 }
 
 void Bureaucrat::incrementGrade()
 {
 	this->grade--;
-	if (checkGrade())
-		this->grade++;
+	checkGrade();
 }
 
 void Bureaucrat::decrementGrade()
 {
 	this->grade++;
-	if (checkGrade())
-		this->grade--;
+	checkGrade();
 }
 
 void Bureaucrat::signForm(AForm &form)

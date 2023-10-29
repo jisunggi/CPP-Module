@@ -22,7 +22,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		int checkGrade();
+		void checkGrade();
 		void signForm(AForm &form);
 		void executeForm(AForm const &form);
 

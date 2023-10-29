@@ -42,33 +42,24 @@ int Bureaucrat::getGrade() const
 	return this->grade;
 }
 
-int Bureaucrat::checkGrade()
+void Bureaucrat::checkGrade()
 {
-	try {
-		if (this->grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		if (this->grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-		return 1;
-	}
-	return 0;
+	if (this->grade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	if (this->grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 void Bureaucrat::incrementGrade()
 {
 	this->grade--;
-	if (checkGrade())
-		this->grade++;
+	checkGrade();
 }
 
 void Bureaucrat::decrementGrade()
 {
 	this->grade++;
-	if (checkGrade())
-		this->grade--;
+	checkGrade();
 }
 
 void Bureaucrat::signForm(Form &form)

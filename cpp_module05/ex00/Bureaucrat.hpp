@@ -33,7 +33,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		int checkGrade();
+		void checkGrade();
 };
 
 #endif

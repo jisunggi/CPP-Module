@@ -30,6 +30,12 @@ class AForm
 		virtual int execute(Bureaucrat const &executor) const = 0;
 		int checkExecute(Bureaucrat const &executor, int formExecGrade) const;
 
+		class AlreadySigned : public std::exception
+		{
+			public:
+				virtual const char * what() const throw();
+		};
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
